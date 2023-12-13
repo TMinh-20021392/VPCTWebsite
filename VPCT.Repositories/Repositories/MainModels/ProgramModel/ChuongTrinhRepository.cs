@@ -94,7 +94,7 @@ namespace VPCT.Repositories.Repositories.MainModels.ProgramModel
             .Select(p => new ChuongTrinh_OtherProductsDTO
             {
                 MaChuongTrinh = p.MaChuongTrinh,
-                OtherProductsCount = p.NhiemVu!.Sum(t => t.OtherProducts!.Count)
+                OtherProductsCount = p.NhiemVu!.SelectMany(x=>x.OtherProducts!).Count()
             });
         }
 
