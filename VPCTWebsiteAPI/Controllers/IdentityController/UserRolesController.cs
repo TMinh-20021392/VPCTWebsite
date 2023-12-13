@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using VPCT.Core.Models.Identity;
 
 namespace VPCTWebsiteAPI.Controllers.IdentityController
@@ -9,18 +10,27 @@ namespace VPCTWebsiteAPI.Controllers.IdentityController
     public class UserRolesController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager) : ControllerBase
     {
         [HttpGet("GetUsersWithRoles")]
-        public IActionResult GetUsersWithRoles()
+        public async Task<IActionResult> GetUsersWithRolesAsync()
         {
-            var usersWithRoles = userManager.Users.Select(user => new
+            var users = await userManager.Users.ToListAsync(); // Assuming userManager is of type UserManager<TUser>
+
+            var usersWithRoles = new List<object>();
+
+            foreach (var user in users)
             {
-                user.Id,
-                user.UserName,
-                user.FullName,
-                user.PhoneNumber,
-                user.Address,
-                user.Email,
-                Roles = userManager.GetRolesAsync(user).Result
-            }).ToList();
+                var roles = await userManager.GetRolesAsync(user);
+                var userWithRoles = new
+                {
+                    user.Id,
+                    user.UserName,
+                    user.FullName,
+                    user.PhoneNumber,
+                    user.Address,
+                    user.Email,
+                    Roles = roles
+                };
+                usersWithRoles.Add(userWithRoles);
+            }
 
             return Ok(usersWithRoles);
         }
