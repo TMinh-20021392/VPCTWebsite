@@ -32,7 +32,6 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ExpertModel
         }
 
         // PUT: api/ChucDanhs/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public IActionResult PutChucDanh(int id, ChucDanh chucDanh)
         {
@@ -61,10 +60,13 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ExpertModel
         }
 
         // POST: api/ChucDanhs
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public ActionResult<ChucDanh> PostChucDanh(ChucDanh chucDanh)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.ChucDanhRepository.Create(chucDanh);
             context.SaveChanges();
 

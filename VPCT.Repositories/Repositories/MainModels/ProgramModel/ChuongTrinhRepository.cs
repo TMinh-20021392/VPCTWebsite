@@ -10,112 +10,133 @@ namespace VPCT.Repositories.Repositories.MainModels.ProgramModel
 {
     public class ChuongTrinhRepository(VPCTDbContext context) : BaseRepository<ChuongTrinh>(context), IChuongTrinhRepository
     {
-        public IQueryable<ChuongTrinh_SanPhamDTO> GetProduct_ICountByCategory(int categoryId)
+        public IEnumerable<ChuongTrinhProductCounts> GetProduct_ICountByCategory(int categoryId)
         {
-            return dataContext.ChuongTrinh.Include(x => x.NhiemVu)!
-                    .ThenInclude(p => p.Product_Is)!.ThenInclude(x => x.LoaiSanPham)
-            .Where(p => p.LoaiChuongTrinhId == categoryId)
-            .Select(p => new ChuongTrinh_SanPhamDTO
-            {
-                MaChuongTrinh = p.MaChuongTrinh,
-                SanPham_CountDTOs = p.NhiemVu!
-                    .SelectMany(t => t.Product_Is!)
-                    .GroupBy(prod => prod.LoaiSanPham!.Name)
-                    .Select(group => new SanPham_CountDTO
-                    {
-                        LoaiSanPhamName = group.Key,
-                        Count = group.Count()
-                    })
-                    .ToList()
-            });
+            var distinctLoaiSanPhamNames = dataContext.LoaiSanPham.Where(x => x.DangSanPhamId == 1).Select(l => l.Name).ToList();
+
+            var chuongTrinhProductCounts = dataContext.ChuongTrinh.Where(x => x.LoaiChuongTrinhId == categoryId)
+                .Include(x => x.NhiemVu)!
+                .ThenInclude(x => x.Product_Is).ThenInclude(x=>x.LoaiSanPham)
+                .AsEnumerable()
+                .Select(chuongTrinh => new ChuongTrinhProductCounts
+                {
+                    MaChuongTrinh = chuongTrinh.MaChuongTrinh,
+                    LoaiSanPhamCounts = distinctLoaiSanPhamNames
+                        .Select(name => new CountOfProduct
+                        {
+                            LoaiSp = name,
+                            Count = chuongTrinh.NhiemVu
+                                .SelectMany(nhiemVu => nhiemVu.Product_Is)
+                                .Count(product => product.LoaiSanPham.Name == name)
+                        })
+                        .ToList()
+                });
+
+            return chuongTrinhProductCounts;
         }
-        public IQueryable<ChuongTrinh_SanPhamDTO> GetProduct_IICountByCategory(int categoryId)
+        public IEnumerable<ChuongTrinhProductCounts> GetProduct_IICountByCategory(int categoryId)
         {
-            return dataContext.ChuongTrinh.Include(x => x.NhiemVu)!
-                    .ThenInclude(p => p.Product_IIs!).ThenInclude(x => x.LoaiSanPham)
-            .Where(p => p.LoaiChuongTrinhId == categoryId)
-            .Select(p => new ChuongTrinh_SanPhamDTO
-            {
-                MaChuongTrinh = p.MaChuongTrinh,
-                SanPham_CountDTOs = p.NhiemVu!
-                    .SelectMany(t => t.Product_IIs!)
-                    .GroupBy(prod => prod.LoaiSanPham.Name)
-                    .Select(group => new SanPham_CountDTO
-                    {
-                        LoaiSanPhamName = group.Key,
-                        Count = group.Count()
-                    })
-                    .ToList()
-            });
+            var distinctLoaiSanPhamNames = dataContext.LoaiSanPham.Where(x => x.DangSanPhamId == 2).Select(l => l.Name).ToList();
+
+            var chuongTrinhProductCounts = dataContext.ChuongTrinh.Where(x => x.LoaiChuongTrinhId == categoryId)
+                                .Include(x => x.NhiemVu)!
+                .ThenInclude(x => x.Product_IIs).ThenInclude(x => x.LoaiSanPham)
+                .AsEnumerable()
+                .Select(chuongTrinh => new ChuongTrinhProductCounts
+                {
+                    MaChuongTrinh = chuongTrinh.MaChuongTrinh,
+                    LoaiSanPhamCounts = distinctLoaiSanPhamNames
+                        .Select(name => new CountOfProduct
+                        {
+                            LoaiSp = name,
+                            Count = chuongTrinh.NhiemVu
+                                .SelectMany(nhiemVu => nhiemVu.Product_IIs)
+                                .Count(product => product.LoaiSanPham.Name == name)
+                        })
+                        .ToList()
+                });
+
+            return chuongTrinhProductCounts;
         }
-        public IQueryable<ChuongTrinh_SanPhamDTO> GetProduct_IIICountByCategory(int categoryId)
+        public IEnumerable<ChuongTrinhProductCounts> GetProduct_IIICountByCategory(int categoryId)
         {
-            return dataContext.ChuongTrinh.Include(x => x.NhiemVu)!
-                    .ThenInclude(p => p.Product_IIIs!).ThenInclude(x => x.LoaiSanPham)
-            .Where(p => p.LoaiChuongTrinhId == categoryId)
-            .Select(p => new ChuongTrinh_SanPhamDTO
-            {
-                MaChuongTrinh = p.MaChuongTrinh,
-                SanPham_CountDTOs = p.NhiemVu!
-                    .SelectMany(t => t.Product_IIIs!)
-                    .GroupBy(prod => prod.LoaiSanPham.Name)
-                    .Select(group => new SanPham_CountDTO
-                    {
-                        LoaiSanPhamName = group.Key,
-                        Count = group.Count()
-                    })
-                    .ToList()
-            });
+            var distinctLoaiSanPhamNames = dataContext.LoaiSanPham.Where(x => x.DangSanPhamId == 3).Select(l => l.Name).ToList();
+
+            var chuongTrinhProductCounts = dataContext.ChuongTrinh.Where(x => x.LoaiChuongTrinhId == categoryId).Include(x => x.NhiemVu)!
+                .ThenInclude(x => x.Product_IIIs).ThenInclude(x => x.LoaiSanPham)
+                .AsEnumerable()
+                .Select(chuongTrinh => new ChuongTrinhProductCounts
+                {
+                    MaChuongTrinh = chuongTrinh.MaChuongTrinh,
+                    LoaiSanPhamCounts = distinctLoaiSanPhamNames
+                        .Select(name => new CountOfProduct
+                        {
+                            LoaiSp = name,
+                            Count = chuongTrinh.NhiemVu
+                                .SelectMany(nhiemVu => nhiemVu.Product_IIIs)
+                                .Count(product => product.LoaiSanPham.Name == name)
+                        })
+                        .ToList()
+                });
+
+            return chuongTrinhProductCounts;
         }
-        public IQueryable<ChuongTrinh_SanPhamDTO> GetProduct_PostgraduateTrainingsCountByCategory(int categoryId)
+        public IEnumerable<ChuongTrinhProductCounts> GetProduct_PostgraduateTrainingsCountByCategory(int categoryId)
         {
-            return dataContext.ChuongTrinh.Include(x => x.NhiemVu)!
-                    .ThenInclude(p => p.Product_PostgraduateTrainings)
-            .Where(p => p.LoaiChuongTrinhId == categoryId)
-            .Select(p => new ChuongTrinh_SanPhamDTO
-            {
-                MaChuongTrinh = p.MaChuongTrinh,
-                SanPham_CountDTOs = p.NhiemVu!
-                    .SelectMany(t => t.Product_PostgraduateTrainings!)
-                    .GroupBy(prod => prod.TrainingLevel)
-                    .Select(group => new SanPham_CountDTO
-                    {
-                        LoaiSanPhamName = group.Key.ToString(),
-                        Count = group.Count()
-                    })
-                    .ToList()
-            });
+            var distinctLoaiSanPhamNames = Enum.GetNames(typeof(CapDaoTao)).ToList();
+
+            var chuongTrinhProductCounts = dataContext.ChuongTrinh.Where(x => x.LoaiChuongTrinhId == categoryId).Include(x => x.NhiemVu)!
+                .ThenInclude(x => x.Product_PostgraduateTrainings)
+                .AsEnumerable()
+                .Select(chuongTrinh => new ChuongTrinhProductCounts
+                {
+                    MaChuongTrinh = chuongTrinh.MaChuongTrinh,
+                    LoaiSanPhamCounts = distinctLoaiSanPhamNames
+                        .Select(name => new CountOfProduct
+                        {
+                            LoaiSp = name,
+                            Count = chuongTrinh.NhiemVu
+                                .SelectMany(nhiemVu => nhiemVu.Product_PostgraduateTrainings)
+                                .Count(product => product.TrainingLevel.ToString() == name)
+                        })
+                        .ToList()
+                });
+
+            return chuongTrinhProductCounts;
         }
-        public IQueryable<ChuongTrinh_OtherProductsDTO> GetOtherProductsCountByCategory(int categoryId)
+        public IEnumerable<Other_CountDTO> GetOtherProductsCountByCategory(int categoryId)
         {
-            return dataContext.ChuongTrinh.Include(x => x.NhiemVu)!
-                    .ThenInclude(p => p.OtherProducts)
-            .Where(p => p.LoaiChuongTrinhId == categoryId)
-            .Select(p => new ChuongTrinh_OtherProductsDTO
+            return dataContext.ChuongTrinh.Where(p => p.LoaiChuongTrinhId == categoryId).Include(x => x.NhiemVu)!
+                    .ThenInclude(p => p.OtherProducts).AsEnumerable()
+            .Select(p => new Other_CountDTO
             {
                 MaChuongTrinh = p.MaChuongTrinh,
-                OtherProductsCount = p.NhiemVu!.SelectMany(x=>x.OtherProducts!).Count()
+                Count = p.NhiemVu!.SelectMany(x => x.OtherProducts!).Count()
             });
         }
 
-        public IQueryable<ChuongTrinh_SanPhamDTO> GetOwnershipCountByCategory(int categoryId)
+        public IEnumerable<ChuongTrinhProductCounts> GetOwnershipCountByCategory(int categoryId)
         {
-            return dataContext.ChuongTrinh.Include(x => x.NhiemVu)!
-                    .ThenInclude(p => p.Ownerships)!.ThenInclude(x => x.LoaiSanPham)
-            .Where(p => p.LoaiChuongTrinhId == categoryId)
-            .Select(p => new ChuongTrinh_SanPhamDTO
-            {
-                MaChuongTrinh = p.MaChuongTrinh,
-                SanPham_CountDTOs = p.NhiemVu!
-                    .SelectMany(t => t.Ownerships!)
-                    .GroupBy(prod => prod.LoaiSanPham!.Name)
-                    .Select(group => new SanPham_CountDTO
-                    {
-                        LoaiSanPhamName = group.Key,
-                        Count = group.Count()
-                    })
-                    .ToList()
-            });
+            var distinctLoaiSanPhamNames = dataContext.LoaiSanPham.Where(x => x.DangSanPhamId == 5).Select(x => x.Name).ToList();
+
+            var chuongTrinhProductCounts = dataContext.ChuongTrinh.Where(x => x.LoaiChuongTrinhId == categoryId).Include(x => x.NhiemVu)!
+                    .ThenInclude(p => p.Ownerships).ThenInclude(x => x.LoaiSanPham)
+                    .AsEnumerable()
+                .Select(chuongTrinh => new ChuongTrinhProductCounts
+                {
+                    MaChuongTrinh = chuongTrinh.MaChuongTrinh,
+                    LoaiSanPhamCounts = distinctLoaiSanPhamNames
+                        .Select(name => new CountOfProduct
+                        {
+                            LoaiSp = name,
+                            Count = chuongTrinh.NhiemVu
+                                .SelectMany(nhiemVu => nhiemVu.Ownerships)
+                                .Count(product => product.LoaiSanPham.Name == name)
+                        })
+                        .ToList()
+                });
+
+            return chuongTrinhProductCounts;
         }
 
         public IQueryable<ChuongTrinh_TinhHinhThucHienDTO> GetChuongTrinh_TinhHinhThucHienDTOs(int categoryId)

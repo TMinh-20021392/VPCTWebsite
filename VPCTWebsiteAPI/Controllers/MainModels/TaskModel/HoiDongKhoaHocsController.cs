@@ -191,6 +191,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.TaskModel
         [HttpPost]
         public ActionResult<HoiDongKhoaHoc> PostHoiDongKhoaHoc(HoiDongKhoaHoc hoiDongKhoaHoc)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.HoiDongKhoaHocRepository.Create(hoiDongKhoaHoc);
             context.SaveChanges();
 

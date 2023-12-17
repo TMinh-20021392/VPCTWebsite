@@ -64,6 +64,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ExpertModel
         [HttpPost]
         public ActionResult<GiaiThuong> PostGiaiThuong(GiaiThuong giaiThuong)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.GiaiThuongRepository.Create(giaiThuong);
             context.SaveChanges();
 

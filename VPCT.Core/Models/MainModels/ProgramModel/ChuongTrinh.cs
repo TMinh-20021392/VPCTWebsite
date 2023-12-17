@@ -1,4 +1,5 @@
-﻿using VPCT.Core.Models.MainModels.DepartmentModel;
+﻿using System.ComponentModel.DataAnnotations;
+using VPCT.Core.Models.MainModels.DepartmentModel;
 using VPCT.Core.Models.MainModels.ExpertModel;
 using VPCT.Core.Models.MainModels.TaskModel;
 
@@ -7,8 +8,11 @@ namespace VPCT.Core.Models.MainModels.ProgramModel
     public class ChuongTrinh
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; } = null!;
+        [Required]
         public string MaChuongTrinh { get; set; } = null!;
+        [Required]
         public int LoaiChuongTrinhId { get; set; }
         public virtual LoaiChuongTrinh? LoaiChuongTrinh { get; set; }
         public int? StartYear { get; set; }

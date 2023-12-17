@@ -1,4 +1,5 @@
-﻿using VPCT.Core.Models.MainModels.ExpertModel;
+﻿using System.ComponentModel.DataAnnotations;
+using VPCT.Core.Models.MainModels.ExpertModel;
 
 namespace VPCT.Core.Models.MainModels.TaskModel
 {
@@ -11,6 +12,7 @@ namespace VPCT.Core.Models.MainModels.TaskModel
         public int? HocViId { get; set; }
         public virtual HocVi? HocVi { get; set; } //Học vị
         public string? Address { get; set; }
+        [Required]
         public int NhiemVuId { get; set; }
         public virtual NhiemVu? NhiemVu { get; set; }
     }

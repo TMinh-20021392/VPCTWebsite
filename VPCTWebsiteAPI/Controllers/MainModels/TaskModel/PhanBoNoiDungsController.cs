@@ -64,6 +64,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.TaskModel
         [HttpPost]
         public ActionResult<PhanBoNoiDung> PostPhanBoNoiDung(PhanBoNoiDung phanBoNoiDung)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.PhanBoNoiDungRepository.Create(phanBoNoiDung);
             context.SaveChanges();
 

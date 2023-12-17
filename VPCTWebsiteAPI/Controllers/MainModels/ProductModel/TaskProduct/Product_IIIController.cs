@@ -75,6 +75,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProductModel.TaskProduct
         [HttpPost]
         public ActionResult<Product_III> PostProduct_III(Product_III product_III)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.Product_III_Repository.Create(product_III);
             context.SaveChanges();
 

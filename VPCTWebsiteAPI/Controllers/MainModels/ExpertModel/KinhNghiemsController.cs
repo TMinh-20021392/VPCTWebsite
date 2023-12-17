@@ -64,6 +64,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ExpertModel
         [HttpPost]
         public ActionResult<KinhNghiem> PostKinhNghiem(KinhNghiem kinhNghiem)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.KinhNghiemRepository.Create(kinhNghiem);
             context.SaveChanges();
 

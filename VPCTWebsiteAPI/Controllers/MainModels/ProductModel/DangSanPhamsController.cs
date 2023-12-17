@@ -64,6 +64,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProductModel
         [HttpPost]
         public ActionResult<DangSanPham> PostDangSanPham(DangSanPham dangSanPham)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.DangSanPhamRepository.Create(dangSanPham);
             context.SaveChanges();
 

@@ -61,10 +61,13 @@ namespace VPCTWebsiteAPI.Controllers.DocAndFileTypes
         }
 
         // POST: api/FileTypes
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public ActionResult<FileType> PostFileType(FileType fileType)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.FileTypeRepository.Create(fileType);
             context.SaveChanges();
 

@@ -64,6 +64,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.TaskModel
         [HttpPost]
         public ActionResult<CongVanNhiemVu> PostCongVanNhiemVu(CongVanNhiemVu congVanNhiemVu)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.CongVanNhiemVuRepository.Create(congVanNhiemVu);
             context.SaveChanges();
 

@@ -7,7 +7,9 @@ namespace VPCT.Core.Models.MainModels.DepartmentModel
     public class CoQuanQuanLy
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; } = null!;
+        [Required]
         public LoaiQuanLy Type { get; set; }
         public string? Address { get; set; }
         public string? PhoneNumber { get; set; }

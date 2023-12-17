@@ -46,7 +46,6 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.DepartmentModel
         }
 
         // PUT: api/CoQuanQuanLies/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public IActionResult PutCoQuanQuanLy(int id, CoQuanQuanLy coQuanQuanLy)
         {
@@ -76,7 +75,6 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.DepartmentModel
         }
 
         // POST: api/CoQuanQuanLies
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public ActionResult<CoQuanQuanLy> PostCoQuanQuanLy(CoQuanQuanLy coQuanQuanLy)
         {

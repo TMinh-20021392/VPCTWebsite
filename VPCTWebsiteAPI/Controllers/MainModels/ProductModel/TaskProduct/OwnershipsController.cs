@@ -75,6 +75,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProductModel.TaskProduct
         [HttpPost]
         public ActionResult<Ownership> PostOwnership(Ownership ownership)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.OwnershipRepository.Create(ownership);
             context.SaveChanges();
 

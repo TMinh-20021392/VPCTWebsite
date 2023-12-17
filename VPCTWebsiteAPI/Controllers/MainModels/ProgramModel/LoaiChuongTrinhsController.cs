@@ -64,6 +64,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProgramModel
         [HttpPost]
         public ActionResult<LoaiChuongTrinh> PostLoaiChuongTrinh(LoaiChuongTrinh loaiChuongTrinh)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.LoaiChuongTrinhRepository.Create(loaiChuongTrinh);
             context.SaveChanges();
 

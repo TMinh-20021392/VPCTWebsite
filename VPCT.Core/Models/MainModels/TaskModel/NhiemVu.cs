@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using VPCT.Core.Models.MainModels.DepartmentModel;
 using VPCT.Core.Models.MainModels.ExpertModel;
 using VPCT.Core.Models.MainModels.FieldModel;
@@ -11,9 +12,13 @@ namespace VPCT.Core.Models.MainModels.TaskModel
     public class NhiemVu
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; } = null!;
+        [Required]
         public string MaNhiemVu { get; set; } = null!;
+        [Required]
         public LoaiNhiemVu Category { get; set; }
+        [Required]
         public int PresidentId { get; set; }
         public virtual ChuyenGia? President
         {
@@ -41,6 +46,7 @@ namespace VPCT.Core.Models.MainModels.TaskModel
         public virtual ICollection<PhanBoNoiDung>? PhanBoNoiDung { get; set; }
 
         /* Thông tin chung */
+        [Required]
         public TrangThaiNhiemVu Status { get; set; }
         public int? CoQuanChuTriId { get; set; }
         public virtual CoQuanChuTri? CoQuanChuTri { get; set; }

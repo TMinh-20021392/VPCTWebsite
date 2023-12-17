@@ -64,6 +64,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels
         [HttpPost]
         public ActionResult<GiaiDoan> PostGiaiDoan(GiaiDoan giaiDoan)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.GiaiDoanRepository.Create(giaiDoan);
             context.SaveChanges();
 

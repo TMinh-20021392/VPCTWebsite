@@ -1,4 +1,5 @@
-﻿using VPCT.Core.Models.MainModels.TaskModel.Enums;
+﻿using System.ComponentModel.DataAnnotations;
+using VPCT.Core.Models.MainModels.TaskModel.Enums;
 
 namespace VPCT.Core.Models.MainModels.TaskModel
 {
@@ -8,6 +9,7 @@ namespace VPCT.Core.Models.MainModels.TaskModel
         public string Name { get; set; } = null!;
         public LoaiHoiDong Category { get; set; }
         public ICollection<HoiDongKhoaHoc_ChuyenGia>? HoiDongKhoaHoc_ChuyenGia { get; set; }
+        [Required]
         public int NhiemVuId { get; set; }
         public virtual NhiemVu? NhiemVu
         {

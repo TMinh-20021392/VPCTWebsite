@@ -1,4 +1,6 @@
-﻿namespace VPCT.Core.Models.MainModels.TaskModel
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace VPCT.Core.Models.MainModels.TaskModel
 {
     public class LanKiemTra
     {
@@ -10,6 +12,7 @@
         public string? NoiDung { get; set; } //Nội dung kiểm tra
         public double? FinalCost { get; set; } //Kinh phí quyết toán
         public string? KetLuan { get; set; } //Kết luận kiểm tra
+        [Required]
         public int NhiemVuId { get; set; }
         public virtual NhiemVu? NhiemVu
         {

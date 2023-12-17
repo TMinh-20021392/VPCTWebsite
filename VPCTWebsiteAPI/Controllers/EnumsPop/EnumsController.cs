@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Extensions;
+using System.ComponentModel.DataAnnotations;
 using VPCT.Core.Models.MainModels.TaskModel.Enums;
 using static VPCT.Core.Models.MainModels.DepartmentModel.CoQuanQuanLy;
 using static VPCT.Core.Models.MainModels.ExpertModel.KinhNghiem;
@@ -10,66 +11,91 @@ namespace VPCTWebsiteAPI.Controllers.EnumsPop
     [ApiController]
     public class EnumsController : ControllerBase
     {
+        private string GetEnumDisplayName(Enum value)
+        {
+            var fieldInfo = value.GetType().GetField(value.ToString());
+            var displayAttribute = fieldInfo.GetCustomAttributes(typeof(DisplayAttribute), false).FirstOrDefault() as DisplayAttribute;
+            return displayAttribute?.Name ?? value.ToString();
+        }
+
         [HttpGet("LoaiQuanLyOptions")]
         public IActionResult GetLoaiQuanLyOptions()
         {
-            var options = Enum.GetNames(typeof(LoaiQuanLy)).Select(e => new { Value = e, Label = ((LoaiQuanLy)Enum.Parse(typeof(LoaiQuanLy), e)).GetDisplayName() });
+            var options = Enum.GetValues(typeof(LoaiQuanLy))
+                            .Cast<LoaiQuanLy>()
+                            .Select(e => new { Value = e, Label = GetEnumDisplayName(e) });
             return Ok(options);
         }
 
         [HttpGet("LoaiKinhNghiemOptions")]
         public IActionResult GetLoaiKinhNghiemOptions()
         {
-            var options = Enum.GetNames(typeof(LoaiKinhNghiem)).Select(e => new { Value = e, Label = ((LoaiKinhNghiem)Enum.Parse(typeof(LoaiKinhNghiem), e)).GetDisplayName() });
+            var options = Enum.GetValues(typeof(LoaiKinhNghiem))
+                            .Cast<LoaiKinhNghiem>()
+                            .Select(e => new { Value = e, Label = GetEnumDisplayName(e) });
             return Ok(options);
         }
 
         [HttpGet("CapDaoTaoOptions")]
         public IActionResult GetCapDaoTaoOptions()
         {
-            var options = Enum.GetNames(typeof(CapDaoTao)).Select(e => new { Value = e, Label = ((CapDaoTao)Enum.Parse(typeof(CapDaoTao), e)).GetDisplayName() });
+            var options = Enum.GetValues(typeof(CapDaoTao))
+                            .Cast<CapDaoTao>()
+                            .Select(e => new { Value = e, Label = GetEnumDisplayName(e) });
             return Ok(options);
         }
 
         [HttpGet("ChucDanhHoiDongOptions")]
         public IActionResult GetChucDanhHoiDongOptions()
         {
-            var options = Enum.GetNames(typeof(ChucDanhHoiDong)).Select(e => new { Value = e, Label = ((ChucDanhHoiDong)Enum.Parse(typeof(ChucDanhHoiDong), e)).GetDisplayName() });
+            var options = Enum.GetValues(typeof(ChucDanhHoiDong))
+                            .Cast<ChucDanhHoiDong>()
+                            .Select(e => new { Value = e, Label = GetEnumDisplayName(e) });
             return Ok(options);
         }
 
         [HttpGet("KetQuaOptions")]
         public IActionResult GetKetQuaOptions()
         {
-            var options = Enum.GetNames(typeof(KetQua)).Select(e => new { Value = e, Label = ((KetQua)Enum.Parse(typeof(KetQua), e)).GetDisplayName() });
+            var options = Enum.GetValues(typeof(KetQua))
+                            .Cast<KetQua>()
+                            .Select(e => new { Value = e, Label = GetEnumDisplayName(e) });
             return Ok(options);
         }
 
         [HttpGet("LoaiHoiDongOptions")]
         public IActionResult GetLoaiHoiDongOptions()
         {
-            var options = Enum.GetNames(typeof(LoaiHoiDong)).Select(e => new { Value = e, Label = ((LoaiHoiDong)Enum.Parse(typeof(LoaiHoiDong), e)).GetDisplayName() });
+            var options = Enum.GetValues(typeof(LoaiHoiDong))
+                            .Cast<LoaiHoiDong>()
+                            .Select(e => new { Value = e, Label = GetEnumDisplayName(e) });
             return Ok(options);
         }
 
         [HttpGet("LoaiHoSoOptions")]
         public IActionResult GetLoaiHoSoOptions()
         {
-            var options = Enum.GetNames(typeof(LoaiHoSo)).Select(e => new { Value = e, Label = ((LoaiHoSo)Enum.Parse(typeof(LoaiHoSo), e)).GetDisplayName() });
+            var options = Enum.GetValues(typeof(LoaiHoSo))
+                            .Cast<LoaiHoSo>()
+                            .Select(e => new { Value = e, Label = GetEnumDisplayName(e) });
             return Ok(options);
         }
 
         [HttpGet("LoaiNhiemVuOptions")]
         public IActionResult GetLoaiNhiemVuOptions()
         {
-            var options = Enum.GetNames(typeof(LoaiNhiemVu)).Select(e => new { Value = e, Label = ((LoaiNhiemVu)Enum.Parse(typeof(LoaiNhiemVu), e)).GetDisplayName() });
+            var options = Enum.GetValues(typeof(LoaiNhiemVu))
+                .Cast<LoaiNhiemVu>()
+                .Select(e => new { Value = e, Label = GetEnumDisplayName(e) });
             return Ok(options);
         }
 
         [HttpGet("TrangThaiNhiemVuOptions")]
         public IActionResult GetTrangThaiNhiemVuOptions()
         {
-            var options = Enum.GetNames(typeof(TrangThaiNhiemVu)).Select(e => new { Value = e, Label = ((TrangThaiNhiemVu)Enum.Parse(typeof(TrangThaiNhiemVu), e)).GetDisplayName() });
+            var options = Enum.GetValues(typeof(TrangThaiNhiemVu))
+                .Cast<TrangThaiNhiemVu>()
+                .Select(e => new { Value = e, Label = GetEnumDisplayName(e) });
             return Ok(options);
         }
     }

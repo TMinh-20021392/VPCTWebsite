@@ -82,6 +82,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.DepartmentModel
         [HttpPost]
         public ActionResult<DonViChuQuan> PostDonViChuQuan(DonViChuQuan donViChuQuan)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.DonViChuQuanRepository.Create(donViChuQuan);
             context.SaveChanges();
 

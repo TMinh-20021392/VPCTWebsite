@@ -64,6 +64,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.TaskModel
         [HttpPost]
         public ActionResult<CaNhanThamGia> PostCaNhanThamGia(CaNhanThamGia caNhanThamGia)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.CaNhanThamGiaRepository.Create(caNhanThamGia);
             context.SaveChanges();
 

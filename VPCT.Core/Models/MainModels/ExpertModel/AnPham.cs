@@ -1,9 +1,13 @@
-﻿namespace VPCT.Core.Models.MainModels.ExpertModel
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace VPCT.Core.Models.MainModels.ExpertModel
 {
     public class AnPham
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; } = null!;
+        [Required]
         public string TapChi { get; set; } = null!;
         public int? Year { get; set; }
         public int ChuyenGiaId { get; set; }

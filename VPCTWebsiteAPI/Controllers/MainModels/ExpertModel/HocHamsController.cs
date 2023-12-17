@@ -32,7 +32,6 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ExpertModel
         }
 
         // PUT: api/HocHams/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public IActionResult PutHocHam(int id, HocHam hocHam)
         {
@@ -65,6 +64,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ExpertModel
         [HttpPost]
         public ActionResult<HocHam> PostHocHam(HocHam hocHam)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.HocHamRepository.Create(hocHam);
             context.SaveChanges();
 

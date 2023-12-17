@@ -64,6 +64,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ExpertModel
         [HttpPost]
         public ActionResult<VanBang> PostVanBang(VanBang vanBang)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.VanBangRepository.Create(vanBang);
             context.SaveChanges();
 

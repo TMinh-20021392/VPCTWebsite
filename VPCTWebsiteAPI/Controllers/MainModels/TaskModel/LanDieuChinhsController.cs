@@ -64,6 +64,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.TaskModel
         [HttpPost]
         public ActionResult<LanDieuChinh> PostLanDieuChinh(LanDieuChinh lanDieuChinh)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.LanDieuChinhRepository.Create(lanDieuChinh);
             context.SaveChanges();
 

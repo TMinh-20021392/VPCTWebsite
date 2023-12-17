@@ -238,6 +238,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.TaskModel
         [HttpPost]
         public ActionResult<NhiemVu> PostNhiemVu(NhiemVu nhiemVu)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.NhiemVuRepository.Create(nhiemVu);
             context.SaveChanges();
 

@@ -64,6 +64,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ExpertModel
         [HttpPost]
         public ActionResult<AnPham> PostAnPham(AnPham anPham)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.AnPhamRepository.Create(anPham);
             context.SaveChanges();
 

@@ -15,14 +15,29 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ExpertModel
         [HttpGet]
         public ActionResult<IEnumerable<ChuyenGia>> GetChuyenGia()
         {
-            return context.ChuyenGiaRepository.GetAll().ToList();
+            return context.ChuyenGiaRepository.GetAll()
+                .Include(x => x.ChucDanh)
+                .Include(x => x.HocVi)
+                .Include(x => x.HocHam)
+                .Include(x => x.ChucVu).Include(x => x.ChuyenNganh)
+                .Include(x => x.CoQuanChuTri)
+                .Include(x => x.DonViChuQuan)
+                .Include(x => x.LinhVuc)
+                .ToList();
         }
 
         // GET: api/ChuyenGias/5
         [HttpGet("{id}")]
         public ActionResult<ChuyenGia> GetChuyenGia(int id)
         {
-            var chuyenGia = context.ChuyenGiaRepository.Find(id);
+            var chuyenGia = context.ChuyenGiaRepository.GetAll()
+                .Include(x => x.ChucDanh)
+                .Include(x => x.HocVi)
+                .Include(x => x.HocHam)
+                .Include(x => x.ChucVu).Include(x => x.ChuyenNganh)
+                .Include(x => x.CoQuanChuTri)
+                .Include(x => x.DonViChuQuan)
+                .Include(x => x.LinhVuc).FirstOrDefault(x => x.Id == id);
 
             if (chuyenGia == null)
             {
@@ -35,7 +50,14 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ExpertModel
         [HttpGet("SearchChuyenGia")]
         public ActionResult<IEnumerable<ChuyenGia>> SearchChuyenGia(int? categoryId = null, int? programId = null, int? period = null)
         {
-            var chuyenGiaList = context.ChuyenGiaRepository.SearchChuyenGia(categoryId, programId, period).ToList();
+            var chuyenGiaList = context.ChuyenGiaRepository.SearchChuyenGia(categoryId, programId, period)
+                .Include(x => x.ChucDanh)
+                .Include(x => x.HocVi)
+                .Include(x => x.HocHam)
+                .Include(x => x.ChucVu).Include(x => x.ChuyenNganh)
+                .Include(x => x.CoQuanChuTri)
+                .Include(x => x.DonViChuQuan)
+                .Include(x => x.LinhVuc).ToList();
 
             if (chuyenGiaList.Count == 0)
             {
@@ -168,6 +190,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ExpertModel
             if (chuyenGia.ImageFile != null && chuyenGia.ImageFile.Length > 0)
             {
                 chuyenGia.ImageName = await imageService.SaveImage(chuyenGia.ImageFile);
+            }
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
             }
             context.ChuyenGiaRepository.Create(chuyenGia);
             context.SaveChanges();

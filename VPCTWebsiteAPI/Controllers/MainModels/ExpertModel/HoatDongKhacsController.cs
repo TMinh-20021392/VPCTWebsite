@@ -64,6 +64,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ExpertModel
         [HttpPost]
         public ActionResult<HoatDongKhac> PostHoatDongKhac(HoatDongKhac hoatDongKhac)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.HoatDongKhacRepository.Create(hoatDongKhac);
             context.SaveChanges();
 

@@ -14,14 +14,14 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.FieldModel
         [HttpGet]
         public ActionResult<IEnumerable<ChuyenNganh>> GetChuyenNganh()
         {
-            return context.ChuyenNganhRepository.GetAll().ToList();
+            return context.ChuyenNganhRepository.GetAll().Include(x => x.LinhVuc).ToList();
         }
 
         // GET: api/ChuyenNganhs/5
         [HttpGet("{id}")]
         public ActionResult<ChuyenNganh> GetChuyenNganh(int id)
         {
-            var chuyenNganh = context.ChuyenNganhRepository.Find(id);
+            var chuyenNganh = context.ChuyenNganhRepository.GetAll().Include(x => x.LinhVuc).FirstOrDefault(x => x.Id == id);
 
             if (chuyenNganh == null)
             {
@@ -34,7 +34,7 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.FieldModel
         [HttpGet("GetChuyenNganhByLinhVuc/{linhVucId}")]
         public ActionResult<IEnumerable<ChuyenNganh>> GetChuyenNganhByLinhVuc(int linhVucId)
         {
-            var l = context.ChuyenNganhRepository.SearchChuyenNganhByLinhVucId(linhVucId).ToList();
+            var l = context.ChuyenNganhRepository.SearchChuyenNganhByLinhVucId(linhVucId).Include(x => x.LinhVuc).ToList();
 
             if (l.Count == 0)
             {
@@ -77,6 +77,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.FieldModel
         [HttpPost]
         public ActionResult<ChuyenNganh> PostChuyenNganh(ChuyenNganh chuyenNganh)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.ChuyenNganhRepository.Create(chuyenNganh);
             context.SaveChanges();
 

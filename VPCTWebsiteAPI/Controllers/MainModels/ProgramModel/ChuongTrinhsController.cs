@@ -17,14 +17,20 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProgramModel
         [HttpGet]
         public ActionResult<IEnumerable<ChuongTrinh>> GetChuongTrinh()
         {
-            return context.ChuongTrinhRepository.GetAll().ToList();
+            return context.ChuongTrinhRepository.GetAll()
+                .Include(x => x.LoaiChuongTrinh)
+                .Include(x => x.CoQuanChuTri)
+                .Include(x => x.GiaiDoan).ToList();
         }
 
         // GET: api/ChuongTrinhs/5
         [HttpGet("{id}")]
         public ActionResult<ChuongTrinh> GetChuongTrinh(int id)
         {
-            var chuongTrinh = context.ChuongTrinhRepository.Find(id);
+            var chuongTrinh = context.ChuongTrinhRepository.GetAll()
+                .Include(x => x.LoaiChuongTrinh)
+                .Include(x => x.CoQuanChuTri)
+                .Include(x => x.GiaiDoan).FirstOrDefault(x => x.Id == id);
 
             if (chuongTrinh == null)
             {
@@ -50,7 +56,9 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProgramModel
         [HttpGet("GetChuongTrinhByLoaiChuongTrinh/{ctId}")]
         public ActionResult<IEnumerable<ChuongTrinh>> GetChuongTrinhByLoaiChuongTrinh(int? ctId, int? period)
         {
-            var l = context.ChuongTrinhRepository.GetChuongTrinhsByCategory(ctId, period).ToList();
+            var l = context.ChuongTrinhRepository.GetChuongTrinhsByCategory(ctId, period).Include(x => x.LoaiChuongTrinh)
+                .Include(x => x.CoQuanChuTri)
+                .Include(x => x.GiaiDoan).ToList();
 
             if (l.Count == 0)
             {
@@ -61,7 +69,7 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProgramModel
         }
 
         [HttpGet("GetProduct_ICountByCategory/{ctId}")]
-        public ActionResult<IEnumerable<ChuongTrinh_SanPhamDTO>> GetProduct_ICountByCategory(int ctId)
+        public ActionResult<IEnumerable<ChuongTrinhProductCounts>> GetProduct_ICountByCategory(int ctId)
         {
             var l = context.ChuongTrinhRepository.GetProduct_ICountByCategory(ctId).ToList();
 
@@ -74,7 +82,7 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProgramModel
         }
 
         [HttpGet("GetProduct_IICountByCategory/{ctId}")]
-        public ActionResult<IEnumerable<ChuongTrinh_SanPhamDTO>> GetProduct_IICountByCategory(int ctId)
+        public ActionResult<IEnumerable<ChuongTrinhProductCounts>> GetProduct_IICountByCategory(int ctId)
         {
             var l = context.ChuongTrinhRepository.GetProduct_IICountByCategory(ctId).ToList();
 
@@ -87,7 +95,7 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProgramModel
         }
 
         [HttpGet("GetProduct_IIICountByCategory/{ctId}")]
-        public ActionResult<IEnumerable<ChuongTrinh_SanPhamDTO>> GetProduct_IIICountByCategory(int ctId)
+        public ActionResult<IEnumerable<ChuongTrinhProductCounts>> GetProduct_IIICountByCategory(int ctId)
         {
             var l = context.ChuongTrinhRepository.GetProduct_IIICountByCategory(ctId).ToList();
 
@@ -100,7 +108,7 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProgramModel
         }
 
         [HttpGet("GetProduct_PostgraduateTrainingsCountByCategory/{ctId}")]
-        public ActionResult<IEnumerable<ChuongTrinh_SanPhamDTO>> GetProduct_PostgraduateTrainingsCountByCategory(int ctId)
+        public ActionResult<IEnumerable<ChuongTrinhProductCounts>> GetProduct_PostgraduateTrainingsCountByCategory(int ctId)
         {
             var l = context.ChuongTrinhRepository.GetProduct_PostgraduateTrainingsCountByCategory(ctId).ToList();
 
@@ -113,7 +121,7 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProgramModel
         }
 
         [HttpGet("GetOwnershipCountByCategory/{ctId}")]
-        public ActionResult<IEnumerable<ChuongTrinh_SanPhamDTO>> GetOwnershipCountByCategory(int ctId)
+        public ActionResult<IEnumerable<ChuongTrinhProductCounts>> GetOwnershipCountByCategory(int ctId)
         {
             var l = context.ChuongTrinhRepository.GetOwnershipCountByCategory(ctId).ToList();
 
@@ -126,7 +134,7 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProgramModel
         }
 
         [HttpGet("GetOtherProductsCountByCategory/{ctId}")]
-        public ActionResult<IEnumerable<ChuongTrinh_OtherProductsDTO>> GetOtherProductsCountByCategory(int ctId)
+        public ActionResult<IEnumerable<Other_CountDTO>> GetOtherProductsCountByCategory(int ctId)
         {
             var l = context.ChuongTrinhRepository.GetOtherProductsCountByCategory(ctId).ToList();
 
@@ -210,6 +218,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProgramModel
         [HttpPost]
         public ActionResult<ChuongTrinh> PostChuongTrinh(ChuongTrinh chuongTrinh)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.ChuongTrinhRepository.Create(chuongTrinh);
             context.SaveChanges();
 

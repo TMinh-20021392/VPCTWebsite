@@ -32,7 +32,6 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ExpertModel
         }
 
         // PUT: api/CongTrinhs/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public IActionResult PutCongTrinh(int id, CongTrinh congTrinh)
         {
@@ -65,6 +64,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ExpertModel
         [HttpPost]
         public ActionResult<CongTrinh> PostCongTrinh(CongTrinh congTrinh)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.CongTrinhRepository.Create(congTrinh);
             context.SaveChanges();
 

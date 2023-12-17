@@ -1,4 +1,5 @@
-﻿using VPCT.Core.Models.MainModels.ExpertModel;
+﻿using System.ComponentModel.DataAnnotations;
+using VPCT.Core.Models.MainModels.ExpertModel;
 using VPCT.Core.Models.MainModels.ProgramModel;
 using VPCT.Core.Models.MainModels.TaskModel;
 using NhiemVu = VPCT.Core.Models.MainModels.TaskModel.NhiemVu;
@@ -8,11 +9,13 @@ namespace VPCT.Core.Models.MainModels.DepartmentModel
     public class CoQuanChuTri
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; } = null!;
         public bool? IsEnterprise { get; set; } //Doanh nghiệp/Cơ quan nghiên cứu
         public string? Address { get; set; }
         public string? PhoneNumber { get; set; }
         public string? Fax { get; set; }
+        [Required]
         public int DonViChuQuanId { get; set; }
         public virtual DonViChuQuan? DonViChuQuan { get; set; }
         public virtual ICollection<CoQuanChuTri_NhiemVu>? CoQuanChuTri_NhiemVu { get; set; }

@@ -7,12 +7,12 @@ namespace VPCT.Repositories.IRepositories
     public interface IChuongTrinhRepository : IBaseRepository<ChuongTrinh>
     {
         IQueryable<ChuongTrinh> GetChuongTrinhsByCategory(int? categoryId, int? periodId);
-        IQueryable<ChuongTrinh_SanPhamDTO> GetProduct_ICountByCategory(int categoryId);
-        IQueryable<ChuongTrinh_SanPhamDTO> GetProduct_IICountByCategory(int categoryId);
-        IQueryable<ChuongTrinh_SanPhamDTO> GetProduct_IIICountByCategory(int categoryId);
-        IQueryable<ChuongTrinh_SanPhamDTO> GetProduct_PostgraduateTrainingsCountByCategory(int categoryId);
-        IQueryable<ChuongTrinh_OtherProductsDTO> GetOtherProductsCountByCategory(int categoryId);
-        IQueryable<ChuongTrinh_SanPhamDTO> GetOwnershipCountByCategory(int categoryId);
+        IEnumerable<ChuongTrinhProductCounts> GetProduct_ICountByCategory(int categoryId);
+        IEnumerable<ChuongTrinhProductCounts> GetProduct_IICountByCategory(int categoryId);
+        IEnumerable<ChuongTrinhProductCounts> GetProduct_IIICountByCategory(int categoryId);
+        IEnumerable<ChuongTrinhProductCounts> GetProduct_PostgraduateTrainingsCountByCategory(int categoryId);
+        IEnumerable<Other_CountDTO> GetOtherProductsCountByCategory(int categoryId);
+        IEnumerable<ChuongTrinhProductCounts> GetOwnershipCountByCategory(int categoryId);
 
         IQueryable<ChuongTrinh_TinhHinhThucHienDTO> GetChuongTrinh_TinhHinhThucHienDTOs(int categoryId);
         IQueryable<NhiemVu_DungThucHienDTO> GetNhiemVu_DungThucHienDTOs(int categoryId);

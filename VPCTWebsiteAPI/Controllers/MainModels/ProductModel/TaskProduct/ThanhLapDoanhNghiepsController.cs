@@ -75,6 +75,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProductModel.TaskProduct
         [HttpPost]
         public ActionResult<ThanhLapDoanhNghiep> PostThanhLapDoanhNghiep(ThanhLapDoanhNghiep thanhLapDoanhNghiep)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.ThanhLapDoanhNghiepRepository.Create(thanhLapDoanhNghiep);
             context.SaveChanges();
 

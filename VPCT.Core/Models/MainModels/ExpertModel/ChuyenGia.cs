@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using VPCT.Core.Models.MainModels.DepartmentModel;
 using VPCT.Core.Models.MainModels.FieldModel;
@@ -10,6 +11,7 @@ namespace VPCT.Core.Models.MainModels.ExpertModel
     public class ChuyenGia
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; } = null!;
         public int? ChuongTrinhId { get; set; }
         public virtual ChuongTrinh? ChuongTrinh { get; set; }

@@ -75,6 +75,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProductModel.TaskProduct
         [HttpPost]
         public ActionResult<Product_PostgraduateTraining> PostProduct_PostgraduateTraining(Product_PostgraduateTraining product_PostgraduateTraining)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.Product_PostgraduateTraining_Repository.Create(product_PostgraduateTraining);
             context.SaveChanges();
 

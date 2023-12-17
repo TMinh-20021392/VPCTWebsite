@@ -1,4 +1,5 @@
-﻿using VPCT.Core.Models.MainModels.TaskModel;
+﻿using System.ComponentModel.DataAnnotations;
+using VPCT.Core.Models.MainModels.TaskModel;
 
 namespace VPCT.Core.Models.MainModels.ProductModel.TaskProduct
 {
@@ -33,7 +34,7 @@ namespace VPCT.Core.Models.MainModels.ProductModel.TaskProduct
         public bool ServiceProvisionContract { get; set; } = false;
         public string? ContractNumber { get; set; } //Số hợp đồng
         public double ContractAmount { get; set; } = 0; //Số tiền (VNĐ)
-
+        [Required]
         public int NhiemVuId { get; set; }
         public virtual NhiemVu? NhiemVu { get; set; }
     }

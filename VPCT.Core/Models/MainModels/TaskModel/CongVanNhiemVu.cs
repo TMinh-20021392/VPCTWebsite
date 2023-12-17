@@ -1,4 +1,5 @@
-﻿using VPCT.Core.Models.DocAndFileTypes;
+﻿using System.ComponentModel.DataAnnotations;
+using VPCT.Core.Models.DocAndFileTypes;
 
 namespace VPCT.Core.Models.MainModels.TaskModel
 {
@@ -11,6 +12,7 @@ namespace VPCT.Core.Models.MainModels.TaskModel
         public int? DocTypeId { get; set; }
         public virtual DocType? Type { get; set; }
         public string? NoiDung { get; set; }
+        [Required]
         public int NhiemVuId { get; set; }
         public virtual NhiemVu? NhiemVu { get; set; }
     }

@@ -61,10 +61,13 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ExpertModel
         }
 
         // POST: api/ChucVus
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public ActionResult<ChucVu> PostChucVu(ChucVu chucVu)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.ChucVuRepository.Create(chucVu);
             context.SaveChanges();
 

@@ -14,14 +14,14 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProductModel
         [HttpGet]
         public ActionResult<IEnumerable<LoaiSanPham>> GetLoaiSanPham()
         {
-            return context.LoaiSanPhamRepository.GetAll().ToList();
+            return context.LoaiSanPhamRepository.GetAll().Include(x => x.DangSanPham).ToList();
         }
 
         // GET: api/LoaiSanPhams/5
         [HttpGet("{id}")]
         public ActionResult<LoaiSanPham> GetLoaiSanPham(int id)
         {
-            var loaiSanPham = context.LoaiSanPhamRepository.Find(id);
+            var loaiSanPham = context.LoaiSanPhamRepository.GetAll().Include(x => x.DangSanPham).FirstOrDefault(x => x.Id == id);
 
             if (loaiSanPham == null)
             {
@@ -34,7 +34,7 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProductModel
         [HttpGet("GetLoaiSanPhamByDangSanPham/{dangId}")]
         public ActionResult<IEnumerable<LoaiSanPham>> GetLoaiSanPhamByDangSanPham(int dangId)
         {
-            var l = context.LoaiSanPhamRepository.SearchLoaiSanPhamByDangSanPhamId(dangId).ToList();
+            var l = context.LoaiSanPhamRepository.SearchLoaiSanPhamByDangSanPhamId(dangId).Include(x => x.DangSanPham).ToList();
 
             if (l.Count == 0)
             {
@@ -77,6 +77,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProductModel
         [HttpPost]
         public ActionResult<LoaiSanPham> PostLoaiSanPham(LoaiSanPham loaiSanPham)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.LoaiSanPhamRepository.Create(loaiSanPham);
             context.SaveChanges();
 

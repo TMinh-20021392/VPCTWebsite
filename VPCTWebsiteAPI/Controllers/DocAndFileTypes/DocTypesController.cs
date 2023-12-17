@@ -64,6 +64,10 @@ namespace VPCTWebsiteAPI.Controllers.DocAndFileTypes
         [HttpPost]
         public ActionResult<DocType> PostDocType(DocType docType)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.DocTypeRepository.Create(docType);
             context.SaveChanges();
 

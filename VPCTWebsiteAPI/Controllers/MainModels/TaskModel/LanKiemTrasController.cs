@@ -64,6 +64,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.TaskModel
         [HttpPost]
         public ActionResult<LanKiemTra> PostLanKiemTra(LanKiemTra lanKiemTra)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.LanKiemTraRepository.Create(lanKiemTra);
             context.SaveChanges();
 

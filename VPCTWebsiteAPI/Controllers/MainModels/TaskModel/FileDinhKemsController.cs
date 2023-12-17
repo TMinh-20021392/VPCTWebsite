@@ -68,6 +68,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.TaskModel
         public async Task<ActionResult<FileDinhKem>> PostFileDinhKemAsync(FileDinhKem fileDinhKem)
         {
             fileDinhKem.FileName = await fileService.SaveFile(fileDinhKem.File);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.FileDinhKemRepository.Create(fileDinhKem);
             context.SaveChanges();
 

@@ -64,6 +64,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.FieldModel
         [HttpPost]
         public ActionResult<LinhVuc> PostLinhVuc(LinhVuc linhVuc)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.LinhVucRepository.Create(linhVuc);
             context.SaveChanges();
 

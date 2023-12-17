@@ -1,9 +1,11 @@
-﻿using VPCT.Core.Models.MainModels.TaskModel;
+﻿using System.ComponentModel.DataAnnotations;
+using VPCT.Core.Models.MainModels.TaskModel;
 
 namespace VPCT.Core.Models.MainModels.ProductModel.TaskProduct
 {
     public class Product_II : SanPham
     {
+        [Required]
         public int LoaiSanPhamId { get; set; }
         public LoaiSanPham LoaiSanPham { get; set; } = null!; //Loại sản phẩm
         public string? YeuCau { get; set; } //Yêu cầu khoa học cần đạt

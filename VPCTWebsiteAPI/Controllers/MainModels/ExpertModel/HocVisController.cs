@@ -64,6 +64,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ExpertModel
         [HttpPost]
         public ActionResult<HocVi> PostHocVi(HocVi hocVi)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.HocViRepository.Create(hocVi);
             context.SaveChanges();
 

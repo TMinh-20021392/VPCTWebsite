@@ -14,7 +14,7 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.DepartmentModel
         [HttpGet]
         public ActionResult<IEnumerable<CoQuanChuTri>> GetCoQuanChuTri()
         {
-            return context.CoQuanChuTriRepository.GetAll().ToList();
+            return context.CoQuanChuTriRepository.GetAll().Include(x => x.DonViChuQuan).ToList();
         }
 
         // GET: api/CoQuanChuTris/5
@@ -64,6 +64,10 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.DepartmentModel
         [HttpPost]
         public ActionResult<CoQuanChuTri> PostCoQuanChuTri(CoQuanChuTri coQuanChuTri)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             context.CoQuanChuTriRepository.Create(coQuanChuTri);
             context.SaveChanges();
 
