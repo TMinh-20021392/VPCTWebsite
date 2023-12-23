@@ -12,7 +12,7 @@ using VPCT.Core.DbContext;
 namespace VPCT.Core.Migrations
 {
     [DbContext(typeof(VPCTDbContext))]
-    [Migration("20231223202405_F")]
+    [Migration("20231223221609_F")]
     partial class F
     {
         /// <inheritdoc />
@@ -54,19 +54,19 @@ namespace VPCT.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ce837422-6bbd-43bc-8d1a-3f370fd2ec92",
+                            Id = "991a2fcb-3b5d-43f8-a376-8e4305ac1014",
                             Name = "LanhDao",
                             NormalizedName = "LANHDAO"
                         },
                         new
                         {
-                            Id = "785a36b9-eb58-483f-98f0-17966569c04d",
+                            Id = "fc9f80e4-2103-470a-ac3e-52df2c566192",
                             Name = "ChuyenVien",
                             NormalizedName = "CHUYENVIEN"
                         },
                         new
                         {
-                            Id = "52f818bf-fcf1-4e33-bf5c-856c1c62b82b",
+                            Id = "4b2400fd-68fb-4e56-b075-6d756d3f315b",
                             Name = "KeToan",
                             NormalizedName = "KETOAN"
                         });
@@ -161,13 +161,13 @@ namespace VPCT.Core.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "1f8e0d55-d235-4774-aa2c-73eeadea0e85",
-                            RoleId = "ce837422-6bbd-43bc-8d1a-3f370fd2ec92"
+                            UserId = "09fdad35-a51b-4c4a-97e0-064b1b861643",
+                            RoleId = "991a2fcb-3b5d-43f8-a376-8e4305ac1014"
                         },
                         new
                         {
-                            UserId = "0788d7dd-b47d-4816-a185-b00f08aa1fdc",
-                            RoleId = "785a36b9-eb58-483f-98f0-17966569c04d"
+                            UserId = "bdae3809-566c-42c9-832e-9d9e24405418",
+                            RoleId = "fc9f80e4-2103-470a-ac3e-52df2c566192"
                         });
                 });
 
@@ -387,37 +387,37 @@ namespace VPCT.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1f8e0d55-d235-4774-aa2c-73eeadea0e85",
+                            Id = "09fdad35-a51b-4c4a-97e0-064b1b861643",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c0997275-935d-41f8-9388-0c40bc753d8b",
+                            ConcurrencyStamp = "67254d64-ce59-4139-abae-717470abce0f",
                             Email = "aa@aa.aa",
                             EmailConfirmed = true,
                             FullName = "Luu Minh",
                             LockoutEnabled = false,
                             NormalizedEmail = "AA@AA.AA",
                             NormalizedUserName = "ADMIN12",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHvuJHY6519r5KvN7bO1kPIBh2NKSizCmyJzWgKAXtY+wxdQldsVTGsG27OTCw4p4Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDF1WtwNtSqnnqYNLVkvpYyaX9o0y2OhUslEnJF0gKoSUD1UjQshruY9FOhVrFa8gQ==",
                             PhoneNumber = "01223456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9b360bf9-d581-4131-a08e-cf4c045f56db",
+                            SecurityStamp = "c248ce2b-7bc4-4f69-bc6a-98c4d577e7fa",
                             TwoFactorEnabled = false,
                             UserName = "admin12"
                         },
                         new
                         {
-                            Id = "0788d7dd-b47d-4816-a185-b00f08aa1fdc",
+                            Id = "bdae3809-566c-42c9-832e-9d9e24405418",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c2bb367f-1b89-4d44-bae5-67d71604327e",
+                            ConcurrencyStamp = "188f23dd-0e88-4044-a76a-8705d8cf4d82",
                             Email = "mm@mm.mm",
                             EmailConfirmed = true,
                             FullName = "Hoang Khanh",
                             LockoutEnabled = false,
                             NormalizedEmail = "MM@MM.MM",
                             NormalizedUserName = "ADMIN13",
-                            PasswordHash = "AQAAAAIAAYagAAAAELNEE36j3rWrOrS6vYDaZZLSUkM8ANNe3zD7ZDIrHpQ5C6Iq7ALT16PeKyWrSxEgfw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAED7m0cXqr+EJai2TNbyikx3tJFOUkInVzsue8qLo6ryFv24EWzoERthP18Lyg/QCfw==",
                             PhoneNumber = "01223456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "38dc3ca5-29ca-4d2a-b132-c07f7c833445",
+                            SecurityStamp = "26d1a47f-f099-4da7-bf7f-7c805b695513",
                             TwoFactorEnabled = false,
                             UserName = "admin13"
                         });
@@ -779,7 +779,6 @@ namespace VPCT.Core.Migrations
                         {
                             Id = 1,
                             Address = "Trường Đại học Công nghiệp Hà Nội",
-                            ChuongTrinhId = 1,
                             ChuyenNganhId = 1,
                             CoQuanChuTriId = 1,
                             DateOfBirth = new DateTime(1973, 9, 27, 0, 0, 0, 0, DateTimeKind.Utc),
@@ -800,7 +799,6 @@ namespace VPCT.Core.Migrations
                             Bank = "Nhà nước",
                             ChucDanhId = 2,
                             ChucVuId = 2,
-                            ChuongTrinhId = 1,
                             CoQuanChuTriId = 2,
                             DateOfBirth = new DateTime(1980, 5, 4, 0, 0, 0, 0, DateTimeKind.Utc),
                             DonViChuQuanId = 2,
@@ -818,7 +816,6 @@ namespace VPCT.Core.Migrations
                         new
                         {
                             Id = 3,
-                            ChuongTrinhId = 2,
                             ChuyenNganhId = 3,
                             CoQuanChuTriId = 3,
                             DonViChuQuanId = 2,
@@ -1902,24 +1899,17 @@ namespace VPCT.Core.Migrations
                         new
                         {
                             Id = 1,
-                            CoQuanChuTriId = 1,
-                            IsPublished = false,
-                            KinhPhi = 0.0,
-                            LoaiChuongTrinhId = 1,
-                            MaChuongTrinh = "16",
-                            Name = "Khoa học Thông tin"
-                        },
-                        new
-                        {
-                            Id = 2,
                             Admin_Secretary = "Lê Thị Hải Yến",
-                            CoQuanChuTriId = 2,
+                            CoQuanChuTriId = 1,
                             Criteria = "1.	  Chỉ tiêu về trình độ khoa học: 90% đề tài/dự án có kết quả được công bố trên các tạp chí khoa học công nghệ có uy tín quốc gia; ít nhất 10% đề tài có kết quả được công bố trên các tạp chí khoa học công nghệ quốc tế. \r\n2.	  Chỉ tiêu về trình độ công nghệ: các thiết bị là sản phẩm mới có tính năng kỹ thuật, kiểu dáng, chất lượng và giá cả có khả năng cạnh tranh với các sản phẩm cùng loại của các nước trong khu vực.\r\n3.	  Chỉ tiêu sở hữu trí tuệ: Có ít nhất 10% số nhiệm vụ có giải pháp được công nhận sáng chế hoặc giải pháp hữu ích, 15% số nhiệm vụ đã được chấp nhận đơn yêu cầu bảo hộ sở hữu công nghiệp.\r\n4.	  Chỉ tiêu về đào tạo: 70% số đề tài đào tạo được hoặc đang đào tạo ít nhất 1 tiến sĩ và 1 thạc sĩ (hoặc nhiều cử nhân /kỹ sư); 50 % số dự án đào tạo được ít nhất 1 thạc sĩ (hoặc nhiều cử nhân/kỹ sư). \r\n5.	Chỉ tiêu về cơ cấu nhiệm vụ khi kết thúc chương trình:\r\n-	40% nhiệm vụ nghiên cứu có kết quả là các công nghệ ứng dụng trong các ngành KT-KT ở giai đoạn tiếp theo.\r\n-	30% nhiệm vụ nghiên cứu có kết quả được ứng dụng phục vụ trực tiếp cho sản xuất, kinh doanh (kết thúc giai đoạn sản xuất thử nghiệm).\r\n-	30% nhiệm vụ nghiên cứu có kết quả được ứng dụng rộng rãi trong sản xuất - đời sống hoặc được thương mại hoá.",
                             GiaiDoanId = 1,
                             IsPublished = false,
                             KinhPhi = 0.0,
                             LoaiChuongTrinhId = 2,
                             MaChuongTrinh = "KC.07/06-10",
+                            Member1 = "Nguyễn Quốc Cường",
+                            Member2 = "Nguyễn Hải Long",
+                            Member3 = "Nguyễn Quang Đại",
                             Member_Secretary = "Nguyễn Đức Long",
                             Name = "Nghiên cứu ứng dụng và phát triển công nghệ phục vụ công nghiệp hóa, hiện đại hóa nông nghiệp và nông thôn.",
                             NoiDung = "1.	Ứng dụng và chuyển giao được các công nghệ tiên tiến và thiết bị phù hợp vào sản xuất nông, lâm, ngư nghiệp; bảo quản và chế biến nông-lâm-thủy sản và ngành nghề nông thôn nhằm xây dựng một nền nông nghiệp hàng hóa có khả năng cạnh tranh cao.\r\n2.	Góp phần nâng cao năng suất lao động, nâng cao năng suất và chất lượng sản phẩm, đảm bảo hiệu quả, phát triển bền vững trong sản xuất nông-lâm-ngư nghiệp; thúc đẩy chuyển dịch cơ cấu kinh tế nông nghiệp nông thôn theo hướng tăng dần tỷ trọng công nghiệp, dịch vụ, tạo việc làm và tăng thu nhập cho người dân nông thôn.",
@@ -1930,13 +1920,47 @@ namespace VPCT.Core.Migrations
                         },
                         new
                         {
-                            Id = 3,
-                            CoQuanChuTriId = 1,
+                            Id = 2,
+                            Admin_Secretary = "Lê Thị Mai Anh",
+                            CoQuanChuTriId = 2,
+                            Criteria = "1.	  Chỉ tiêu về trình độ khoa học: 90% đề tài/dự án có kết quả được công bố trên các tạp chí khoa học công nghệ có uy tín quốc gia; ít nhất 10% đề tài có kết quả được công bố trên các tạp chí khoa học công nghệ quốc tế. \r\n2.	  Chỉ tiêu về trình độ công nghệ: các thiết bị là sản phẩm mới có tính năng kỹ thuật, kiểu dáng, chất lượng và giá cả có khả năng cạnh tranh với các sản phẩm cùng loại của các nước trong khu vực.\r\n3.	  Chỉ tiêu sở hữu trí tuệ: Có ít nhất 10% số nhiệm vụ có giải pháp được công nhận sáng chế hoặc giải pháp hữu ích, 15% số nhiệm vụ đã được chấp nhận đơn yêu cầu bảo hộ sở hữu công nghiệp.\r\n4.	  Chỉ tiêu về đào tạo: 70% số đề tài đào tạo được hoặc đang đào tạo ít nhất 1 tiến sĩ và 1 thạc sĩ (hoặc nhiều cử nhân /kỹ sư); 50 % số dự án đào tạo được ít nhất 1 thạc sĩ (hoặc nhiều cử nhân/kỹ sư). \r\n5.	Chỉ tiêu về cơ cấu nhiệm vụ khi kết thúc chương trình:\r\n-	40% nhiệm vụ nghiên cứu có kết quả là các công nghệ ứng dụng trong các ngành KT-KT ở giai đoạn tiếp theo.\r\n-	30% nhiệm vụ nghiên cứu có kết quả được ứng dụng phục vụ trực tiếp cho sản xuất, kinh doanh (kết thúc giai đoạn sản xuất thử nghiệm).\r\n-	30% nhiệm vụ nghiên cứu có kết quả được ứng dụng rộng rãi trong sản xuất - đời sống hoặc được thương mại hoá.",
+                            GiaiDoanId = 1,
                             IsPublished = false,
                             KinhPhi = 0.0,
                             LoaiChuongTrinhId = 1,
-                            MaChuongTrinh = "07",
-                            Name = "Văn hóa-Xã hội"
+                            MaChuongTrinh = "KC.07/11-15",
+                            Member1 = "Nguyễn Quốc Đạt",
+                            Member2 = "Tạ Bá Hưng",
+                            Member3 = "Nguyễn Quang Vinh",
+                            Member_Secretary = "Mai Hà",
+                            Name = "Hỗ trợ nghiên cứu, phát triển và ứng dụng công nghệ của công nghiệp 4.0.",
+                            NoiDung = "1.	Ứng dụng và chuyển giao được các công nghệ tiên tiến và thiết bị phù hợp vào sản xuất nông, lâm, ngư nghiệp; bảo quản và chế biến nông-lâm-thủy sản và ngành nghề nông thôn nhằm xây dựng một nền nông nghiệp hàng hóa có khả năng cạnh tranh cao.\r\n2.	Góp phần nâng cao năng suất lao động, nâng cao năng suất và chất lượng sản phẩm, đảm bảo hiệu quả, phát triển bền vững trong sản xuất nông-lâm-ngư nghiệp; thúc đẩy chuyển dịch cơ cấu kinh tế nông nghiệp nông thôn theo hướng tăng dần tỷ trọng công nghiệp, dịch vụ, tạo việc làm và tăng thu nhập cho người dân nông thôn.",
+                            Objective = "1.	Ứng dụng và chuyển giao được các công nghệ tiên tiến và thiết bị phù hợp vào sản xuất nông, lâm, ngư nghiệp; bảo quản và chế biến nông-lâm-thủy sản và ngành nghề nông thôn nhằm xây dựng một nền nông nghiệp hàng hóa có khả năng cạnh tranh cao.\r\n2.	Góp phần nâng cao năng suất lao động, nâng cao năng suất và chất lượng sản phẩm, đảm bảo hiệu quả, phát triển bền vững trong sản xuất nông-lâm-ngư nghiệp; thúc đẩy chuyển dịch cơ cấu kinh tế nông nghiệp nông thôn theo hướng tăng dần tỷ trọng công nghiệp, dịch vụ, tạo việc làm và tăng thu nhập cho người dân nông thôn.",
+                            President = "Lê Bá Duy",
+                            Product = "1.	Công nghệ tiên tiến và thiết bị phù hợp được ứng dụng có hiệu quả trong sản xuất nông-lâm-ngư nghiệp phuc vụ việc hiện đại hoá sản xuất nông-lâm-ngư nghiệp;\r\n2.	Công nghệ tiên tiến và thiết bị phù hợp được ứng dụng có hiệu quả trong  bảo quản và chế biến nông-lâm-thủy sản phục vụ các trang trại và vùng sản xuất tập trung;\r\n3.	Công nghệ và thiết bị phù hợp được ứng dụng có hiệu quả trong ngành nghề nông thôn, sản xuất các hàng thủ công mỹ nghệ phục vụ tiêu dùng trong nước và xuất khẩu;\r\n4.	Công nghệ, thiết bị và giải pháp phù hợp được ứng dụng có hiệu quả trong xử lý ô nhiễm môi trường nông nghiệp và nông thôn;\r\n5.	Các mô hình ứng dụng các công nghệ và thiết bị được áp dụng trong thực tế.",
+                            VicePresident = "Trần Việt Thanh"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Admin_Secretary = "Đoàn Xuân Hòa",
+                            CoQuanChuTriId = 1,
+                            Criteria = "1.	  Chỉ tiêu về trình độ khoa học: 90% đề tài/dự án có kết quả được công bố trên các tạp chí khoa học công nghệ có uy tín quốc gia; ít nhất 10% đề tài có kết quả được công bố trên các tạp chí khoa học công nghệ quốc tế. \r\n2.	  Chỉ tiêu về trình độ công nghệ: các thiết bị là sản phẩm mới có tính năng kỹ thuật, kiểu dáng, chất lượng và giá cả có khả năng cạnh tranh với các sản phẩm cùng loại của các nước trong khu vực.\r\n3.	  Chỉ tiêu sở hữu trí tuệ: Có ít nhất 10% số nhiệm vụ có giải pháp được công nhận sáng chế hoặc giải pháp hữu ích, 15% số nhiệm vụ đã được chấp nhận đơn yêu cầu bảo hộ sở hữu công nghiệp.\r\n4.	  Chỉ tiêu về đào tạo: 70% số đề tài đào tạo được hoặc đang đào tạo ít nhất 1 tiến sĩ và 1 thạc sĩ (hoặc nhiều cử nhân /kỹ sư); 50 % số dự án đào tạo được ít nhất 1 thạc sĩ (hoặc nhiều cử nhân/kỹ sư). \r\n5.	Chỉ tiêu về cơ cấu nhiệm vụ khi kết thúc chương trình:\r\n-	40% nhiệm vụ nghiên cứu có kết quả là các công nghệ ứng dụng trong các ngành KT-KT ở giai đoạn tiếp theo.\r\n-	30% nhiệm vụ nghiên cứu có kết quả được ứng dụng phục vụ trực tiếp cho sản xuất, kinh doanh (kết thúc giai đoạn sản xuất thử nghiệm).\r\n-	30% nhiệm vụ nghiên cứu có kết quả được ứng dụng rộng rãi trong sản xuất - đời sống hoặc được thương mại hoá.",
+                            GiaiDoanId = 1,
+                            IsPublished = false,
+                            KinhPhi = 0.0,
+                            LoaiChuongTrinhId = 2,
+                            MaChuongTrinh = "KC.07/16-20",
+                            Member1 = "Đỗ Văn Khương",
+                            Member2 = "Tô Văn Trường",
+                            Member3 = "Lê Quang Đại",
+                            Member_Secretary = "Bùi Xuân Thông",
+                            Name = "Nghiên cứu khoa học và công nghệ phục vụ quản lý biển, hải đảo và phát triển kinh tế biển.",
+                            NoiDung = "1.	Ứng dụng và chuyển giao được các công nghệ tiên tiến và thiết bị phù hợp vào sản xuất nông, lâm, ngư nghiệp; bảo quản và chế biến nông-lâm-thủy sản và ngành nghề nông thôn nhằm xây dựng một nền nông nghiệp hàng hóa có khả năng cạnh tranh cao.\r\n2.	Góp phần nâng cao năng suất lao động, nâng cao năng suất và chất lượng sản phẩm, đảm bảo hiệu quả, phát triển bền vững trong sản xuất nông-lâm-ngư nghiệp; thúc đẩy chuyển dịch cơ cấu kinh tế nông nghiệp nông thôn theo hướng tăng dần tỷ trọng công nghiệp, dịch vụ, tạo việc làm và tăng thu nhập cho người dân nông thôn.",
+                            Objective = "1.	Ứng dụng và chuyển giao được các công nghệ tiên tiến và thiết bị phù hợp vào sản xuất nông, lâm, ngư nghiệp; bảo quản và chế biến nông-lâm-thủy sản và ngành nghề nông thôn nhằm xây dựng một nền nông nghiệp hàng hóa có khả năng cạnh tranh cao.\r\n2.	Góp phần nâng cao năng suất lao động, nâng cao năng suất và chất lượng sản phẩm, đảm bảo hiệu quả, phát triển bền vững trong sản xuất nông-lâm-ngư nghiệp; thúc đẩy chuyển dịch cơ cấu kinh tế nông nghiệp nông thôn theo hướng tăng dần tỷ trọng công nghiệp, dịch vụ, tạo việc làm và tăng thu nhập cho người dân nông thôn.",
+                            President = "Vũ Hoàng Long",
+                            Product = "1.	Công nghệ tiên tiến và thiết bị phù hợp được ứng dụng có hiệu quả trong sản xuất nông-lâm-ngư nghiệp phuc vụ việc hiện đại hoá sản xuất nông-lâm-ngư nghiệp;\r\n2.	Công nghệ tiên tiến và thiết bị phù hợp được ứng dụng có hiệu quả trong  bảo quản và chế biến nông-lâm-thủy sản phục vụ các trang trại và vùng sản xuất tập trung;\r\n3.	Công nghệ và thiết bị phù hợp được ứng dụng có hiệu quả trong ngành nghề nông thôn, sản xuất các hàng thủ công mỹ nghệ phục vụ tiêu dùng trong nước và xuất khẩu;\r\n4.	Công nghệ, thiết bị và giải pháp phù hợp được ứng dụng có hiệu quả trong xử lý ô nhiễm môi trường nông nghiệp và nông thôn;\r\n5.	Các mô hình ứng dụng các công nghệ và thiết bị được áp dụng trong thực tế.",
+                            VicePresident = "Trần Đức Mạnh"
                         });
                 });
 
@@ -2155,7 +2179,7 @@ namespace VPCT.Core.Migrations
                             Id = 1,
                             DocTypeId = 1,
                             NhiemVuId = 1,
-                            PublishedDate = new DateTime(2023, 12, 24, 3, 24, 4, 439, DateTimeKind.Local).AddTicks(8022),
+                            PublishedDate = new DateTime(2023, 12, 24, 5, 16, 8, 607, DateTimeKind.Local).AddTicks(893),
                             SoCongVan = "ABC",
                             TrichYeu = "ABC"
                         },
@@ -2355,7 +2379,7 @@ namespace VPCT.Core.Migrations
                         new
                         {
                             Id = 1,
-                            Date = new DateTime(2023, 12, 24, 3, 24, 4, 439, DateTimeKind.Local).AddTicks(8221),
+                            Date = new DateTime(2023, 12, 24, 5, 16, 8, 607, DateTimeKind.Local).AddTicks(1058),
                             NhiemVuId = 1
                         },
                         new
@@ -2409,7 +2433,7 @@ namespace VPCT.Core.Migrations
                         new
                         {
                             Id = 1,
-                            EstimatedTestDate = new DateTime(2023, 12, 24, 3, 24, 4, 439, DateTimeKind.Local).AddTicks(8247),
+                            EstimatedTestDate = new DateTime(2023, 12, 24, 5, 16, 8, 607, DateTimeKind.Local).AddTicks(1151),
                             KetLuan = "+ Thực hiện đúng tiến độ;\r\n+ Cần đẩy nhanh hơn tiến độ , hoàn thành việc lắp ráp, kiểm tra máy và chạy thử để nghiệm thu.",
                             NhiemVuId = 1
                         },
@@ -2779,45 +2803,6 @@ namespace VPCT.Core.Migrations
                             Id = 1,
                             Category = "Topic",
                             ChiPhiKhac_Khac = 0.0,
-                            ChiPhiKhac_NganSachNhaNuoc = 0.0,
-                            ChiPhiLaoDong_Khac = 0.0,
-                            ChiPhiLaoDong_NganSachNhaNuoc = 0.0,
-                            ChuongTrinhId = 1,
-                            ChuyenNganhId = 1,
-                            CoQuanChuTriId = 1,
-                            CoQuanQuanLyKinhPhiId = 1,
-                            CoQuanQuanLyNhiemVuId = 2,
-                            DepartmentAdmin = "Nguyễn Tiến Trung",
-                            DepartmentAdminSpecialist = "Lê Tiến Hùng",
-                            HTQT_Khac = 0.0,
-                            HTQT_NganSachNhaNuoc = 0.0,
-                            HoTroCongNghe_Khac = 0.0,
-                            HoTroCongNghe_NganSachNhaNuoc = 0.0,
-                            LinhVucId = 1,
-                            MaNhiemVu = "ĐTĐL.CN-123/21",
-                            MuaMoi_Khac = 0.0,
-                            MuaMoi_NganSachNhaNuoc = 0.0,
-                            Name = "Nghiên cứu xây dựng hệ thống xử lý nước nhiễm mặn có ứng dụng IoT để cấp nước sinh hoạt cho người dân vùng bị xâm ngập mặn tỉnh Bến Tre và một số tỉnh lân cận",
-                            NguyenVatLieu_Khac = 0.0,
-                            NguyenVatLieu_NganSachNhaNuoc = 0.0,
-                            Planning_Specialist = "Lê Khả Trường",
-                            PresidentId = 1,
-                            Status = "Working",
-                            ThietBiMayMoc_Khac = 0.0,
-                            ThietBiMayMoc_NganSachNhaNuoc = 0.0,
-                            ThueKhoanChuyenMon_Khac = 0.0,
-                            ThueKhoanChuyenMon_NganSachNhaNuoc = 0.0,
-                            Thue_Khac = 0.0,
-                            Thue_NganSachNhaNuoc = 0.0,
-                            VPCT_Leader = "Trần Đỗ Đạt",
-                            XayDungSuaChuaNho_Khac = 0.0,
-                            XayDungSuaChuaNho_NganSachNhaNuoc = 0.0
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Category = "Topic",
-                            ChiPhiKhac_Khac = 0.0,
                             ChiPhiKhac_NganSachNhaNuoc = 310.0,
                             ChiPhiLaoDong_Khac = 0.0,
                             ChiPhiLaoDong_NganSachNhaNuoc = 0.0,
@@ -2841,11 +2826,13 @@ namespace VPCT.Core.Migrations
                             HoTroCongNghe_Khac = 0.0,
                             HoTroCongNghe_NganSachNhaNuoc = 0.0,
                             LinhVucId = 1,
-                            MaNhiemVu = "ĐTĐL.CN.21/23",
+                            MaNhiemVu = "ĐTĐL.CN.23/25",
                             MuaMoi_Khac = 0.0,
                             MuaMoi_NganSachNhaNuoc = 0.0,
                             MucTieu = "I. Mục tiêu:\r\n1. Phát triển được vật liệu và công nghệ chế tạo tổ hợp nền titan, gia cường bằng 2 hệ vật liệu nano tiên tiến (hệ vật liệu nano cacbon: ống nano cacbon, graphen; hệ vật liệu nano bo nitrua dạng ống hoặc tấm), có độ bền cao, modul đàn hồi thấp, nhằm thay thế các hợp kim titan chứa V, Al, Nb, Fe định hướng ứng dụng trong ngành chấn thương và chỉnh hình;\r\n2. Chế tạo thử một số sản phẩm điển hình như vít, nẹp phục vụ thử nghiệm in vivo trên \r\nđộng vật; \r\n3. Đánh giá khả năng tương thích sinh học của vật liệu và các sản phẩm chế thử bằng thử nghiệm in vivo trên động vật.\r\n",
                             Name = "Nghiên cứu chế tạo vật liệu tổ hợp nền titan gia cường bằng các thành phần cấu trúc nano tiên tiến (ống nano cacbon, graphen, dạng tấm hay dạng ống nano bo nitrua) nhằm ứng dụng trong ngành chấn thương và chỉnh hình",
+                            NgiemThu_Month = 1,
+                            NgiemThu_Year = 2026,
                             NguyenVatLieu_Khac = 0.0,
                             NguyenVatLieu_NganSachNhaNuoc = 2090.0,
                             NoiDung = "II.Nội dung\r\nNội dung 1: Nghiên cứu chế tạo và xử lý bề mặt vật liệu gia cường cấu trúc nano (graphen, tấm/ống nano bo nitrua)\r\nNội dung 2: Nghiên cứu phân tán vật liệu cấu trúc nano (CNT, Gr, BNNT và BNNP) với bột titan\r\nNội dung 3: Nghiên cứu công nghệ kết khối hỗn hợp bột tổ hợp titan với vật liệu cấu trúc nano (CNT, Gr, BNNT và BNNP)\r\nNội dung 4: Nghiên cứu ảnh hưởng của hàm lượng, cấu trúc, hình thái học của vật liệu gia cường (CNT, Gr, BNNT và BNNP) đến sự phân tán, cấu trúc, thành phần của vật liệu tổ hợp nền Ti\r\nNội dung 5: Nghiên cứu một số tính chất cơ học, ma sát, mài mòn của vật liệu tổ hợp nền titan gia cường bằng vật liệu cấu trúc nano (CNT, Gr, BNNT và BNNP)\r\nNội dung 6: Nghiên cứu tính chất điện hóa của vật liệu tổ hợp titan gia cường bằng vật liệu cấu trúc nano (CNT, Gr, BNNT và BNNP), và thử nghiệm in vitro trong môi trường giả dịch thể người\r\nNội dung 7: Nghiên cứu công nghệ chế tạo chi tiết cấy ghép bằng vật liệu tổ hợp nền titan gia cường bằng vật liệu cấu trúc nano\r\nNội dung 8: Nghiên cứu thử nghiệm in vivo trên động vật",
@@ -2861,6 +2848,112 @@ namespace VPCT.Core.Migrations
                             Thue_Khac = 0.0,
                             Thue_NganSachNhaNuoc = 0.0,
                             VPCT_Leader = "Đào Ngọc Chiến",
+                            XayDungSuaChuaNho_Khac = 0.0,
+                            XayDungSuaChuaNho_NganSachNhaNuoc = 0.0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Category = "Topic",
+                            ChiPhiKhac_Khac = 0.0,
+                            ChiPhiKhac_NganSachNhaNuoc = 310.0,
+                            ChiPhiLaoDong_Khac = 0.0,
+                            ChiPhiLaoDong_NganSachNhaNuoc = 0.0,
+                            ChuongTrinhId = 1,
+                            ChuyenNganhId = 3,
+                            CoQuanChuTriId = 2,
+                            CoQuanQuanLyKinhPhiId = 1,
+                            CoQuanQuanLyNhiemVuId = 3,
+                            DepartmentAdmin = "Lê Khả Trường",
+                            DepartmentAdminSpecialist = "Trần Nam Bình",
+                            EndDate_Month = 2,
+                            EndDate_Year = 2022,
+                            FundingPlan_FirstYear = 2700.0,
+                            FundingPlan_FirstYearMonths = 2023,
+                            FundingPlan_SecondYear = 3100.0,
+                            FundingPlan_SecondYearMonths = 2024,
+                            FundingPlan_ThirdYear = 900.0,
+                            FundingPlan_ThirdYearMonths = 2025,
+                            HTQT_Khac = 0.0,
+                            HTQT_NganSachNhaNuoc = 0.0,
+                            HoTroCongNghe_Khac = 0.0,
+                            HoTroCongNghe_NganSachNhaNuoc = 0.0,
+                            LinhVucId = 1,
+                            MaNhiemVu = "ĐTĐL.CN.21/23",
+                            MuaMoi_Khac = 0.0,
+                            MuaMoi_NganSachNhaNuoc = 0.0,
+                            MucTieu = "I. Mục tiêu:\r\n1. Phát triển được vật liệu và công nghệ chế tạo tổ hợp nền titan, gia cường bằng 2 hệ vật liệu nano tiên tiến (hệ vật liệu nano cacbon: ống nano cacbon, graphen; hệ vật liệu nano bo nitrua dạng ống hoặc tấm), có độ bền cao, modul đàn hồi thấp, nhằm thay thế các hợp kim titan chứa V, Al, Nb, Fe định hướng ứng dụng trong ngành chấn thương và chỉnh hình;\r\n2. Chế tạo thử một số sản phẩm điển hình như vít, nẹp phục vụ thử nghiệm in vivo trên \r\nđộng vật; \r\n3. Đánh giá khả năng tương thích sinh học của vật liệu và các sản phẩm chế thử bằng thử nghiệm in vivo trên động vật.\r\n",
+                            Name = "Nghiên cứu sử dụng phương pháp tính toán mô phỏng kết hợp thực nghiệm nhằm tìm kiếm các hợp chất tiềm năng ức chế tế bào ung thư từ hợp chất khung xanthone nguồn gốc tự nhiên",
+                            NgiemThu_Month = 7,
+                            NgiemThu_Year = 2023,
+                            NguyenVatLieu_Khac = 0.0,
+                            NguyenVatLieu_NganSachNhaNuoc = 2090.0,
+                            NoiDung = "II.Nội dung\r\nNội dung 1: Nghiên cứu chế tạo và xử lý bề mặt vật liệu gia cường cấu trúc nano (graphen, tấm/ống nano bo nitrua)\r\nNội dung 2: Nghiên cứu phân tán vật liệu cấu trúc nano (CNT, Gr, BNNT và BNNP) với bột titan\r\nNội dung 3: Nghiên cứu công nghệ kết khối hỗn hợp bột tổ hợp titan với vật liệu cấu trúc nano (CNT, Gr, BNNT và BNNP)\r\nNội dung 4: Nghiên cứu ảnh hưởng của hàm lượng, cấu trúc, hình thái học của vật liệu gia cường (CNT, Gr, BNNT và BNNP) đến sự phân tán, cấu trúc, thành phần của vật liệu tổ hợp nền Ti\r\nNội dung 5: Nghiên cứu một số tính chất cơ học, ma sát, mài mòn của vật liệu tổ hợp nền titan gia cường bằng vật liệu cấu trúc nano (CNT, Gr, BNNT và BNNP)\r\nNội dung 6: Nghiên cứu tính chất điện hóa của vật liệu tổ hợp titan gia cường bằng vật liệu cấu trúc nano (CNT, Gr, BNNT và BNNP), và thử nghiệm in vitro trong môi trường giả dịch thể người\r\nNội dung 7: Nghiên cứu công nghệ chế tạo chi tiết cấy ghép bằng vật liệu tổ hợp nền titan gia cường bằng vật liệu cấu trúc nano\r\nNội dung 8: Nghiên cứu thử nghiệm in vivo trên động vật",
+                            Planning_Specialist = "Đào Ngọc Chiến",
+                            PresidentId = 2,
+                            StartDate_Month = 6,
+                            StartDate_Year = 2020,
+                            Status = "Working",
+                            ThietBiMayMoc_Khac = 0.0,
+                            ThietBiMayMoc_NganSachNhaNuoc = 800.0,
+                            ThueKhoanChuyenMon_Khac = 0.0,
+                            ThueKhoanChuyenMon_NganSachNhaNuoc = 3500.0,
+                            Thue_Khac = 0.0,
+                            Thue_NganSachNhaNuoc = 0.0,
+                            VPCT_Leader = "Nguyễn Thị Thanh Hà",
+                            XayDungSuaChuaNho_Khac = 0.0,
+                            XayDungSuaChuaNho_NganSachNhaNuoc = 0.0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Category = "Topic",
+                            ChiPhiKhac_Khac = 0.0,
+                            ChiPhiKhac_NganSachNhaNuoc = 310.0,
+                            ChiPhiLaoDong_Khac = 0.0,
+                            ChiPhiLaoDong_NganSachNhaNuoc = 0.0,
+                            ChuongTrinhId = 1,
+                            ChuyenNganhId = 3,
+                            CoQuanChuTriId = 2,
+                            CoQuanQuanLyKinhPhiId = 1,
+                            CoQuanQuanLyNhiemVuId = 3,
+                            DepartmentAdmin = "Nguyễn Thị Thanh Hà",
+                            DepartmentAdminSpecialist = "Đào Ngọc Chiến",
+                            EndDate_Month = 12,
+                            EndDate_Year = 2015,
+                            FundingPlan_FirstYear = 2700.0,
+                            FundingPlan_FirstYearMonths = 2023,
+                            FundingPlan_SecondYear = 3100.0,
+                            FundingPlan_SecondYearMonths = 2024,
+                            FundingPlan_ThirdYear = 900.0,
+                            FundingPlan_ThirdYearMonths = 2025,
+                            HTQT_Khac = 0.0,
+                            HTQT_NganSachNhaNuoc = 0.0,
+                            HoTroCongNghe_Khac = 0.0,
+                            HoTroCongNghe_NganSachNhaNuoc = 0.0,
+                            LinhVucId = 1,
+                            MaNhiemVu = "ĐTĐL.CN.18/20",
+                            MuaMoi_Khac = 0.0,
+                            MuaMoi_NganSachNhaNuoc = 0.0,
+                            MucTieu = "I. Mục tiêu:\r\n1. Phát triển được vật liệu và công nghệ chế tạo tổ hợp nền titan, gia cường bằng 2 hệ vật liệu nano tiên tiến (hệ vật liệu nano cacbon: ống nano cacbon, graphen; hệ vật liệu nano bo nitrua dạng ống hoặc tấm), có độ bền cao, modul đàn hồi thấp, nhằm thay thế các hợp kim titan chứa V, Al, Nb, Fe định hướng ứng dụng trong ngành chấn thương và chỉnh hình;\r\n2. Chế tạo thử một số sản phẩm điển hình như vít, nẹp phục vụ thử nghiệm in vivo trên \r\nđộng vật; \r\n3. Đánh giá khả năng tương thích sinh học của vật liệu và các sản phẩm chế thử bằng thử nghiệm in vivo trên động vật.\r\n",
+                            Name = "Nghiên cứu công nghệ sản xuất vải kháng khuẩn, kháng nước từ nguồn nguyên liệu trong nước ở quy mô công nghiệp, ứng dụng sản xuất một số sản phẩm phục vụ y tế và cộng đồng",
+                            NgiemThu_Month = 5,
+                            NgiemThu_Year = 2018,
+                            NguyenVatLieu_Khac = 0.0,
+                            NguyenVatLieu_NganSachNhaNuoc = 2090.0,
+                            NoiDung = "II.Nội dung\r\nNội dung 1: Nghiên cứu chế tạo và xử lý bề mặt vật liệu gia cường cấu trúc nano (graphen, tấm/ống nano bo nitrua)\r\nNội dung 2: Nghiên cứu phân tán vật liệu cấu trúc nano (CNT, Gr, BNNT và BNNP) với bột titan\r\nNội dung 3: Nghiên cứu công nghệ kết khối hỗn hợp bột tổ hợp titan với vật liệu cấu trúc nano (CNT, Gr, BNNT và BNNP)\r\nNội dung 4: Nghiên cứu ảnh hưởng của hàm lượng, cấu trúc, hình thái học của vật liệu gia cường (CNT, Gr, BNNT và BNNP) đến sự phân tán, cấu trúc, thành phần của vật liệu tổ hợp nền Ti\r\nNội dung 5: Nghiên cứu một số tính chất cơ học, ma sát, mài mòn của vật liệu tổ hợp nền titan gia cường bằng vật liệu cấu trúc nano (CNT, Gr, BNNT và BNNP)\r\nNội dung 6: Nghiên cứu tính chất điện hóa của vật liệu tổ hợp titan gia cường bằng vật liệu cấu trúc nano (CNT, Gr, BNNT và BNNP), và thử nghiệm in vitro trong môi trường giả dịch thể người\r\nNội dung 7: Nghiên cứu công nghệ chế tạo chi tiết cấy ghép bằng vật liệu tổ hợp nền titan gia cường bằng vật liệu cấu trúc nano\r\nNội dung 8: Nghiên cứu thử nghiệm in vivo trên động vật",
+                            Planning_Specialist = "Lê Khả Trường",
+                            PresidentId = 2,
+                            StartDate_Month = 9,
+                            StartDate_Year = 2013,
+                            Status = "Working",
+                            ThietBiMayMoc_Khac = 0.0,
+                            ThietBiMayMoc_NganSachNhaNuoc = 800.0,
+                            ThueKhoanChuyenMon_Khac = 0.0,
+                            ThueKhoanChuyenMon_NganSachNhaNuoc = 3500.0,
+                            Thue_Khac = 0.0,
+                            Thue_NganSachNhaNuoc = 0.0,
+                            VPCT_Leader = "Trần Nam Bình",
                             XayDungSuaChuaNho_Khac = 0.0,
                             XayDungSuaChuaNho_NganSachNhaNuoc = 0.0
                         });
