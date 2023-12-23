@@ -12,15 +12,15 @@ namespace VPCT.Core.Config.MainModels.ExpertModel
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.Name).IsRequired();
-            builder.HasOne(x => x.ChucDanh).WithMany(x => x.ChuyenGia).HasForeignKey(x => x.ChucDanhId);
-            builder.HasOne(x => x.HocHam).WithMany(x => x.ChuyenGia).HasForeignKey(x => x.HocHamId);
-            builder.HasOne(x => x.ChucVu).WithMany(x => x.ChuyenGia).HasForeignKey(x => x.ChucVuId);
-            builder.HasOne(x => x.HocVi).WithMany(x => x.ChuyenGia).HasForeignKey(x => x.HocViId);
-            builder.HasOne(x => x.DonViChuQuan).WithMany(x => x.ChuyenGia).HasForeignKey(x => x.DonViChuQuanId);
-            builder.HasOne(x => x.ChuyenNganh).WithMany(x => x.ChuyenGia).HasForeignKey(x => x.ChuyenNganhId);
-            builder.HasOne(x => x.LinhVuc).WithMany(x => x.ChuyenGia).HasForeignKey(x => x.LinhVucId);
-            builder.HasOne(x => x.CoQuanChuTri).WithMany(x => x.ChuyenGia).HasForeignKey(x => x.CoQuanChuTriId);
-            builder.HasOne(x => x.ChuongTrinh).WithMany(x => x.ChuyenGia).HasForeignKey(x => x.ChuongTrinhId);
+            builder.HasOne(x => x.ChucDanh).WithMany(x => x.ChuyenGia).HasForeignKey(x => x.ChucDanhId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(x => x.HocHam).WithMany(x => x.ChuyenGia).HasForeignKey(x => x.HocHamId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(x => x.ChucVu).WithMany(x => x.ChuyenGia).HasForeignKey(x => x.ChucVuId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(x => x.HocVi).WithMany(x => x.ChuyenGia).HasForeignKey(x => x.HocViId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(x => x.DonViChuQuan).WithMany(x => x.ChuyenGia).HasForeignKey(x => x.DonViChuQuanId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(x => x.ChuyenNganh).WithMany(x => x.ChuyenGia).HasForeignKey(x => x.ChuyenNganhId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(x => x.LinhVuc).WithMany(x => x.ChuyenGia).HasForeignKey(x => x.LinhVucId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(x => x.CoQuanChuTri).WithMany(x => x.ChuyenGia).HasForeignKey(x => x.CoQuanChuTriId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(x => x.ChuongTrinh).WithMany(x => x.ChuyenGia).HasForeignKey(x => x.ChuongTrinhId).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

@@ -91,16 +91,23 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.FieldModel
         [HttpDelete("{id}")]
         public IActionResult DeleteChuyenNganh(int id)
         {
-            var chuyenNganh = context.ChuyenNganhRepository.Find(id);
-            if (chuyenNganh == null)
+            try
             {
-                return NotFound();
+                var chuyenNganh = context.ChuyenNganhRepository.Find(id);
+                if (chuyenNganh == null)
+                {
+                    return NotFound();
+                }
+
+                context.ChuyenNganhRepository.Delete(chuyenNganh);
+                context.SaveChanges();
+
+                return NoContent();
             }
-
-            context.ChuyenNganhRepository.Delete(chuyenNganh);
-            context.SaveChanges();
-
-            return NoContent();
+            catch (DbUpdateException)
+            {
+                return BadRequest("Foreign key constraint violation: Cannot delete this entity due to related records in other tables.");
+            }
         }
 
         private bool ChuyenNganhExists(int id)

@@ -78,16 +78,23 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProgramModel
         [HttpDelete("{id}")]
         public IActionResult DeleteLoaiChuongTrinh(int id)
         {
-            var loaiChuongTrinh = context.LoaiChuongTrinhRepository.Find(id);
-            if (loaiChuongTrinh == null)
+            try
             {
-                return NotFound();
+                var loaiChuongTrinh = context.LoaiChuongTrinhRepository.Find(id);
+                if (loaiChuongTrinh == null)
+                {
+                    return NotFound();
+                }
+
+                context.LoaiChuongTrinhRepository.Delete(loaiChuongTrinh);
+                context.SaveChanges();
+
+                return NoContent();
             }
-
-            context.LoaiChuongTrinhRepository.Delete(loaiChuongTrinh);
-            context.SaveChanges();
-
-            return NoContent();
+            catch (DbUpdateException)
+            {
+                return BadRequest("Foreign key constraint violation: Cannot delete this entity due to related records in other tables.");
+            }
         }
 
         private bool LoaiChuongTrinhExists(int id)

@@ -11,8 +11,8 @@ namespace VPCT.Core.Config.MainModels.TaskModel
             builder.ToTable(nameof(FileDinhKem));
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
-            builder.HasOne(x => x.Type).WithMany(x => x.FileDinhKem).HasForeignKey(x => x.FileTypeId);
-            builder.HasOne(x => x.NhiemVu).WithMany(x => x.FileDinhKem).HasForeignKey(x => x.NhiemVuId);
+            builder.HasOne(x => x.Type).WithMany(x => x.FileDinhKem).HasForeignKey(x => x.FileTypeId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(x => x.NhiemVu).WithMany(x => x.FileDinhKem).HasForeignKey(x => x.NhiemVuId).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

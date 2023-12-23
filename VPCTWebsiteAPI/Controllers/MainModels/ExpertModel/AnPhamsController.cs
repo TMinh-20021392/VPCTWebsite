@@ -78,16 +78,23 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ExpertModel
         [HttpDelete("{id}")]
         public IActionResult DeleteAnPham(int id)
         {
-            var anPham = context.AnPhamRepository.Find(id);
-            if (anPham == null)
+            try
             {
-                return NotFound();
+                var anPham = context.AnPhamRepository.Find(id);
+                if (anPham == null)
+                {
+                    return NotFound();
+                }
+
+                context.AnPhamRepository.Delete(anPham);
+                context.SaveChanges();
+
+                return NoContent();
             }
-
-            context.AnPhamRepository.Delete(anPham);
-            context.SaveChanges();
-
-            return NoContent();
+            catch (DbUpdateException)
+            {
+                return BadRequest("Foreign key constraint violation: Cannot delete this entity due to related records in other tables.");
+            }
         }
 
         private bool AnPhamExists(int id)

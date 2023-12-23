@@ -27,12 +27,12 @@ namespace VPCT.Core.Config.MainModels.TaskModel
                     v => v.HasValue ? v.Value.ToString() : null,
                     v => v != null ? (KetQua)Enum.Parse(typeof(KetQua), v) : null);
             builder.HasOne(x => x.ChuongTrinh).WithMany(x => x.NhiemVu).HasForeignKey(x => x.ChuongTrinhId).OnDelete(DeleteBehavior.Cascade);
-            builder.HasOne(x => x.President).WithMany(x => x.NhiemVu).HasForeignKey(x => x.PresidentId).OnDelete(DeleteBehavior.Cascade);
-            builder.HasOne(x => x.CoQuanChuTri).WithMany(x => x.NhiemVu).HasForeignKey(x => x.CoQuanChuTriId);
-            builder.HasOne(x => x.LinhVuc).WithMany(x => x.NhiemVu).HasForeignKey(x => x.LinhVucId);
-            builder.HasOne(x => x.ChuyenNganh).WithMany(x => x.NhiemVu).HasForeignKey(x => x.ChuyenNganhId);
-            builder.HasOne(x => x.CoQuanQuanLyKinhPhi).WithMany(x => x.CostManagingTasks).HasForeignKey(x => x.CoQuanQuanLyKinhPhiId);
-            builder.HasOne(x => x.CoQuanQuanLyNhiemVu).WithMany(x => x.TaskManagingTasks).HasForeignKey(x => x.CoQuanQuanLyNhiemVuId);
+            builder.HasOne(x => x.President).WithMany(x => x.NhiemVu).HasForeignKey(x => x.PresidentId).OnDelete(DeleteBehavior.Restrict);
+            builder.HasOne(x => x.CoQuanChuTri).WithMany(x => x.NhiemVu).HasForeignKey(x => x.CoQuanChuTriId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(x => x.LinhVuc).WithMany(x => x.NhiemVu).HasForeignKey(x => x.LinhVucId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(x => x.ChuyenNganh).WithMany(x => x.NhiemVu).HasForeignKey(x => x.ChuyenNganhId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(x => x.CoQuanQuanLyKinhPhi).WithMany(x => x.CostManagingTasks).HasForeignKey(x => x.CoQuanQuanLyKinhPhiId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(x => x.CoQuanQuanLyNhiemVu).WithMany(x => x.TaskManagingTasks).HasForeignKey(x => x.CoQuanQuanLyNhiemVuId).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

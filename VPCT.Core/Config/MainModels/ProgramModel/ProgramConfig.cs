@@ -12,8 +12,8 @@ namespace VPCT.Core.Config.MainModels.ProgramModel
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.Name).IsRequired();
-            builder.HasOne(x => x.LoaiChuongTrinh).WithMany(x => x.ChuongTrinh).HasForeignKey(x => x.LoaiChuongTrinhId);
-            builder.HasOne(x => x.CoQuanChuTri).WithMany(x => x.ChuongTrinh).HasForeignKey(x => x.CoQuanChuTriId);
+            builder.HasOne(x => x.LoaiChuongTrinh).WithMany(x => x.ChuongTrinh).HasForeignKey(x => x.LoaiChuongTrinhId).OnDelete(DeleteBehavior.Restrict);
+            builder.HasOne(x => x.CoQuanChuTri).WithMany(x => x.ChuongTrinh).HasForeignKey(x => x.CoQuanChuTriId).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

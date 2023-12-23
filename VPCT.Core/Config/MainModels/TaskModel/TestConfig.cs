@@ -12,7 +12,7 @@ namespace VPCT.Core.Config.MainModels.TaskModel
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.EstimatedTestDate).IsRequired();
-            builder.HasOne(x => x.NhiemVu).WithMany(x => x.LanKiemTra).HasForeignKey(x => x.NhiemVuId);
+            builder.HasOne(x => x.NhiemVu).WithMany(x => x.LanKiemTra).HasForeignKey(x => x.NhiemVuId).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

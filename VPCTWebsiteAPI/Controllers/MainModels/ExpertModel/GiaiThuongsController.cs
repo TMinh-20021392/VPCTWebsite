@@ -78,16 +78,23 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ExpertModel
         [HttpDelete("{id}")]
         public IActionResult DeleteGiaiThuong(int id)
         {
-            var giaiThuong = context.GiaiThuongRepository.Find(id);
-            if (giaiThuong == null)
+            try
             {
-                return NotFound();
+                var giaiThuong = context.GiaiThuongRepository.Find(id);
+                if (giaiThuong == null)
+                {
+                    return NotFound();
+                }
+
+                context.GiaiThuongRepository.Delete(giaiThuong);
+                context.SaveChanges();
+
+                return NoContent();
             }
-
-            context.GiaiThuongRepository.Delete(giaiThuong);
-            context.SaveChanges();
-
-            return NoContent();
+            catch (DbUpdateException)
+            {
+                return BadRequest("Foreign key constraint violation: Cannot delete this entity due to related records in other tables.");
+            }
         }
 
         private bool GiaiThuongExists(int id)

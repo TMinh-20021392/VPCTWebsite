@@ -9,7 +9,7 @@ namespace VPCT.Core.Models.MainModels.TaskModel
     {
         public int Id { get; set; }
         [Required]
-        public int FileTypeId { get; set; }
+        public int? FileTypeId { get; set; }
         public virtual FileType? Type
         {
             get; set;

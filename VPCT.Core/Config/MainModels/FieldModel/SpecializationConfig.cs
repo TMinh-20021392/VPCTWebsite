@@ -12,7 +12,7 @@ namespace VPCT.Core.Config.MainModels.FieldModel
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.Name).IsRequired();
-            builder.HasOne(x => x.LinhVuc).WithMany(x => x.ChuyenNganhs).HasForeignKey(x => x.LinhVucId);
+            builder.HasOne(x => x.LinhVuc).WithMany(x => x.ChuyenNganhs).HasForeignKey(x => x.LinhVucId).OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

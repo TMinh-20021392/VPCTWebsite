@@ -13,7 +13,7 @@ namespace VPCT.Core.Config.MainModels.ExpertModel
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.Name).IsRequired();
             builder.Property(x => x.Scope_Address).IsRequired();
-            builder.HasOne(x => x.ChuyenGia).WithMany(x => x.CongTrinh).HasForeignKey(x => x.ChuyenGiaId);
+            builder.HasOne(x => x.ChuyenGia).WithMany(x => x.CongTrinh).HasForeignKey(x => x.ChuyenGiaId).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

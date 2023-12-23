@@ -16,7 +16,7 @@ namespace VPCT.Core.Config
                     v => v.ToString(),
                     v => (ChucDanhHoiDong)Enum.Parse(typeof(ChucDanhHoiDong), v));
             builder.HasOne(x => x.ChuyenGia).WithMany(x => x.HoiDongKhoaHoc_ChuyenGia).HasForeignKey(x => x.ChuyenGiaId).OnDelete(DeleteBehavior.Cascade);
-            builder.HasOne(x => x.HoiDongKhoaHoc).WithMany(x => x.HoiDongKhoaHoc_ChuyenGia).HasForeignKey(x => x.HoiDongKhoaHocId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(x => x.HoiDongKhoaHoc).WithMany(x => x.HoiDongKhoaHoc_ChuyenGia).HasForeignKey(x => x.HoiDongKhoaHocId).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

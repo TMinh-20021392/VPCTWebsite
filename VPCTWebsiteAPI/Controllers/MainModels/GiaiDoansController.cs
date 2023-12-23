@@ -78,16 +78,23 @@ namespace VPCTWebsiteAPI.Controllers.MainModels
         [HttpDelete("{id}")]
         public IActionResult DeleteGiaiDoan(int id)
         {
-            var giaiDoan = context.GiaiDoanRepository.Find(id);
-            if (giaiDoan == null)
+            try
             {
-                return NotFound();
+                var giaiDoan = context.GiaiDoanRepository.Find(id);
+                if (giaiDoan == null)
+                {
+                    return NotFound();
+                }
+
+                context.GiaiDoanRepository.Delete(giaiDoan);
+                context.SaveChanges();
+
+                return NoContent();
             }
-
-            context.GiaiDoanRepository.Delete(giaiDoan);
-            context.SaveChanges();
-
-            return NoContent();
+            catch (DbUpdateException)
+            {
+                return BadRequest("Foreign key constraint violation: Cannot delete this entity due to related records in other tables.");
+            }
         }
 
         private bool GiaiDoanExists(int id)

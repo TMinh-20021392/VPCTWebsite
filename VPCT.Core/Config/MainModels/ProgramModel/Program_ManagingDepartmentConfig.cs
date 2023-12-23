@@ -11,7 +11,7 @@ namespace VPCT.Core.Config.MainModels.ProgramModel
             builder.ToTable(nameof(ChuongTrinh_CoQuanQuanLy));
             builder.HasKey(x => new { x.ChuongTrinhId, x.CoQuanQuanLyId });
             builder.HasOne(x => x.ChuongTrinh).WithMany(x => x.ChuongTrinh_CoQuanQuanLys).HasForeignKey(x => x.ChuongTrinhId).OnDelete(DeleteBehavior.Cascade);
-            builder.HasOne(x => x.CoQuanQuanLy).WithMany(x => x.ChuongTrinh_CoQuanQuanLys).HasForeignKey(x => x.CoQuanQuanLyId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(x => x.CoQuanQuanLy).WithMany(x => x.ChuongTrinh_CoQuanQuanLys).HasForeignKey(x => x.CoQuanQuanLyId).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

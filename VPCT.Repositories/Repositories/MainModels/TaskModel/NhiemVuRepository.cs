@@ -21,7 +21,7 @@ namespace VPCT.Repositories.Repositories
             });
         }
 
-        public IQueryable<NhiemVu> TimKiemNhiemVu(List<string>? keywords = null, string? searchTerm = null,
+        public IQueryable<NhiemVu> TimKiemNhiemVu(string[]? keywords = null, string? searchTerm = null,
             int? categoryId = null, int? programId = null, int? periodId = null, KetQua? results = null,
             TrangThaiNhiemVu? taskStatuses = null)
         {

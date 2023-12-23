@@ -205,19 +205,26 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ExpertModel
         [HttpDelete("{id}")]
         public IActionResult DeleteChuyenGia(int id)
         {
-            var chuyenGia = context.ChuyenGiaRepository.Find(id);
-            if (chuyenGia == null)
+            try
             {
-                return NotFound();
-            }
-            if (!string.IsNullOrEmpty(chuyenGia.ImageName))
-            {
-                imageService.DeleteImage(chuyenGia.ImageName);
-            }
-            context.ChuyenGiaRepository.Delete(chuyenGia);
-            context.SaveChanges();
+                var chuyenGia = context.ChuyenGiaRepository.Find(id);
+                if (chuyenGia == null)
+                {
+                    return NotFound();
+                }
+                if (!string.IsNullOrEmpty(chuyenGia.ImageName))
+                {
+                    imageService.DeleteImage(chuyenGia.ImageName);
+                }
+                context.ChuyenGiaRepository.Delete(chuyenGia);
+                context.SaveChanges();
 
-            return NoContent();
+                return NoContent();
+            }
+            catch (DbUpdateException)
+            {
+                return BadRequest("Foreign key constraint violation: Cannot delete this entity due to related records in other tables.");
+            }
         }
 
         private bool ChuyenGiaExists(int id)

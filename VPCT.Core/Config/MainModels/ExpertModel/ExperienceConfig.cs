@@ -18,7 +18,7 @@ namespace VPCT.Core.Config.MainModels.ExpertModel
                 .HasConversion(
                     v => v.ToString(),
                     v => (LoaiKinhNghiem)Enum.Parse(typeof(LoaiKinhNghiem), v));
-            builder.HasOne(x => x.ChuyenGia).WithMany(x => x.KinhNghiem).HasForeignKey(x => x.ChuyenGiaId);
+            builder.HasOne(x => x.ChuyenGia).WithMany(x => x.KinhNghiem).HasForeignKey(x => x.ChuyenGiaId).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

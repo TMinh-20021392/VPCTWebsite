@@ -17,7 +17,7 @@ namespace VPCT.Core.Config.MainModels.TaskModel
                 .HasConversion(
                     v => v.ToString(),
                     v => (LoaiHoiDong)Enum.Parse(typeof(LoaiHoiDong), v));
-            builder.HasOne(x => x.NhiemVu).WithMany(x => x.HoiDongKhoaHoc).HasForeignKey(x => x.NhiemVuId);
+            builder.HasOne(x => x.NhiemVu).WithMany(x => x.HoiDongKhoaHoc).HasForeignKey(x => x.NhiemVuId).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

@@ -13,8 +13,8 @@ namespace VPCT.Core.Config.MainModels.TaskModel
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.SoCongVan).IsRequired();
             builder.Property(x => x.TrichYeu).IsRequired();
-            builder.HasOne(x => x.Type).WithMany(x => x.CongVanNhiemVu).HasForeignKey(x => x.DocTypeId);
-            builder.HasOne(x => x.NhiemVu).WithMany(x => x.CongVanNhiemVu).HasForeignKey(x => x.NhiemVuId);
+            builder.HasOne(x => x.Type).WithMany(x => x.CongVanNhiemVu).HasForeignKey(x => x.DocTypeId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(x => x.NhiemVu).WithMany(x => x.CongVanNhiemVu).HasForeignKey(x => x.NhiemVuId).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

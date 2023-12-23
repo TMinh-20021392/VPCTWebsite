@@ -78,16 +78,23 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.TaskModel
         [HttpDelete("{id}")]
         public IActionResult DeletePhanBoNoiDung(int id)
         {
-            var phanBoNoiDung = context.PhanBoNoiDungRepository.Find(id);
-            if (phanBoNoiDung == null)
+            try
             {
-                return NotFound();
+                var phanBoNoiDung = context.PhanBoNoiDungRepository.Find(id);
+                if (phanBoNoiDung == null)
+                {
+                    return NotFound();
+                }
+
+                context.PhanBoNoiDungRepository.Delete(phanBoNoiDung);
+                context.SaveChanges();
+
+                return NoContent();
             }
-
-            context.PhanBoNoiDungRepository.Delete(phanBoNoiDung);
-            context.SaveChanges();
-
-            return NoContent();
+            catch (DbUpdateException)
+            {
+                return BadRequest("Foreign key constraint violation: Cannot delete this entity due to related records in other tables.");
+            }
         }
 
         private bool PhanBoNoiDungExists(int id)

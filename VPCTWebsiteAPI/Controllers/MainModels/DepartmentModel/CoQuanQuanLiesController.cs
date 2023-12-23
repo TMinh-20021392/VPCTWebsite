@@ -88,16 +88,23 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.DepartmentModel
         [HttpDelete("{id}")]
         public IActionResult DeleteCoQuanQuanLy(int id)
         {
-            var coQuanQuanLy = context.CoQuanQuanLyRepository.Find(id);
-            if (coQuanQuanLy == null)
+            try
             {
-                return NotFound();
+                var coQuanQuanLy = context.CoQuanQuanLyRepository.Find(id);
+                if (coQuanQuanLy == null)
+                {
+                    return NotFound();
+                }
+
+                context.CoQuanQuanLyRepository.Delete(coQuanQuanLy);
+                context.SaveChanges();
+
+                return NoContent();
             }
-
-            context.CoQuanQuanLyRepository.Delete(coQuanQuanLy);
-            context.SaveChanges();
-
-            return NoContent();
+            catch (DbUpdateException)
+            {
+                return BadRequest("Foreign key constraint violation: Cannot delete this entity due to related records in other tables.");
+            }
         }
 
         private bool CoQuanQuanLyExists(int id)

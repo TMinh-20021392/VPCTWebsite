@@ -89,16 +89,23 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProductModel.TaskProduct
         [HttpDelete("{id}")]
         public IActionResult DeleteThanhLapDoanhNghiep(int id)
         {
-            var thanhLapDoanhNghiep = context.ThanhLapDoanhNghiepRepository.Find(id);
-            if (thanhLapDoanhNghiep == null)
+            try
             {
-                return NotFound();
+                var thanhLapDoanhNghiep = context.ThanhLapDoanhNghiepRepository.Find(id);
+                if (thanhLapDoanhNghiep == null)
+                {
+                    return NotFound();
+                }
+
+                context.ThanhLapDoanhNghiepRepository.Delete(thanhLapDoanhNghiep);
+                context.SaveChanges();
+
+                return NoContent();
             }
-
-            context.ThanhLapDoanhNghiepRepository.Delete(thanhLapDoanhNghiep);
-            context.SaveChanges();
-
-            return NoContent();
+            catch (DbUpdateException)
+            {
+                return BadRequest("Foreign key constraint violation: Cannot delete this entity due to related records in other tables.");
+            }
         }
 
         private bool ThanhLapDoanhNghiepExists(int id)

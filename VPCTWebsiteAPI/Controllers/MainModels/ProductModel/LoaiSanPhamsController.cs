@@ -91,16 +91,23 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProductModel
         [HttpDelete("{id}")]
         public IActionResult DeleteLoaiSanPham(int id)
         {
-            var loaiSanPham = context.LoaiSanPhamRepository.Find(id);
-            if (loaiSanPham == null)
+            try
             {
-                return NotFound();
+                var loaiSanPham = context.LoaiSanPhamRepository.Find(id);
+                if (loaiSanPham == null)
+                {
+                    return NotFound();
+                }
+
+                context.LoaiSanPhamRepository.Delete(loaiSanPham);
+                context.SaveChanges();
+
+                return NoContent();
             }
-
-            context.LoaiSanPhamRepository.Delete(loaiSanPham);
-            context.SaveChanges();
-
-            return NoContent();
+            catch (DbUpdateException)
+            {
+                return BadRequest("Foreign key constraint violation: Cannot delete this entity due to related records in other tables.");
+            }
         }
 
         private bool LoaiSanPhamExists(int id)

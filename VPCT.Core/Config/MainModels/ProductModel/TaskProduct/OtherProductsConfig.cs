@@ -12,7 +12,7 @@ namespace VPCT.Core.Config.MainModels.ProductModel.TaskProduct
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.Name).IsRequired();
-            builder.HasOne(x => x.NhiemVu).WithMany(x => x.OtherProducts).HasForeignKey(x => x.NhiemVuId);
+            builder.HasOne(x => x.NhiemVu).WithMany(x => x.OtherProducts).HasForeignKey(x => x.NhiemVuId).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

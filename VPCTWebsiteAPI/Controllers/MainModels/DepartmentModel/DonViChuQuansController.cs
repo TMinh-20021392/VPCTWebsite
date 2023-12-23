@@ -96,16 +96,24 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.DepartmentModel
         [HttpDelete("{id}")]
         public IActionResult DeleteDonViChuQuan(int id)
         {
-            var donViChuQuan = context.DonViChuQuanRepository.Find(id);
-            if (donViChuQuan == null)
+            try
             {
-                return NotFound();
+                var donViChuQuan = context.DonViChuQuanRepository.Find(id);
+                if (donViChuQuan == null)
+                {
+                    return NotFound();
+                }
+
+                context.DonViChuQuanRepository.Delete(donViChuQuan);
+                context.SaveChanges();
+
+                return NoContent();
             }
 
-            context.DonViChuQuanRepository.Delete(donViChuQuan);
-            context.SaveChanges();
-
-            return NoContent();
+            catch (DbUpdateException)
+            {
+                return BadRequest("Foreign key constraint violation: Cannot delete this entity due to related records in other tables.");
+            }
         }
 
         private bool DonViChuQuanExists(int id)

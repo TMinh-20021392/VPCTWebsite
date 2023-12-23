@@ -89,16 +89,23 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProductModel.TaskProduct
         [HttpDelete("{id}")]
         public IActionResult DeleteProduct_PostgraduateTraining(int id)
         {
-            var product_PostgraduateTraining = context.Product_PostgraduateTraining_Repository.Find(id);
-            if (product_PostgraduateTraining == null)
+            try
             {
-                return NotFound();
+                var product_PostgraduateTraining = context.Product_PostgraduateTraining_Repository.Find(id);
+                if (product_PostgraduateTraining == null)
+                {
+                    return NotFound();
+                }
+
+                context.Product_PostgraduateTraining_Repository.Delete(product_PostgraduateTraining);
+                context.SaveChanges();
+
+                return NoContent();
             }
-
-            context.Product_PostgraduateTraining_Repository.Delete(product_PostgraduateTraining);
-            context.SaveChanges();
-
-            return NoContent();
+            catch (DbUpdateException)
+            {
+                return BadRequest("Foreign key constraint violation: Cannot delete this entity due to related records in other tables.");
+            }
         }
 
         private bool Product_PostgraduateTrainingExists(int id)

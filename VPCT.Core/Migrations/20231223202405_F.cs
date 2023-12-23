@@ -344,7 +344,8 @@ namespace VPCT.Core.Migrations
                         name: "FK_LoaiSanPham_DangSanPham_DangSanPhamId",
                         column: x => x.DangSanPhamId,
                         principalTable: "DangSanPham",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -368,7 +369,7 @@ namespace VPCT.Core.Migrations
                         column: x => x.DonViChuQuanId,
                         principalTable: "DonViChuQuan",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -388,7 +389,7 @@ namespace VPCT.Core.Migrations
                         column: x => x.LinhVucId,
                         principalTable: "LinhVuc",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -437,7 +438,7 @@ namespace VPCT.Core.Migrations
                         column: x => x.LoaiChuongTrinhId,
                         principalTable: "LoaiChuongTrinh",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -460,7 +461,8 @@ namespace VPCT.Core.Migrations
                         name: "FK_ChuongTrinh_CoQuanQuanLy_CoQuanQuanLy_CoQuanQuanLyId",
                         column: x => x.CoQuanQuanLyId,
                         principalTable: "CoQuanQuanLy",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -779,7 +781,7 @@ namespace VPCT.Core.Migrations
                         column: x => x.PresidentId,
                         principalTable: "ChuyenGia",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_NhiemVu_ChuyenNganh_ChuyenNganhId",
                         column: x => x.ChuyenNganhId,
@@ -906,12 +908,14 @@ namespace VPCT.Core.Migrations
                         name: "FK_CoQuanChuTri_NhiemVu_CoQuanChuTri_CoQuanChuTriId",
                         column: x => x.CoQuanChuTriId,
                         principalTable: "CoQuanChuTri",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_CoQuanChuTri_NhiemVu_DonViChuQuan_DonViChuQuanId",
                         column: x => x.DonViChuQuanId,
                         principalTable: "DonViChuQuan",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_CoQuanChuTri_NhiemVu_NhiemVu_NhiemVuId",
                         column: x => x.NhiemVuId,
@@ -935,7 +939,8 @@ namespace VPCT.Core.Migrations
                         name: "FK_DonViChuQuan_NhiemVu_DonViChuQuan_DonViChuQuanId",
                         column: x => x.DonViChuQuanId,
                         principalTable: "DonViChuQuan",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_DonViChuQuan_NhiemVu_NhiemVu_NhiemVuId",
                         column: x => x.NhiemVuId,
@@ -962,8 +967,7 @@ namespace VPCT.Core.Migrations
                         name: "FK_FileDinhKem_FileType_FileTypeId",
                         column: x => x.FileTypeId,
                         principalTable: "FileType",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_FileDinhKem_NhiemVu_NhiemVuId",
                         column: x => x.NhiemVuId,
@@ -1089,7 +1093,7 @@ namespace VPCT.Core.Migrations
                         column: x => x.LoaiSanPhamId,
                         principalTable: "LoaiSanPham",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Ownership_NhiemVu_NhiemVuId",
                         column: x => x.NhiemVuId,
@@ -1160,7 +1164,8 @@ namespace VPCT.Core.Migrations
                         name: "FK_Product_I_LoaiSanPham_LoaiSanPhamId",
                         column: x => x.LoaiSanPhamId,
                         principalTable: "LoaiSanPham",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Product_I_NhiemVu_NhiemVuId",
                         column: x => x.NhiemVuId,
@@ -1204,7 +1209,7 @@ namespace VPCT.Core.Migrations
                         column: x => x.LoaiSanPhamId,
                         principalTable: "LoaiSanPham",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Product_II_NhiemVu_NhiemVuId",
                         column: x => x.NhiemVuId,
@@ -1237,7 +1242,7 @@ namespace VPCT.Core.Migrations
                         column: x => x.LoaiSanPhamId,
                         principalTable: "LoaiSanPham",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Product_III_NhiemVu_NhiemVuId",
                         column: x => x.NhiemVuId,
@@ -1321,7 +1326,8 @@ namespace VPCT.Core.Migrations
                         name: "FK_HoiDongKhoaHoc_ChuyenGia_HoiDongKhoaHoc_HoiDongKhoaHocId",
                         column: x => x.HoiDongKhoaHocId,
                         principalTable: "HoiDongKhoaHoc",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -1329,9 +1335,9 @@ namespace VPCT.Core.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "47d5392f-359d-43a2-86b1-32ebbb329a08", null, "ChuyenVien", "CHUYENVIEN" },
-                    { "71bac49f-314f-41c7-abb1-f128ca488fa9", null, "KeToan", "KETOAN" },
-                    { "cb5032e8-23b4-4303-9206-90d18a8b7bc9", null, "LanhDao", "LANHDAO" }
+                    { "52f818bf-fcf1-4e33-bf5c-856c1c62b82b", null, "KeToan", "KETOAN" },
+                    { "785a36b9-eb58-483f-98f0-17966569c04d", null, "ChuyenVien", "CHUYENVIEN" },
+                    { "ce837422-6bbd-43bc-8d1a-3f370fd2ec92", null, "LanhDao", "LANHDAO" }
                 });
 
             migrationBuilder.InsertData(
@@ -1339,8 +1345,8 @@ namespace VPCT.Core.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "Address", "ConcurrencyStamp", "Description", "Email", "EmailConfirmed", "FullName", "ImageName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "441a393f-3fd5-480d-98ba-437cca253a68", 0, null, "f86aff08-b189-478f-b683-aee9ec326176", null, "mm@mm.mm", true, "Hoang Khanh", null, false, null, "MM@MM.MM", "ADMIN13", "AQAAAAIAAYagAAAAEAT5gyQuVRVyY4d2y4zhy+KwYZeATcyvkzf10ypkO0WZiWTVBfQ/Hz/dYXJbMs+iDw==", "01223456789", false, "81df77ee-69f9-47b2-928c-84c0740e24e1", false, "admin13" },
-                    { "d06e89f1-c5cd-48df-926d-b4627ceb9b22", 0, null, "b4df678d-1a59-4049-9a27-118fb7d7c2f8", null, "aa@aa.aa", true, "Luu Minh", null, false, null, "AA@AA.AA", "ADMIN12", "AQAAAAIAAYagAAAAED6syfDinuOKigwOwT3LzD8Q1sDd1nayr6vd5mmzcNJKr0G4tXUD/LoLBtzthSkclA==", "01223456789", false, "5566baac-ece9-4995-8705-0b8f0b264750", false, "admin12" }
+                    { "0788d7dd-b47d-4816-a185-b00f08aa1fdc", 0, null, "c2bb367f-1b89-4d44-bae5-67d71604327e", null, "mm@mm.mm", true, "Hoang Khanh", null, false, null, "MM@MM.MM", "ADMIN13", "AQAAAAIAAYagAAAAELNEE36j3rWrOrS6vYDaZZLSUkM8ANNe3zD7ZDIrHpQ5C6Iq7ALT16PeKyWrSxEgfw==", "01223456789", false, "38dc3ca5-29ca-4d2a-b132-c07f7c833445", false, "admin13" },
+                    { "1f8e0d55-d235-4774-aa2c-73eeadea0e85", 0, null, "c0997275-935d-41f8-9388-0c40bc753d8b", null, "aa@aa.aa", true, "Luu Minh", null, false, null, "AA@AA.AA", "ADMIN12", "AQAAAAIAAYagAAAAEHvuJHY6519r5KvN7bO1kPIBh2NKSizCmyJzWgKAXtY+wxdQldsVTGsG27OTCw4p4Q==", "01223456789", false, "9b360bf9-d581-4131-a08e-cf4c045f56db", false, "admin12" }
                 });
 
             migrationBuilder.InsertData(
@@ -1471,8 +1477,8 @@ namespace VPCT.Core.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "47d5392f-359d-43a2-86b1-32ebbb329a08", "441a393f-3fd5-480d-98ba-437cca253a68" },
-                    { "cb5032e8-23b4-4303-9206-90d18a8b7bc9", "d06e89f1-c5cd-48df-926d-b4627ceb9b22" }
+                    { "785a36b9-eb58-483f-98f0-17966569c04d", "0788d7dd-b47d-4816-a185-b00f08aa1fdc" },
+                    { "ce837422-6bbd-43bc-8d1a-3f370fd2ec92", "1f8e0d55-d235-4774-aa2c-73eeadea0e85" }
                 });
 
             migrationBuilder.InsertData(
@@ -1519,25 +1525,6 @@ namespace VPCT.Core.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "ChuyenGia",
-                columns: new[] { "Id", "Address", "Bank", "ChucDanhId", "ChucVuId", "ChuongTrinhId", "ChuyenNganhId", "CoQuanChuTriId", "DateOfBirth", "DonViChuQuanId", "Email", "Ex_Info_Field", "Ex_Info_Participation", "Gender", "HocHamId", "HocViId", "ImageName", "LinhVucId", "Name", "PhoneNumber", "Stk" },
-                values: new object[,]
-                {
-                    { 1, "Trường Đại học Công nghiệp Hà Nội", null, null, null, null, 1, 1, new DateTime(1973, 9, 27, 0, 0, 0, 0, DateTimeKind.Utc), 1, "luuthitho1973@gmail.com", null, null, false, 1, 3, "download.jpg", 1, "Lưu Thị Tho", "0988278230", null },
-                    { 2, "Hà Nội", "Nhà nước", 2, 2, null, null, 2, new DateTime(1980, 5, 4, 0, 0, 0, 0, DateTimeKind.Utc), 2, null, "bxcvbxc", "bxcb", true, 2, 4, "cat2.jpg", 4, "Đỗ Văn Vũ", "0913210095", "1111111111111111" },
-                    { 3, null, null, null, null, null, 3, 3, null, 2, null, null, null, true, null, null, null, 1, "Nguyễn Tất Tiến", null, null }
-                });
-
-            migrationBuilder.InsertData(
-                table: "AnPham",
-                columns: new[] { "Id", "ChuyenGiaId", "Name", "TapChi", "Year" },
-                values: new object[,]
-                {
-                    { 1, 1, "ABC", "ABCD", 2010 },
-                    { 2, 1, "BCD", "ABCE", 2011 }
-                });
-
-            migrationBuilder.InsertData(
                 table: "ChuongTrinh_CoQuanQuanLy",
                 columns: new[] { "ChuongTrinhId", "CoQuanQuanLyId" },
                 values: new object[,]
@@ -1548,6 +1535,25 @@ namespace VPCT.Core.Migrations
                     { 2, 3 },
                     { 3, 1 },
                     { 3, 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ChuyenGia",
+                columns: new[] { "Id", "Address", "Bank", "ChucDanhId", "ChucVuId", "ChuongTrinhId", "ChuyenNganhId", "CoQuanChuTriId", "DateOfBirth", "DonViChuQuanId", "Email", "Ex_Info_Field", "Ex_Info_Participation", "Gender", "HocHamId", "HocViId", "ImageName", "LinhVucId", "Name", "PhoneNumber", "Stk" },
+                values: new object[,]
+                {
+                    { 1, "Trường Đại học Công nghiệp Hà Nội", null, null, null, 1, 1, 1, new DateTime(1973, 9, 27, 0, 0, 0, 0, DateTimeKind.Utc), 1, "luuthitho1973@gmail.com", null, null, false, 1, 3, "download.jpg", 1, "Lưu Thị Tho", "0988278230", null },
+                    { 2, "Hà Nội", "Nhà nước", 2, 2, 1, null, 2, new DateTime(1980, 5, 4, 0, 0, 0, 0, DateTimeKind.Utc), 2, null, "bxcvbxc", "bxcb", true, 2, 4, "cat2.jpg", 4, "Đỗ Văn Vũ", "0913210095", "1111111111111111" },
+                    { 3, null, null, null, null, 2, 3, 3, null, 2, null, null, null, true, null, null, null, 1, "Nguyễn Tất Tiến", null, null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AnPham",
+                columns: new[] { "Id", "ChuyenGiaId", "Name", "TapChi", "Year" },
+                values: new object[,]
+                {
+                    { 1, 1, "ABC", "ABCD", 2010 },
+                    { 2, 1, "BCD", "ABCE", 2011 }
                 });
 
             migrationBuilder.InsertData(
@@ -1627,7 +1633,7 @@ namespace VPCT.Core.Migrations
                 columns: new[] { "Id", "DocTypeId", "NhiemVuId", "NoiDung", "PublishedDate", "SoCongVan", "TrichYeu" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, null, new DateTime(2023, 12, 13, 23, 9, 7, 920, DateTimeKind.Local).AddTicks(947), "ABC", "ABC" },
+                    { 1, 1, 1, null, new DateTime(2023, 12, 24, 3, 24, 4, 439, DateTimeKind.Local).AddTicks(8022), "ABC", "ABC" },
                     { 2, null, 1, null, null, "XXX", "XXX" }
                 });
 
@@ -1663,8 +1669,8 @@ namespace VPCT.Core.Migrations
                 columns: new[] { "Id", "Date", "Khac", "KinhPhi", "NhiemVuId", "NoiDung" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 12, 13, 23, 9, 7, 920, DateTimeKind.Local).AddTicks(1090), null, null, 1, null },
-                    { 2, new DateTime(2023, 12, 13, 0, 0, 0, 0, DateTimeKind.Local), null, 0.0, 1, null }
+                    { 1, new DateTime(2023, 12, 24, 3, 24, 4, 439, DateTimeKind.Local).AddTicks(8221), null, null, 1, null },
+                    { 2, new DateTime(2023, 12, 24, 0, 0, 0, 0, DateTimeKind.Local), null, 0.0, 1, null }
                 });
 
             migrationBuilder.InsertData(
@@ -1672,8 +1678,8 @@ namespace VPCT.Core.Migrations
                 columns: new[] { "Id", "EstimatedTestDate", "FinalCost", "HasTested", "KetLuan", "NhiemVuId", "NoiDung", "TestDate", "TesterName" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 12, 13, 23, 9, 7, 920, DateTimeKind.Local).AddTicks(1121), null, null, "+ Thực hiện đúng tiến độ;\r\n+ Cần đẩy nhanh hơn tiến độ , hoàn thành việc lắp ráp, kiểm tra máy và chạy thử để nghiệm thu.", 1, null, null, null },
-                    { 2, new DateTime(2023, 12, 13, 0, 0, 0, 0, DateTimeKind.Local), 0.0, null, null, 1, null, null, null }
+                    { 1, new DateTime(2023, 12, 24, 3, 24, 4, 439, DateTimeKind.Local).AddTicks(8247), null, null, "+ Thực hiện đúng tiến độ;\r\n+ Cần đẩy nhanh hơn tiến độ , hoàn thành việc lắp ráp, kiểm tra máy và chạy thử để nghiệm thu.", 1, null, null, null },
+                    { 2, new DateTime(2023, 12, 24, 0, 0, 0, 0, DateTimeKind.Local), 0.0, null, null, 1, null, null, null }
                 });
 
             migrationBuilder.InsertData(

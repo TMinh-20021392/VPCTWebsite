@@ -16,8 +16,8 @@ namespace VPCT.Core.Config.MainModels.TaskModel
                     v => v.HasValue ? v.Value.ToString() : null,
                     v => v != null ? (LoaiHoSo)Enum.Parse(typeof(LoaiHoSo), v) : null);
             builder.HasOne(x => x.NhiemVu).WithMany(x => x.CoQuanChuTri_NhiemVu).HasForeignKey(x => x.NhiemVuId).OnDelete(DeleteBehavior.Cascade);
-            builder.HasOne(x => x.DonViChuQuan).WithMany(x => x.CoQuanChuTri_NhiemVu).HasForeignKey(x => x.DonViChuQuanId).OnDelete(DeleteBehavior.NoAction);
-            builder.HasOne(x => x.CoQuanChuTri).WithMany(x => x.CoQuanChuTri_NhiemVu).HasForeignKey(x => x.CoQuanChuTriId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(x => x.DonViChuQuan).WithMany(x => x.CoQuanChuTri_NhiemVu).HasForeignKey(x => x.DonViChuQuanId).OnDelete(DeleteBehavior.Restrict);
+            builder.HasOne(x => x.CoQuanChuTri).WithMany(x => x.CoQuanChuTri_NhiemVu).HasForeignKey(x => x.CoQuanChuTriId).OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

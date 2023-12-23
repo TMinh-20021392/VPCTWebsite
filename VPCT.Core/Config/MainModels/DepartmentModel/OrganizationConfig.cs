@@ -12,7 +12,7 @@ namespace VPCT.Core.Config.MainModels.DepartmentModel
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.Name).IsRequired();
-            builder.HasOne(x => x.DonViChuQuan).WithMany(x => x.CoQuanChuTri).HasForeignKey(x => x.DonViChuQuanId);
+            builder.HasOne(x => x.DonViChuQuan).WithMany(x => x.CoQuanChuTri).HasForeignKey(x => x.DonViChuQuanId).OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

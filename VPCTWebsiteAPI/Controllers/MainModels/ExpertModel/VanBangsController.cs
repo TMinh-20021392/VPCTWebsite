@@ -78,16 +78,23 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ExpertModel
         [HttpDelete("{id}")]
         public IActionResult DeleteVanBang(int id)
         {
-            var vanBang = context.VanBangRepository.Find(id);
-            if (vanBang == null)
+            try
             {
-                return NotFound();
+                var vanBang = context.VanBangRepository.Find(id);
+                if (vanBang == null)
+                {
+                    return NotFound();
+                }
+
+                context.VanBangRepository.Delete(vanBang);
+                context.SaveChanges();
+
+                return NoContent();
             }
-
-            context.VanBangRepository.Delete(vanBang);
-            context.SaveChanges();
-
-            return NoContent();
+            catch (DbUpdateException)
+            {
+                return BadRequest("Foreign key constraint violation: Cannot delete this entity due to related records in other tables.");
+            }
         }
 
         private bool VanBangExists(int id)

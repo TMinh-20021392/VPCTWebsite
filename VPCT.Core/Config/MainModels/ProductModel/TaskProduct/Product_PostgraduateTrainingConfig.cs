@@ -16,8 +16,8 @@ namespace VPCT.Core.Config.MainModels.ProductModel.TaskProduct
                 .HasConversion(
                     v => v.ToString(),
                     v => (CapDaoTao)Enum.Parse(typeof(CapDaoTao), v));
-            builder.HasOne(x => x.NhiemVu).WithMany(x => x.Product_PostgraduateTrainings).HasForeignKey(x => x.NhiemVuId);
-            builder.HasOne(x => x.ChuyenNganh).WithMany(x => x.Product_PostgraduateTraining).HasForeignKey(x => x.ChuyenNganhId);
+            builder.HasOne(x => x.NhiemVu).WithMany(x => x.Product_PostgraduateTrainings).HasForeignKey(x => x.NhiemVuId).OnDelete(DeleteBehavior.Cascade);
+            builder.HasOne(x => x.ChuyenNganh).WithMany(x => x.Product_PostgraduateTraining).HasForeignKey(x => x.ChuyenNganhId).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

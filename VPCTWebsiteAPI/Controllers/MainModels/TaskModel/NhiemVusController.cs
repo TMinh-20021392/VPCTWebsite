@@ -192,9 +192,9 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.TaskModel
         }
 
         [HttpGet("TimKiemNhiemVu")]
-        public ActionResult<IEnumerable<NhiemVu>> TimKiemNhiemVu(string searchTerm, string[] keywords, int? categoryId, int? programId, int? periodId, KetQua? results, TrangThaiNhiemVu? taskStatuses)
+        public ActionResult<IEnumerable<NhiemVu>> TimKiemNhiemVu([FromQuery] string? searchTerm, [FromQuery] string[]? keywords, [FromQuery] int? categoryId, [FromQuery] int? programId, [FromQuery] int? periodId, [FromQuery] KetQua? results, [FromQuery] TrangThaiNhiemVu? taskStatuses)
         {
-            var nhiemVuList = context.NhiemVuRepository.TimKiemNhiemVu([.. keywords], searchTerm, categoryId, programId, periodId, results, taskStatuses).ToList();
+            var nhiemVuList = context.NhiemVuRepository.TimKiemNhiemVu(keywords, searchTerm, categoryId, programId, periodId, results, taskStatuses).ToList();
 
             if (nhiemVuList.Count == 0)
             {
@@ -461,16 +461,23 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.TaskModel
         [HttpDelete("{id}")]
         public IActionResult DeleteNhiemVu(int id)
         {
-            var nhiemVu = context.NhiemVuRepository.Find(id);
-            if (nhiemVu == null)
+            try
             {
-                return NotFound();
+                var nhiemVu = context.NhiemVuRepository.Find(id);
+                if (nhiemVu == null)
+                {
+                    return NotFound();
+                }
+
+                context.NhiemVuRepository.Delete(nhiemVu);
+                context.SaveChanges();
+
+                return NoContent();
             }
-
-            context.NhiemVuRepository.Delete(nhiemVu);
-            context.SaveChanges();
-
-            return NoContent();
+            catch (DbUpdateException)
+            {
+                return BadRequest("Foreign key constraint violation: Cannot delete this entity due to related records in other tables.");
+            }
         }
 
         private bool NhiemVuExists(int id)

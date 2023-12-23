@@ -12,7 +12,7 @@ using VPCT.Core.DbContext;
 namespace VPCT.Core.Migrations
 {
     [DbContext(typeof(VPCTDbContext))]
-    [Migration("20231213160908_F")]
+    [Migration("20231223202405_F")]
     partial class F
     {
         /// <inheritdoc />
@@ -54,19 +54,19 @@ namespace VPCT.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "cb5032e8-23b4-4303-9206-90d18a8b7bc9",
+                            Id = "ce837422-6bbd-43bc-8d1a-3f370fd2ec92",
                             Name = "LanhDao",
                             NormalizedName = "LANHDAO"
                         },
                         new
                         {
-                            Id = "47d5392f-359d-43a2-86b1-32ebbb329a08",
+                            Id = "785a36b9-eb58-483f-98f0-17966569c04d",
                             Name = "ChuyenVien",
                             NormalizedName = "CHUYENVIEN"
                         },
                         new
                         {
-                            Id = "71bac49f-314f-41c7-abb1-f128ca488fa9",
+                            Id = "52f818bf-fcf1-4e33-bf5c-856c1c62b82b",
                             Name = "KeToan",
                             NormalizedName = "KETOAN"
                         });
@@ -161,13 +161,13 @@ namespace VPCT.Core.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "d06e89f1-c5cd-48df-926d-b4627ceb9b22",
-                            RoleId = "cb5032e8-23b4-4303-9206-90d18a8b7bc9"
+                            UserId = "1f8e0d55-d235-4774-aa2c-73eeadea0e85",
+                            RoleId = "ce837422-6bbd-43bc-8d1a-3f370fd2ec92"
                         },
                         new
                         {
-                            UserId = "441a393f-3fd5-480d-98ba-437cca253a68",
-                            RoleId = "47d5392f-359d-43a2-86b1-32ebbb329a08"
+                            UserId = "0788d7dd-b47d-4816-a185-b00f08aa1fdc",
+                            RoleId = "785a36b9-eb58-483f-98f0-17966569c04d"
                         });
                 });
 
@@ -387,37 +387,37 @@ namespace VPCT.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d06e89f1-c5cd-48df-926d-b4627ceb9b22",
+                            Id = "1f8e0d55-d235-4774-aa2c-73eeadea0e85",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b4df678d-1a59-4049-9a27-118fb7d7c2f8",
+                            ConcurrencyStamp = "c0997275-935d-41f8-9388-0c40bc753d8b",
                             Email = "aa@aa.aa",
                             EmailConfirmed = true,
                             FullName = "Luu Minh",
                             LockoutEnabled = false,
                             NormalizedEmail = "AA@AA.AA",
                             NormalizedUserName = "ADMIN12",
-                            PasswordHash = "AQAAAAIAAYagAAAAED6syfDinuOKigwOwT3LzD8Q1sDd1nayr6vd5mmzcNJKr0G4tXUD/LoLBtzthSkclA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHvuJHY6519r5KvN7bO1kPIBh2NKSizCmyJzWgKAXtY+wxdQldsVTGsG27OTCw4p4Q==",
                             PhoneNumber = "01223456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5566baac-ece9-4995-8705-0b8f0b264750",
+                            SecurityStamp = "9b360bf9-d581-4131-a08e-cf4c045f56db",
                             TwoFactorEnabled = false,
                             UserName = "admin12"
                         },
                         new
                         {
-                            Id = "441a393f-3fd5-480d-98ba-437cca253a68",
+                            Id = "0788d7dd-b47d-4816-a185-b00f08aa1fdc",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f86aff08-b189-478f-b683-aee9ec326176",
+                            ConcurrencyStamp = "c2bb367f-1b89-4d44-bae5-67d71604327e",
                             Email = "mm@mm.mm",
                             EmailConfirmed = true,
                             FullName = "Hoang Khanh",
                             LockoutEnabled = false,
                             NormalizedEmail = "MM@MM.MM",
                             NormalizedUserName = "ADMIN13",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAT5gyQuVRVyY4d2y4zhy+KwYZeATcyvkzf10ypkO0WZiWTVBfQ/Hz/dYXJbMs+iDw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELNEE36j3rWrOrS6vYDaZZLSUkM8ANNe3zD7ZDIrHpQ5C6Iq7ALT16PeKyWrSxEgfw==",
                             PhoneNumber = "01223456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "81df77ee-69f9-47b2-928c-84c0740e24e1",
+                            SecurityStamp = "38dc3ca5-29ca-4d2a-b132-c07f7c833445",
                             TwoFactorEnabled = false,
                             UserName = "admin13"
                         });
@@ -779,6 +779,7 @@ namespace VPCT.Core.Migrations
                         {
                             Id = 1,
                             Address = "Trường Đại học Công nghiệp Hà Nội",
+                            ChuongTrinhId = 1,
                             ChuyenNganhId = 1,
                             CoQuanChuTriId = 1,
                             DateOfBirth = new DateTime(1973, 9, 27, 0, 0, 0, 0, DateTimeKind.Utc),
@@ -799,6 +800,7 @@ namespace VPCT.Core.Migrations
                             Bank = "Nhà nước",
                             ChucDanhId = 2,
                             ChucVuId = 2,
+                            ChuongTrinhId = 1,
                             CoQuanChuTriId = 2,
                             DateOfBirth = new DateTime(1980, 5, 4, 0, 0, 0, 0, DateTimeKind.Utc),
                             DonViChuQuanId = 2,
@@ -816,6 +818,7 @@ namespace VPCT.Core.Migrations
                         new
                         {
                             Id = 3,
+                            ChuongTrinhId = 2,
                             ChuyenNganhId = 3,
                             CoQuanChuTriId = 3,
                             DonViChuQuanId = 2,
@@ -2152,7 +2155,7 @@ namespace VPCT.Core.Migrations
                             Id = 1,
                             DocTypeId = 1,
                             NhiemVuId = 1,
-                            PublishedDate = new DateTime(2023, 12, 13, 23, 9, 7, 920, DateTimeKind.Local).AddTicks(947),
+                            PublishedDate = new DateTime(2023, 12, 24, 3, 24, 4, 439, DateTimeKind.Local).AddTicks(8022),
                             SoCongVan = "ABC",
                             TrichYeu = "ABC"
                         },
@@ -2209,7 +2212,8 @@ namespace VPCT.Core.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("FileTypeId")
+                    b.Property<int?>("FileTypeId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("GhiChu")
@@ -2351,13 +2355,13 @@ namespace VPCT.Core.Migrations
                         new
                         {
                             Id = 1,
-                            Date = new DateTime(2023, 12, 13, 23, 9, 7, 920, DateTimeKind.Local).AddTicks(1090),
+                            Date = new DateTime(2023, 12, 24, 3, 24, 4, 439, DateTimeKind.Local).AddTicks(8221),
                             NhiemVuId = 1
                         },
                         new
                         {
                             Id = 2,
-                            Date = new DateTime(2023, 12, 13, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 12, 24, 0, 0, 0, 0, DateTimeKind.Local),
                             KinhPhi = 0.0,
                             NhiemVuId = 1
                         });
@@ -2405,14 +2409,14 @@ namespace VPCT.Core.Migrations
                         new
                         {
                             Id = 1,
-                            EstimatedTestDate = new DateTime(2023, 12, 13, 23, 9, 7, 920, DateTimeKind.Local).AddTicks(1121),
+                            EstimatedTestDate = new DateTime(2023, 12, 24, 3, 24, 4, 439, DateTimeKind.Local).AddTicks(8247),
                             KetLuan = "+ Thực hiện đúng tiến độ;\r\n+ Cần đẩy nhanh hơn tiến độ , hoàn thành việc lắp ráp, kiểm tra máy và chạy thử để nghiệm thu.",
                             NhiemVuId = 1
                         },
                         new
                         {
                             Id = 2,
-                            EstimatedTestDate = new DateTime(2023, 12, 13, 0, 0, 0, 0, DateTimeKind.Local),
+                            EstimatedTestDate = new DateTime(2023, 12, 24, 0, 0, 0, 0, DateTimeKind.Local),
                             FinalCost = 0.0,
                             NhiemVuId = 1
                         });
@@ -3026,7 +3030,7 @@ namespace VPCT.Core.Migrations
                     b.HasOne("VPCT.Core.Models.MainModels.DepartmentModel.DonViChuQuan", "DonViChuQuan")
                         .WithMany("CoQuanChuTri")
                         .HasForeignKey("DonViChuQuanId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("DonViChuQuan");
@@ -3047,39 +3051,48 @@ namespace VPCT.Core.Migrations
                 {
                     b.HasOne("VPCT.Core.Models.MainModels.ExpertModel.ChucDanh", "ChucDanh")
                         .WithMany("ChuyenGia")
-                        .HasForeignKey("ChucDanhId");
+                        .HasForeignKey("ChucDanhId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("VPCT.Core.Models.MainModels.ExpertModel.ChucVu", "ChucVu")
                         .WithMany("ChuyenGia")
-                        .HasForeignKey("ChucVuId");
+                        .HasForeignKey("ChucVuId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("VPCT.Core.Models.MainModels.ProgramModel.ChuongTrinh", "ChuongTrinh")
                         .WithMany("ChuyenGia")
-                        .HasForeignKey("ChuongTrinhId");
+                        .HasForeignKey("ChuongTrinhId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("VPCT.Core.Models.MainModels.FieldModel.ChuyenNganh", "ChuyenNganh")
                         .WithMany("ChuyenGia")
-                        .HasForeignKey("ChuyenNganhId");
+                        .HasForeignKey("ChuyenNganhId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("VPCT.Core.Models.MainModels.DepartmentModel.CoQuanChuTri", "CoQuanChuTri")
                         .WithMany("ChuyenGia")
-                        .HasForeignKey("CoQuanChuTriId");
+                        .HasForeignKey("CoQuanChuTriId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("VPCT.Core.Models.MainModels.DepartmentModel.DonViChuQuan", "DonViChuQuan")
                         .WithMany("ChuyenGia")
-                        .HasForeignKey("DonViChuQuanId");
+                        .HasForeignKey("DonViChuQuanId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("VPCT.Core.Models.MainModels.ExpertModel.HocHam", "HocHam")
                         .WithMany("ChuyenGia")
-                        .HasForeignKey("HocHamId");
+                        .HasForeignKey("HocHamId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("VPCT.Core.Models.MainModels.ExpertModel.HocVi", "HocVi")
                         .WithMany("ChuyenGia")
-                        .HasForeignKey("HocViId");
+                        .HasForeignKey("HocViId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("VPCT.Core.Models.MainModels.FieldModel.LinhVuc", "LinhVuc")
                         .WithMany("ChuyenGia")
-                        .HasForeignKey("LinhVucId");
+                        .HasForeignKey("LinhVucId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("ChucDanh");
 
@@ -3160,7 +3173,7 @@ namespace VPCT.Core.Migrations
                     b.HasOne("VPCT.Core.Models.MainModels.FieldModel.LinhVuc", "LinhVuc")
                         .WithMany("ChuyenNganhs")
                         .HasForeignKey("LinhVucId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("LinhVuc");
@@ -3170,7 +3183,8 @@ namespace VPCT.Core.Migrations
                 {
                     b.HasOne("VPCT.Core.Models.MainModels.ProductModel.DangSanPham", "DangSanPham")
                         .WithMany("LoaiSanPham")
-                        .HasForeignKey("DangSanPhamId");
+                        .HasForeignKey("DangSanPhamId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("DangSanPham");
                 });
@@ -3180,7 +3194,7 @@ namespace VPCT.Core.Migrations
                     b.HasOne("VPCT.Core.Models.MainModels.ProductModel.LoaiSanPham", "LoaiSanPham")
                         .WithMany("Ownership")
                         .HasForeignKey("LoaiSanPhamId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("VPCT.Core.Models.MainModels.TaskModel.NhiemVu", "NhiemVu")
@@ -3198,7 +3212,8 @@ namespace VPCT.Core.Migrations
                 {
                     b.HasOne("VPCT.Core.Models.MainModels.ProductModel.LoaiSanPham", "LoaiSanPham")
                         .WithMany("Product_Is")
-                        .HasForeignKey("LoaiSanPhamId");
+                        .HasForeignKey("LoaiSanPhamId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("VPCT.Core.Models.MainModels.TaskModel.NhiemVu", "NhiemVu")
                         .WithMany("Product_Is")
@@ -3216,7 +3231,7 @@ namespace VPCT.Core.Migrations
                     b.HasOne("VPCT.Core.Models.MainModels.ProductModel.LoaiSanPham", "LoaiSanPham")
                         .WithMany("Product_IIs")
                         .HasForeignKey("LoaiSanPhamId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("VPCT.Core.Models.MainModels.TaskModel.NhiemVu", "NhiemVu")
@@ -3235,7 +3250,7 @@ namespace VPCT.Core.Migrations
                     b.HasOne("VPCT.Core.Models.MainModels.ProductModel.LoaiSanPham", "LoaiSanPham")
                         .WithMany("Product_IIIs")
                         .HasForeignKey("LoaiSanPhamId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("VPCT.Core.Models.MainModels.TaskModel.NhiemVu", "NhiemVu")
@@ -3253,7 +3268,8 @@ namespace VPCT.Core.Migrations
                 {
                     b.HasOne("VPCT.Core.Models.MainModels.FieldModel.ChuyenNganh", "ChuyenNganh")
                         .WithMany("Product_PostgraduateTraining")
-                        .HasForeignKey("ChuyenNganhId");
+                        .HasForeignKey("ChuyenNganhId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("VPCT.Core.Models.MainModels.TaskModel.NhiemVu", "NhiemVu")
                         .WithMany("Product_PostgraduateTrainings")
@@ -3281,7 +3297,8 @@ namespace VPCT.Core.Migrations
                 {
                     b.HasOne("VPCT.Core.Models.MainModels.DepartmentModel.CoQuanChuTri", "CoQuanChuTri")
                         .WithMany("ChuongTrinh")
-                        .HasForeignKey("CoQuanChuTriId");
+                        .HasForeignKey("CoQuanChuTriId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("VPCT.Core.Models.GiaiDoan", "GiaiDoan")
                         .WithMany()
@@ -3290,7 +3307,7 @@ namespace VPCT.Core.Migrations
                     b.HasOne("VPCT.Core.Models.MainModels.ProgramModel.LoaiChuongTrinh", "LoaiChuongTrinh")
                         .WithMany("ChuongTrinh")
                         .HasForeignKey("LoaiChuongTrinhId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("CoQuanChuTri");
@@ -3311,7 +3328,7 @@ namespace VPCT.Core.Migrations
                     b.HasOne("VPCT.Core.Models.MainModels.DepartmentModel.CoQuanQuanLy", "CoQuanQuanLy")
                         .WithMany("ChuongTrinh_CoQuanQuanLys")
                         .HasForeignKey("CoQuanQuanLyId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("ChuongTrinh");
@@ -3323,11 +3340,13 @@ namespace VPCT.Core.Migrations
                 {
                     b.HasOne("VPCT.Core.Models.MainModels.ExpertModel.HocHam", "HocHam")
                         .WithMany("CaNhanThamGia")
-                        .HasForeignKey("HocHamId");
+                        .HasForeignKey("HocHamId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("VPCT.Core.Models.MainModels.ExpertModel.HocVi", "HocVi")
                         .WithMany("CaNhanThamGia")
-                        .HasForeignKey("HocViId");
+                        .HasForeignKey("HocViId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("VPCT.Core.Models.MainModels.TaskModel.NhiemVu", "NhiemVu")
                         .WithMany("CaNhanThamGia")
@@ -3347,13 +3366,13 @@ namespace VPCT.Core.Migrations
                     b.HasOne("VPCT.Core.Models.MainModels.DepartmentModel.CoQuanChuTri", "CoQuanChuTri")
                         .WithMany("CoQuanChuTri_NhiemVu")
                         .HasForeignKey("CoQuanChuTriId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("VPCT.Core.Models.MainModels.DepartmentModel.DonViChuQuan", "DonViChuQuan")
                         .WithMany("CoQuanChuTri_NhiemVu")
                         .HasForeignKey("DonViChuQuanId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("VPCT.Core.Models.MainModels.TaskModel.NhiemVu", "NhiemVu")
@@ -3373,7 +3392,8 @@ namespace VPCT.Core.Migrations
                 {
                     b.HasOne("VPCT.Core.Models.DocAndFileTypes.DocType", "Type")
                         .WithMany("CongVanNhiemVu")
-                        .HasForeignKey("DocTypeId");
+                        .HasForeignKey("DocTypeId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("VPCT.Core.Models.MainModels.TaskModel.NhiemVu", "NhiemVu")
                         .WithMany("CongVanNhiemVu")
@@ -3391,7 +3411,7 @@ namespace VPCT.Core.Migrations
                     b.HasOne("VPCT.Core.Models.MainModels.DepartmentModel.DonViChuQuan", "DonViChuQuan")
                         .WithMany("DonViChuQuan_NhiemVu")
                         .HasForeignKey("DonViChuQuanId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("VPCT.Core.Models.MainModels.TaskModel.NhiemVu", "NhiemVu")
@@ -3410,7 +3430,7 @@ namespace VPCT.Core.Migrations
                     b.HasOne("VPCT.Core.Models.DocAndFileTypes.FileType", "Type")
                         .WithMany("FileDinhKem")
                         .HasForeignKey("FileTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("VPCT.Core.Models.MainModels.TaskModel.NhiemVu", "NhiemVu")
@@ -3446,7 +3466,7 @@ namespace VPCT.Core.Migrations
                     b.HasOne("VPCT.Core.Models.MainModels.TaskModel.HoiDongKhoaHoc", "HoiDongKhoaHoc")
                         .WithMany("HoiDongKhoaHoc_ChuyenGia")
                         .HasForeignKey("HoiDongKhoaHocId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("ChuyenGia");
@@ -3485,28 +3505,33 @@ namespace VPCT.Core.Migrations
 
                     b.HasOne("VPCT.Core.Models.MainModels.FieldModel.ChuyenNganh", "ChuyenNganh")
                         .WithMany("NhiemVu")
-                        .HasForeignKey("ChuyenNganhId");
+                        .HasForeignKey("ChuyenNganhId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("VPCT.Core.Models.MainModels.DepartmentModel.CoQuanChuTri", "CoQuanChuTri")
                         .WithMany("NhiemVu")
-                        .HasForeignKey("CoQuanChuTriId");
+                        .HasForeignKey("CoQuanChuTriId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("VPCT.Core.Models.MainModels.DepartmentModel.CoQuanQuanLy", "CoQuanQuanLyKinhPhi")
                         .WithMany("CostManagingTasks")
-                        .HasForeignKey("CoQuanQuanLyKinhPhiId");
+                        .HasForeignKey("CoQuanQuanLyKinhPhiId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("VPCT.Core.Models.MainModels.DepartmentModel.CoQuanQuanLy", "CoQuanQuanLyNhiemVu")
                         .WithMany("TaskManagingTasks")
-                        .HasForeignKey("CoQuanQuanLyNhiemVuId");
+                        .HasForeignKey("CoQuanQuanLyNhiemVuId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("VPCT.Core.Models.MainModels.FieldModel.LinhVuc", "LinhVuc")
                         .WithMany("NhiemVu")
-                        .HasForeignKey("LinhVucId");
+                        .HasForeignKey("LinhVucId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("VPCT.Core.Models.MainModels.ExpertModel.ChuyenGia", "President")
                         .WithMany("NhiemVu")
                         .HasForeignKey("PresidentId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("ChuongTrinh");

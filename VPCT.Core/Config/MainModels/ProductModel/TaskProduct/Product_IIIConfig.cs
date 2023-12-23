@@ -12,8 +12,8 @@ namespace VPCT.Core.Config.MainModels.ProductModel.TaskProduct
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.Name).IsRequired();
-            builder.HasOne(x => x.NhiemVu).WithMany(x => x.Product_IIIs).HasForeignKey(x => x.NhiemVuId);
-            builder.HasOne(x => x.LoaiSanPham).WithMany(x => x.Product_IIIs).HasForeignKey(x => x.LoaiSanPhamId);
+            builder.HasOne(x => x.NhiemVu).WithMany(x => x.Product_IIIs).HasForeignKey(x => x.NhiemVuId).OnDelete(DeleteBehavior.Cascade);
+            builder.HasOne(x => x.LoaiSanPham).WithMany(x => x.Product_IIIs).HasForeignKey(x => x.LoaiSanPhamId).OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

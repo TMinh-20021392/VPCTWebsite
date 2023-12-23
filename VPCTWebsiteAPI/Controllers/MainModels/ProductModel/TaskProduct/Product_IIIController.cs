@@ -89,16 +89,23 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProductModel.TaskProduct
         [HttpDelete("{id}")]
         public IActionResult DeleteProduct_III(int id)
         {
-            var product_III = context.Product_III_Repository.Find(id);
-            if (product_III == null)
+            try
             {
-                return NotFound();
+                var product_III = context.Product_III_Repository.Find(id);
+                if (product_III == null)
+                {
+                    return NotFound();
+                }
+
+                context.Product_III_Repository.Delete(product_III);
+                context.SaveChanges();
+
+                return NoContent();
             }
-
-            context.Product_III_Repository.Delete(product_III);
-            context.SaveChanges();
-
-            return NoContent();
+            catch (DbUpdateException)
+            {
+                return BadRequest("Foreign key constraint violation: Cannot delete this entity due to related records in other tables.");
+            }
         }
 
         private bool Product_IIIExists(int id)

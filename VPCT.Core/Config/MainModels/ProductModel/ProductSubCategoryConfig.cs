@@ -12,7 +12,7 @@ namespace VPCT.Core.Config
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.Name).IsRequired();
-            builder.HasOne(x => x.DangSanPham).WithMany(x => x.LoaiSanPham).HasForeignKey(x => x.DangSanPhamId);
+            builder.HasOne(x => x.DangSanPham).WithMany(x => x.LoaiSanPham).HasForeignKey(x => x.DangSanPhamId).OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

@@ -82,16 +82,23 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.TaskModel
         [HttpDelete("{id}")]
         public IActionResult DeleteFileDinhKem(int id)
         {
-            var fileDinhKem = context.FileDinhKemRepository.Find(id);
-            if (fileDinhKem == null)
+            try
             {
-                return NotFound();
-            }
-            fileService.DeleteFile(fileDinhKem.FileName);
-            context.FileDinhKemRepository.Delete(fileDinhKem);
-            context.SaveChanges();
+                var fileDinhKem = context.FileDinhKemRepository.Find(id);
+                if (fileDinhKem == null)
+                {
+                    return NotFound();
+                }
+                fileService.DeleteFile(fileDinhKem.FileName);
+                context.FileDinhKemRepository.Delete(fileDinhKem);
+                context.SaveChanges();
 
-            return NoContent();
+                return NoContent();
+            }
+            catch (DbUpdateException)
+            {
+                return BadRequest("Foreign key constraint violation: Cannot delete this entity due to related records in other tables.");
+            }
         }
 
         private bool FileDinhKemExists(int id)

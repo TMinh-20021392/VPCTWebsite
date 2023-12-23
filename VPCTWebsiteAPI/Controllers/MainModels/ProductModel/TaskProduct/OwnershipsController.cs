@@ -89,16 +89,23 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProductModel.TaskProduct
         [HttpDelete("{id}")]
         public IActionResult DeleteOwnership(int id)
         {
-            var ownership = context.OwnershipRepository.Find(id);
-            if (ownership == null)
+            try
             {
-                return NotFound();
+                var ownership = context.OwnershipRepository.Find(id);
+                if (ownership == null)
+                {
+                    return NotFound();
+                }
+
+                context.OwnershipRepository.Delete(ownership);
+                context.SaveChanges();
+
+                return NoContent();
             }
-
-            context.OwnershipRepository.Delete(ownership);
-            context.SaveChanges();
-
-            return NoContent();
+            catch (DbUpdateException)
+            {
+                return BadRequest("Foreign key constraint violation: Cannot delete this entity due to related records in other tables.");
+            }
         }
 
         private bool OwnershipExists(int id)

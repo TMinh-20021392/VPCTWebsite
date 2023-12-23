@@ -78,16 +78,23 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.TaskModel
         [HttpDelete("{id}")]
         public IActionResult DeleteLanKiemTra(int id)
         {
-            var lanKiemTra = context.LanKiemTraRepository.Find(id);
-            if (lanKiemTra == null)
+            try
             {
-                return NotFound();
+                var lanKiemTra = context.LanKiemTraRepository.Find(id);
+                if (lanKiemTra == null)
+                {
+                    return NotFound();
+                }
+
+                context.LanKiemTraRepository.Delete(lanKiemTra);
+                context.SaveChanges();
+
+                return NoContent();
             }
-
-            context.LanKiemTraRepository.Delete(lanKiemTra);
-            context.SaveChanges();
-
-            return NoContent();
+            catch (DbUpdateException)
+            {
+                return BadRequest("Foreign key constraint violation: Cannot delete this entity due to related records in other tables.");
+            }
         }
 
         private bool LanKiemTraExists(int id)

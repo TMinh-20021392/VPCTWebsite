@@ -12,7 +12,6 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProgramModel
     [ApiController]
     public class ChuongTrinhsController(IUnitOfWork context) : ControllerBase
     {
-
         // GET: api/ChuongTrinhs
         [HttpGet]
         public ActionResult<IEnumerable<ChuongTrinh>> GetChuongTrinh()
@@ -22,6 +21,7 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProgramModel
                 .Include(x => x.CoQuanChuTri)
                 .Include(x => x.GiaiDoan).ToList();
         }
+
 
         // GET: api/ChuongTrinhs/5
         [HttpGet("{id}")]
@@ -354,16 +354,23 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ProgramModel
         [HttpDelete("{id}")]
         public IActionResult DeleteChuongTrinh(int id)
         {
-            var chuongTrinh = context.ChuongTrinhRepository.Find(id);
-            if (chuongTrinh == null)
+            try
             {
-                return NotFound();
+                var chuongTrinh = context.ChuongTrinhRepository.Find(id);
+                if (chuongTrinh == null)
+                {
+                    return NotFound();
+                }
+
+                context.ChuongTrinhRepository.Delete(chuongTrinh);
+                context.SaveChanges();
+
+                return NoContent();
             }
-
-            context.ChuongTrinhRepository.Delete(chuongTrinh);
-            context.SaveChanges();
-
-            return NoContent();
+            catch (DbUpdateException)
+            {
+                return BadRequest("Foreign key constraint violation: Cannot delete this entity due to related records in other tables.");
+            }
         }
 
         private bool ChuongTrinhExists(int id)

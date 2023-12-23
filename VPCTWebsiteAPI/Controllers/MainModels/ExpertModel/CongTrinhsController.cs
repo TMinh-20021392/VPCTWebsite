@@ -78,16 +78,23 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.ExpertModel
         [HttpDelete("{id}")]
         public IActionResult DeleteCongTrinh(int id)
         {
-            var congTrinh = context.CongTrinhRepository.Find(id);
-            if (congTrinh == null)
+            try
             {
-                return NotFound();
+                var congTrinh = context.CongTrinhRepository.Find(id);
+                if (congTrinh == null)
+                {
+                    return NotFound();
+                }
+
+                context.CongTrinhRepository.Delete(congTrinh);
+                context.SaveChanges();
+
+                return NoContent();
             }
-
-            context.CongTrinhRepository.Delete(congTrinh);
-            context.SaveChanges();
-
-            return NoContent();
+            catch (DbUpdateException)
+            {
+                return BadRequest("Foreign key constraint violation: Cannot delete this entity due to related records in other tables.");
+            }
         }
 
         private bool CongTrinhExists(int id)
