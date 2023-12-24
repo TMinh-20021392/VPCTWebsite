@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 using VPCT.Core.Models.Identity;
 using VPCTWebsiteAPI.Service;
 
@@ -31,6 +32,8 @@ namespace VPCTWebsiteAPI.Controllers.IdentityController
             user.Address = userInfo.Address;
             user.Description = userInfo.Description;
             user.ImageName = userInfo.ImageName;
+            user.PhoneNumber = userInfo.PhoneNumber;
+            user.Email = userInfo.Email;
 
             var result = await userManager.UpdateAsync(user);
 
@@ -55,5 +58,57 @@ namespace VPCTWebsiteAPI.Controllers.IdentityController
             user.ImageSrc = $"{Request.Scheme}://{Request.Host}{Request.PathBase}/Images/{user.ImageName}";
             return Ok(user);
         }
+
+        [HttpPost("changepassword")]
+        public async Task<IActionResult> ChangePassword([FromForm] ChangePasswordModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Invalid input");
+            }
+            var user = await userManager.FindByIdAsync(model.Id);
+            if (user == null)
+            {
+                return NotFound("User not found");
+            }
+
+            if (!string.IsNullOrEmpty(model.UserName))
+            {
+                user.UserName = model.UserName;
+                var changeUserNameResult = await userManager.UpdateAsync(user);
+                if (!changeUserNameResult.Succeeded)
+                {
+                    return BadRequest("Failed to change username");
+                }
+            }
+
+            if (!string.IsNullOrEmpty(model.NewPassword) && !string.IsNullOrEmpty(model.CurrentPassword))
+            {
+                if (model.NewPassword != model.ConfirmNewPassword)
+                {
+                    return BadRequest("New password and confirm password do not match");
+                }
+                var changePasswordResult = await userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+                if (changePasswordResult.Succeeded)
+                {
+                    return Ok("Username and password changed successfully");
+                }
+                else
+                {
+                    return BadRequest("Failed to change password");
+                }
+            }
+            return Ok("Updated successfully");
+        }
+        public class ChangePasswordModel
+        {
+            [Required]
+            public string Id { get; set; } = null!;
+            public string? UserName { get; set; }
+            public string? CurrentPassword { get; set; }
+            public string? NewPassword { get; set; }
+            public string? ConfirmNewPassword { get; set; }
+        }
+
     }
 }

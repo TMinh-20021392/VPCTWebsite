@@ -1,5 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DocumentFormat.OpenXml;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Spreadsheet;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using OfficeOpenXml.Style;
+using OfficeOpenXml;
 using VPCT.Core.DTO;
 using VPCT.Core.Models.MainModels.TaskModel;
 using VPCT.Core.Models.MainModels.TaskModel.Enums;
@@ -483,6 +488,42 @@ namespace VPCTWebsiteAPI.Controllers.MainModels.TaskModel
         private bool NhiemVuExists(int id)
         {
             return (context.NhiemVuRepository.GetAll()?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        [HttpGet("downloadExcel/{CtId}")]
+        public IActionResult PopulateExcelTemplate(int CtId)
+        {
+            var data = context.NhiemVuRepository.TimKiemNhiemVu(programId: CtId).ToList();
+            var templateFilePath = "C:\\Users\\Tuanminh1910\\Downloads\\VPCTWebsite-master\\VPCTWebsite-master\\VPCTWebsiteAPI\\ThongKe\\abcxyz.xlsx";
+            using (var templatePackage = new ExcelPackage(new FileInfo(templateFilePath)))
+            {
+                var worksheet = templatePackage.Workbook.Worksheets["DADLQG"];
+                worksheet.Cells["B3"].Value = DateTime.Today.ToString("dd/MM/yyyy");
+                // Populate the data starting from row 6
+                int rowIndex = 6;
+                foreach (var item in data)
+                {
+                    worksheet.Cells[rowIndex, 1].Value = rowIndex - 5; // Populate STT
+                    worksheet.Cells[rowIndex, 2].Value = item.MaNhiemVu; // Populate Code
+                    worksheet.Cells[rowIndex, 6].Value = item.President.Name; // Populate Name
+                    worksheet.Cells[rowIndex, 7].Value = item.KinhPhi_Total;
+                    worksheet.Cells[rowIndex, 8].Value = $"Tháng {item.StartDate_Month}/{item.StartDate_Year}";
+                    worksheet.Cells[rowIndex, 9].Value = $"=IF(H{rowIndex}>0,1,0)";
+
+                    if (item.Status == TrangThaiNhiemVu.Cancelled)
+                    {
+                        worksheet.Cells[rowIndex, 6].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                        worksheet.Cells[rowIndex, 6].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.Red);
+                    }
+
+                    rowIndex++;
+                }
+                // Convert the package to a byte array
+                var fileBytes = templatePackage.GetAsByteArray();
+
+                // Return the Excel file as a downloadable file
+                return File(fileBytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "populated_file.xlsx");
+            }
         }
     }
 }

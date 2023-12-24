@@ -22,7 +22,7 @@ namespace VPCTWebsiteAPI.Controllers.IdentityController
 
                 var authClaims = new List<Claim>
                 {
-                    new(ClaimTypes.NameIdentifier, user.Id),
+                    new("id", user.Id),
                     new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 };
 
