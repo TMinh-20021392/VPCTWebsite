@@ -6,6 +6,7 @@ namespace VPCT.Core.Models.MainModels.TaskModel.Enums
     {
         [Display(Name = "Thực hiện")] Working,
         [Display(Name = "Dừng")] Cancelled,
-        [Display(Name = "Đã nghiệm thu")] Completed
+        [Display(Name = "Đã nghiệm thu")] DaNghiemThu,
+        [Display(Name = "Chưa nghiệm thu")] ChuaNghiemThu
     }
 }

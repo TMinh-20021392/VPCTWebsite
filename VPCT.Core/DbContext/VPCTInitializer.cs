@@ -135,6 +135,21 @@ namespace VPCT.Core.DbContext
                     Name = "Vụ Khoa học Xã hội, Nhân văn và Tự nhiên",
                     Type = CoQuanQuanLy.LoaiQuanLy.TaskManagement,
                     Address = "Bộ KH&CN",
+                },
+                new CoQuanQuanLy
+                {
+                    Id = 4,
+                    Name = "Vụ Công nghệ cao",
+                    Type = CoQuanQuanLy.LoaiQuanLy.TaskManagement,
+                    Address = "Bộ KH&CN",
+                    PhoneNumber = "04.35560648"
+                },
+                new CoQuanQuanLy
+                {
+                    Id = 5,
+                    Name = "Vụ Khoa học và Công nghệ các ngành kinh tế kỹ thuật",
+                    Type = CoQuanQuanLy.LoaiQuanLy.TaskManagement,
+                    Address = "Bộ KH&CN",
                 }
             );
             modelBuilder.Entity<LinhVuc>().HasData(

@@ -687,7 +687,7 @@ namespace VPCT.Core.Migrations
                     FundingPlan_SecondYearMonths = table.Column<int>(type: "int", nullable: true),
                     FundingPlan_ThirdYearMonths = table.Column<int>(type: "int", nullable: true),
                     FundingPlan_FourthYearMonths = table.Column<int>(type: "int", nullable: true),
-                    FundingPlan_FifteenYearMonths = table.Column<int>(type: "int", nullable: true),
+                    FundingPlan_FifthYearMonths = table.Column<int>(type: "int", nullable: true),
                     FundingPlan_SixthYearMonths = table.Column<int>(type: "int", nullable: true),
                     FundingPlan_FirstYear = table.Column<double>(type: "float", nullable: true),
                     FundingPlan_SecondYear = table.Column<double>(type: "float", nullable: true),
@@ -1335,9 +1335,9 @@ namespace VPCT.Core.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "4b2400fd-68fb-4e56-b075-6d756d3f315b", null, "KeToan", "KETOAN" },
-                    { "991a2fcb-3b5d-43f8-a376-8e4305ac1014", null, "LanhDao", "LANHDAO" },
-                    { "fc9f80e4-2103-470a-ac3e-52df2c566192", null, "ChuyenVien", "CHUYENVIEN" }
+                    { "821afdde-c63e-4f04-aa79-f508ce9a9b17", null, "KeToan", "KETOAN" },
+                    { "935c4c95-40a4-4230-be02-a086f969adf2", null, "LanhDao", "LANHDAO" },
+                    { "a9dd39dd-8997-4333-832a-7915da51e24b", null, "ChuyenVien", "CHUYENVIEN" }
                 });
 
             migrationBuilder.InsertData(
@@ -1345,8 +1345,8 @@ namespace VPCT.Core.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "Address", "ConcurrencyStamp", "Description", "Email", "EmailConfirmed", "FullName", "ImageName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "09fdad35-a51b-4c4a-97e0-064b1b861643", 0, null, "67254d64-ce59-4139-abae-717470abce0f", null, "aa@aa.aa", true, "Luu Minh", null, false, null, "AA@AA.AA", "ADMIN12", "AQAAAAIAAYagAAAAEDF1WtwNtSqnnqYNLVkvpYyaX9o0y2OhUslEnJF0gKoSUD1UjQshruY9FOhVrFa8gQ==", "01223456789", false, "c248ce2b-7bc4-4f69-bc6a-98c4d577e7fa", false, "admin12" },
-                    { "bdae3809-566c-42c9-832e-9d9e24405418", 0, null, "188f23dd-0e88-4044-a76a-8705d8cf4d82", null, "mm@mm.mm", true, "Hoang Khanh", null, false, null, "MM@MM.MM", "ADMIN13", "AQAAAAIAAYagAAAAED7m0cXqr+EJai2TNbyikx3tJFOUkInVzsue8qLo6ryFv24EWzoERthP18Lyg/QCfw==", "01223456789", false, "26d1a47f-f099-4da7-bf7f-7c805b695513", false, "admin13" }
+                    { "6341d8af-6767-44da-9e92-1c83a61f7cd0", 0, null, "2499884b-1b2d-4612-9104-06b77196a2fd", null, "mm@mm.mm", true, "Hoang Khanh", null, false, null, "MM@MM.MM", "ADMIN13", "AQAAAAIAAYagAAAAEGchAwuqIKMf1/ruNi8X9nKR7jdUSc403/P91nScBBkgkGGvLIrffD8aASJLNLFFGg==", "01223456789", false, "42f923ff-e95f-430b-89a2-32d5e11ae139", false, "admin13" },
+                    { "67507583-8f47-4797-a231-2eeb9886a519", 0, null, "a3d239cd-5c5c-40cd-8d73-ac4e0413f8f6", null, "aa@aa.aa", true, "Luu Minh", null, false, null, "AA@AA.AA", "ADMIN12", "AQAAAAIAAYagAAAAEEvKy4aHKBgFYK/AKx5BUPdoVL8xNjpf48TqX8XnCblcZa7oSG2DtIO11PltWV4sjg==", "01223456789", false, "ee121891-8d8e-407a-8a41-232c3597193e", false, "admin12" }
                 });
 
             migrationBuilder.InsertData(
@@ -1477,8 +1477,8 @@ namespace VPCT.Core.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "991a2fcb-3b5d-43f8-a376-8e4305ac1014", "09fdad35-a51b-4c4a-97e0-064b1b861643" },
-                    { "fc9f80e4-2103-470a-ac3e-52df2c566192", "bdae3809-566c-42c9-832e-9d9e24405418" }
+                    { "a9dd39dd-8997-4333-832a-7915da51e24b", "6341d8af-6767-44da-9e92-1c83a61f7cd0" },
+                    { "935c4c95-40a4-4230-be02-a086f969adf2", "67507583-8f47-4797-a231-2eeb9886a519" }
                 });
 
             migrationBuilder.InsertData(
@@ -1594,7 +1594,7 @@ namespace VPCT.Core.Migrations
 
             migrationBuilder.InsertData(
                 table: "NhiemVu",
-                columns: new[] { "Id", "Accounting_Specialist", "Address", "Category", "ChiPhiKhac_Khac", "ChiPhiKhac_NganSachNhaNuoc", "ChiPhiLaoDong_Khac", "ChiPhiLaoDong_NganSachNhaNuoc", "ChuongTrinhId", "ChuyenNganhId", "CoQuanChuTriId", "CoQuanQuanLyKinhPhiId", "CoQuanQuanLyNhiemVuId", "DepartmentAdmin", "DepartmentAdminSpecialist", "EndDate_Month", "EndDate_Year", "FundingPlan_FifteenYearMonths", "FundingPlan_FifthYear", "FundingPlan_FirstYear", "FundingPlan_FirstYearMonths", "FundingPlan_FourthYear", "FundingPlan_FourthYearMonths", "FundingPlan_SecondYear", "FundingPlan_SecondYearMonths", "FundingPlan_SixthYear", "FundingPlan_SixthYearMonths", "FundingPlan_ThirdYear", "FundingPlan_ThirdYearMonths", "HTQT_Khac", "HTQT_NganSachNhaNuoc", "HieuQua", "HoTroCongNghe_Khac", "HoTroCongNghe_NganSachNhaNuoc", "KetQua", "LinhVucId", "MaNhiemVu", "MuaMoi_Khac", "MuaMoi_NganSachNhaNuoc", "MucTieu", "Name", "NgiemThu_Month", "NgiemThu_Year", "NguyenVatLieu_Khac", "NguyenVatLieu_NganSachNhaNuoc", "NhanXet", "NoiDung", "PhuongAnThanhLyHopDong", "PhuongAnThanhLyTaiSan", "Planning_Specialist", "PresidentId", "StartDate_Month", "StartDate_Year", "Status", "ThanhLyHopDong", "ThanhLyTaiSan", "ThietBiMayMoc_Khac", "ThietBiMayMoc_NganSachNhaNuoc", "ThuHoiKinhPhi_FirstTime", "ThuHoiKinhPhi_FirstTime_Month", "ThuHoiKinhPhi_FirstTime_Year", "ThuHoiKinhPhi_SecondTime", "ThuHoiKinhPhi_SecondTime_Month", "ThuHoiKinhPhi_SecondTime_Year", "ThucTeCapKinhPhi_FifthYear_FirstTime", "ThucTeCapKinhPhi_FifthYear_FirstTime_Month", "ThucTeCapKinhPhi_FifthYear_FirstTime_Year", "ThucTeCapKinhPhi_FifthYear_SecondTime", "ThucTeCapKinhPhi_FifthYear_SecondTime_Month", "ThucTeCapKinhPhi_FifthYear_SecondTime_Year", "ThucTeCapKinhPhi_FirstYear_FirstTime", "ThucTeCapKinhPhi_FirstYear_FirstTime_Month", "ThucTeCapKinhPhi_FirstYear_FirstTime_Year", "ThucTeCapKinhPhi_FirstYear_SecondTime", "ThucTeCapKinhPhi_FirstYear_SecondTime_Month", "ThucTeCapKinhPhi_FirstYear_SecondTime_Year", "ThucTeCapKinhPhi_FourthYear_FirstTime", "ThucTeCapKinhPhi_FourthYear_FirstTime_Month", "ThucTeCapKinhPhi_FourthYear_FirstTime_Year", "ThucTeCapKinhPhi_FourthYear_SecondTime", "ThucTeCapKinhPhi_FourthYear_SecondTime_Month", "ThucTeCapKinhPhi_FourthYear_SecondTime_Year", "ThucTeCapKinhPhi_SecondYear_FirstTime", "ThucTeCapKinhPhi_SecondYear_FirstTime_Month", "ThucTeCapKinhPhi_SecondYear_FirstTime_Year", "ThucTeCapKinhPhi_SecondYear_SecondTime", "ThucTeCapKinhPhi_SecondYear_SecondTime_Month", "ThucTeCapKinhPhi_SecondYear_SecondTime_Year", "ThucTeCapKinhPhi_SixthYear_FirstTime", "ThucTeCapKinhPhi_SixthYear_FirstTime_Month", "ThucTeCapKinhPhi_SixthYear_FirstTime_Year", "ThucTeCapKinhPhi_SixthYear_SecondTime", "ThucTeCapKinhPhi_SixthYear_SecondTime_Month", "ThucTeCapKinhPhi_SixthYear_SecondTime_Year", "ThucTeCapKinhPhi_ThirdYear_FirstTime", "ThucTeCapKinhPhi_ThirdYear_FirstTime_Month", "ThucTeCapKinhPhi_ThirdYear_FirstTime_Year", "ThucTeCapKinhPhi_ThirdYear_SecondTime", "ThucTeCapKinhPhi_ThirdYear_SecondTime_Month", "ThucTeCapKinhPhi_ThirdYear_SecondTime_Year", "ThueKhoanChuyenMon_Khac", "ThueKhoanChuyenMon_NganSachNhaNuoc", "Thue_Khac", "Thue_NganSachNhaNuoc", "TongKinhPhiThuHoi", "VPCT_Leader", "XayDungSuaChuaNho_Khac", "XayDungSuaChuaNho_NganSachNhaNuoc" },
+                columns: new[] { "Id", "Accounting_Specialist", "Address", "Category", "ChiPhiKhac_Khac", "ChiPhiKhac_NganSachNhaNuoc", "ChiPhiLaoDong_Khac", "ChiPhiLaoDong_NganSachNhaNuoc", "ChuongTrinhId", "ChuyenNganhId", "CoQuanChuTriId", "CoQuanQuanLyKinhPhiId", "CoQuanQuanLyNhiemVuId", "DepartmentAdmin", "DepartmentAdminSpecialist", "EndDate_Month", "EndDate_Year", "FundingPlan_FifthYear", "FundingPlan_FifthYearMonths", "FundingPlan_FirstYear", "FundingPlan_FirstYearMonths", "FundingPlan_FourthYear", "FundingPlan_FourthYearMonths", "FundingPlan_SecondYear", "FundingPlan_SecondYearMonths", "FundingPlan_SixthYear", "FundingPlan_SixthYearMonths", "FundingPlan_ThirdYear", "FundingPlan_ThirdYearMonths", "HTQT_Khac", "HTQT_NganSachNhaNuoc", "HieuQua", "HoTroCongNghe_Khac", "HoTroCongNghe_NganSachNhaNuoc", "KetQua", "LinhVucId", "MaNhiemVu", "MuaMoi_Khac", "MuaMoi_NganSachNhaNuoc", "MucTieu", "Name", "NgiemThu_Month", "NgiemThu_Year", "NguyenVatLieu_Khac", "NguyenVatLieu_NganSachNhaNuoc", "NhanXet", "NoiDung", "PhuongAnThanhLyHopDong", "PhuongAnThanhLyTaiSan", "Planning_Specialist", "PresidentId", "StartDate_Month", "StartDate_Year", "Status", "ThanhLyHopDong", "ThanhLyTaiSan", "ThietBiMayMoc_Khac", "ThietBiMayMoc_NganSachNhaNuoc", "ThuHoiKinhPhi_FirstTime", "ThuHoiKinhPhi_FirstTime_Month", "ThuHoiKinhPhi_FirstTime_Year", "ThuHoiKinhPhi_SecondTime", "ThuHoiKinhPhi_SecondTime_Month", "ThuHoiKinhPhi_SecondTime_Year", "ThucTeCapKinhPhi_FifthYear_FirstTime", "ThucTeCapKinhPhi_FifthYear_FirstTime_Month", "ThucTeCapKinhPhi_FifthYear_FirstTime_Year", "ThucTeCapKinhPhi_FifthYear_SecondTime", "ThucTeCapKinhPhi_FifthYear_SecondTime_Month", "ThucTeCapKinhPhi_FifthYear_SecondTime_Year", "ThucTeCapKinhPhi_FirstYear_FirstTime", "ThucTeCapKinhPhi_FirstYear_FirstTime_Month", "ThucTeCapKinhPhi_FirstYear_FirstTime_Year", "ThucTeCapKinhPhi_FirstYear_SecondTime", "ThucTeCapKinhPhi_FirstYear_SecondTime_Month", "ThucTeCapKinhPhi_FirstYear_SecondTime_Year", "ThucTeCapKinhPhi_FourthYear_FirstTime", "ThucTeCapKinhPhi_FourthYear_FirstTime_Month", "ThucTeCapKinhPhi_FourthYear_FirstTime_Year", "ThucTeCapKinhPhi_FourthYear_SecondTime", "ThucTeCapKinhPhi_FourthYear_SecondTime_Month", "ThucTeCapKinhPhi_FourthYear_SecondTime_Year", "ThucTeCapKinhPhi_SecondYear_FirstTime", "ThucTeCapKinhPhi_SecondYear_FirstTime_Month", "ThucTeCapKinhPhi_SecondYear_FirstTime_Year", "ThucTeCapKinhPhi_SecondYear_SecondTime", "ThucTeCapKinhPhi_SecondYear_SecondTime_Month", "ThucTeCapKinhPhi_SecondYear_SecondTime_Year", "ThucTeCapKinhPhi_SixthYear_FirstTime", "ThucTeCapKinhPhi_SixthYear_FirstTime_Month", "ThucTeCapKinhPhi_SixthYear_FirstTime_Year", "ThucTeCapKinhPhi_SixthYear_SecondTime", "ThucTeCapKinhPhi_SixthYear_SecondTime_Month", "ThucTeCapKinhPhi_SixthYear_SecondTime_Year", "ThucTeCapKinhPhi_ThirdYear_FirstTime", "ThucTeCapKinhPhi_ThirdYear_FirstTime_Month", "ThucTeCapKinhPhi_ThirdYear_FirstTime_Year", "ThucTeCapKinhPhi_ThirdYear_SecondTime", "ThucTeCapKinhPhi_ThirdYear_SecondTime_Month", "ThucTeCapKinhPhi_ThirdYear_SecondTime_Year", "ThueKhoanChuyenMon_Khac", "ThueKhoanChuyenMon_NganSachNhaNuoc", "Thue_Khac", "Thue_NganSachNhaNuoc", "TongKinhPhiThuHoi", "VPCT_Leader", "XayDungSuaChuaNho_Khac", "XayDungSuaChuaNho_NganSachNhaNuoc" },
                 values: new object[,]
                 {
                     { 1, null, null, "Topic", 0.0, 310.0, 0.0, 0.0, 1, 3, 2, 1, 3, "Nguyễn Thị Thanh Hà", "Trần Nam Bình", 12, 2025, null, null, 2700.0, 2023, null, null, 3100.0, 2024, null, null, 900.0, 2025, 0.0, 0.0, null, 0.0, 0.0, null, 1, "ĐTĐL.CN.23/25", 0.0, 0.0, "I. Mục tiêu:\r\n1. Phát triển được vật liệu và công nghệ chế tạo tổ hợp nền titan, gia cường bằng 2 hệ vật liệu nano tiên tiến (hệ vật liệu nano cacbon: ống nano cacbon, graphen; hệ vật liệu nano bo nitrua dạng ống hoặc tấm), có độ bền cao, modul đàn hồi thấp, nhằm thay thế các hợp kim titan chứa V, Al, Nb, Fe định hướng ứng dụng trong ngành chấn thương và chỉnh hình;\r\n2. Chế tạo thử một số sản phẩm điển hình như vít, nẹp phục vụ thử nghiệm in vivo trên \r\nđộng vật; \r\n3. Đánh giá khả năng tương thích sinh học của vật liệu và các sản phẩm chế thử bằng thử nghiệm in vivo trên động vật.\r\n", "Nghiên cứu chế tạo vật liệu tổ hợp nền titan gia cường bằng các thành phần cấu trúc nano tiên tiến (ống nano cacbon, graphen, dạng tấm hay dạng ống nano bo nitrua) nhằm ứng dụng trong ngành chấn thương và chỉnh hình", 1, 2026, 0.0, 2090.0, null, "II.Nội dung\r\nNội dung 1: Nghiên cứu chế tạo và xử lý bề mặt vật liệu gia cường cấu trúc nano (graphen, tấm/ống nano bo nitrua)\r\nNội dung 2: Nghiên cứu phân tán vật liệu cấu trúc nano (CNT, Gr, BNNT và BNNP) với bột titan\r\nNội dung 3: Nghiên cứu công nghệ kết khối hỗn hợp bột tổ hợp titan với vật liệu cấu trúc nano (CNT, Gr, BNNT và BNNP)\r\nNội dung 4: Nghiên cứu ảnh hưởng của hàm lượng, cấu trúc, hình thái học của vật liệu gia cường (CNT, Gr, BNNT và BNNP) đến sự phân tán, cấu trúc, thành phần của vật liệu tổ hợp nền Ti\r\nNội dung 5: Nghiên cứu một số tính chất cơ học, ma sát, mài mòn của vật liệu tổ hợp nền titan gia cường bằng vật liệu cấu trúc nano (CNT, Gr, BNNT và BNNP)\r\nNội dung 6: Nghiên cứu tính chất điện hóa của vật liệu tổ hợp titan gia cường bằng vật liệu cấu trúc nano (CNT, Gr, BNNT và BNNP), và thử nghiệm in vitro trong môi trường giả dịch thể người\r\nNội dung 7: Nghiên cứu công nghệ chế tạo chi tiết cấy ghép bằng vật liệu tổ hợp nền titan gia cường bằng vật liệu cấu trúc nano\r\nNội dung 8: Nghiên cứu thử nghiệm in vivo trên động vật", null, null, "Lê Khả Trường", 2, 1, 2023, "Working", null, null, 0.0, 800.0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.0, 3500.0, 0.0, 0.0, null, "Đào Ngọc Chiến", 0.0, 0.0 },
@@ -1634,7 +1634,7 @@ namespace VPCT.Core.Migrations
                 columns: new[] { "Id", "DocTypeId", "NhiemVuId", "NoiDung", "PublishedDate", "SoCongVan", "TrichYeu" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, null, new DateTime(2023, 12, 24, 5, 16, 8, 607, DateTimeKind.Local).AddTicks(893), "ABC", "ABC" },
+                    { 1, 1, 1, null, new DateTime(2023, 12, 25, 12, 21, 27, 464, DateTimeKind.Local).AddTicks(930), "ABC", "ABC" },
                     { 2, null, 1, null, null, "XXX", "XXX" }
                 });
 
@@ -1670,8 +1670,8 @@ namespace VPCT.Core.Migrations
                 columns: new[] { "Id", "Date", "Khac", "KinhPhi", "NhiemVuId", "NoiDung" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 12, 24, 5, 16, 8, 607, DateTimeKind.Local).AddTicks(1058), null, null, 1, null },
-                    { 2, new DateTime(2023, 12, 24, 0, 0, 0, 0, DateTimeKind.Local), null, 0.0, 1, null }
+                    { 1, new DateTime(2023, 12, 25, 12, 21, 27, 464, DateTimeKind.Local).AddTicks(1122), null, null, 1, null },
+                    { 2, new DateTime(2023, 12, 25, 0, 0, 0, 0, DateTimeKind.Local), null, 0.0, 1, null }
                 });
 
             migrationBuilder.InsertData(
@@ -1679,8 +1679,8 @@ namespace VPCT.Core.Migrations
                 columns: new[] { "Id", "EstimatedTestDate", "FinalCost", "HasTested", "KetLuan", "NhiemVuId", "NoiDung", "TestDate", "TesterName" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 12, 24, 5, 16, 8, 607, DateTimeKind.Local).AddTicks(1151), null, null, "+ Thực hiện đúng tiến độ;\r\n+ Cần đẩy nhanh hơn tiến độ , hoàn thành việc lắp ráp, kiểm tra máy và chạy thử để nghiệm thu.", 1, null, null, null },
-                    { 2, new DateTime(2023, 12, 24, 0, 0, 0, 0, DateTimeKind.Local), 0.0, null, null, 1, null, null, null }
+                    { 1, new DateTime(2023, 12, 25, 12, 21, 27, 464, DateTimeKind.Local).AddTicks(1148), null, null, "+ Thực hiện đúng tiến độ;\r\n+ Cần đẩy nhanh hơn tiến độ , hoàn thành việc lắp ráp, kiểm tra máy và chạy thử để nghiệm thu.", 1, null, null, null },
+                    { 2, new DateTime(2023, 12, 25, 0, 0, 0, 0, DateTimeKind.Local), 0.0, null, null, 1, null, null, null }
                 });
 
             migrationBuilder.InsertData(

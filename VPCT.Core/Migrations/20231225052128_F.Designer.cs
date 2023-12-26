@@ -12,7 +12,7 @@ using VPCT.Core.DbContext;
 namespace VPCT.Core.Migrations
 {
     [DbContext(typeof(VPCTDbContext))]
-    [Migration("20231223221609_F")]
+    [Migration("20231225052128_F")]
     partial class F
     {
         /// <inheritdoc />
@@ -54,19 +54,19 @@ namespace VPCT.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "991a2fcb-3b5d-43f8-a376-8e4305ac1014",
+                            Id = "935c4c95-40a4-4230-be02-a086f969adf2",
                             Name = "LanhDao",
                             NormalizedName = "LANHDAO"
                         },
                         new
                         {
-                            Id = "fc9f80e4-2103-470a-ac3e-52df2c566192",
+                            Id = "a9dd39dd-8997-4333-832a-7915da51e24b",
                             Name = "ChuyenVien",
                             NormalizedName = "CHUYENVIEN"
                         },
                         new
                         {
-                            Id = "4b2400fd-68fb-4e56-b075-6d756d3f315b",
+                            Id = "821afdde-c63e-4f04-aa79-f508ce9a9b17",
                             Name = "KeToan",
                             NormalizedName = "KETOAN"
                         });
@@ -161,13 +161,13 @@ namespace VPCT.Core.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "09fdad35-a51b-4c4a-97e0-064b1b861643",
-                            RoleId = "991a2fcb-3b5d-43f8-a376-8e4305ac1014"
+                            UserId = "67507583-8f47-4797-a231-2eeb9886a519",
+                            RoleId = "935c4c95-40a4-4230-be02-a086f969adf2"
                         },
                         new
                         {
-                            UserId = "bdae3809-566c-42c9-832e-9d9e24405418",
-                            RoleId = "fc9f80e4-2103-470a-ac3e-52df2c566192"
+                            UserId = "6341d8af-6767-44da-9e92-1c83a61f7cd0",
+                            RoleId = "a9dd39dd-8997-4333-832a-7915da51e24b"
                         });
                 });
 
@@ -387,37 +387,37 @@ namespace VPCT.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "09fdad35-a51b-4c4a-97e0-064b1b861643",
+                            Id = "67507583-8f47-4797-a231-2eeb9886a519",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "67254d64-ce59-4139-abae-717470abce0f",
+                            ConcurrencyStamp = "a3d239cd-5c5c-40cd-8d73-ac4e0413f8f6",
                             Email = "aa@aa.aa",
                             EmailConfirmed = true,
                             FullName = "Luu Minh",
                             LockoutEnabled = false,
                             NormalizedEmail = "AA@AA.AA",
                             NormalizedUserName = "ADMIN12",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDF1WtwNtSqnnqYNLVkvpYyaX9o0y2OhUslEnJF0gKoSUD1UjQshruY9FOhVrFa8gQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEvKy4aHKBgFYK/AKx5BUPdoVL8xNjpf48TqX8XnCblcZa7oSG2DtIO11PltWV4sjg==",
                             PhoneNumber = "01223456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c248ce2b-7bc4-4f69-bc6a-98c4d577e7fa",
+                            SecurityStamp = "ee121891-8d8e-407a-8a41-232c3597193e",
                             TwoFactorEnabled = false,
                             UserName = "admin12"
                         },
                         new
                         {
-                            Id = "bdae3809-566c-42c9-832e-9d9e24405418",
+                            Id = "6341d8af-6767-44da-9e92-1c83a61f7cd0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "188f23dd-0e88-4044-a76a-8705d8cf4d82",
+                            ConcurrencyStamp = "2499884b-1b2d-4612-9104-06b77196a2fd",
                             Email = "mm@mm.mm",
                             EmailConfirmed = true,
                             FullName = "Hoang Khanh",
                             LockoutEnabled = false,
                             NormalizedEmail = "MM@MM.MM",
                             NormalizedUserName = "ADMIN13",
-                            PasswordHash = "AQAAAAIAAYagAAAAED7m0cXqr+EJai2TNbyikx3tJFOUkInVzsue8qLo6ryFv24EWzoERthP18Lyg/QCfw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGchAwuqIKMf1/ruNi8X9nKR7jdUSc403/P91nScBBkgkGGvLIrffD8aASJLNLFFGg==",
                             PhoneNumber = "01223456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "26d1a47f-f099-4da7-bf7f-7c805b695513",
+                            SecurityStamp = "42f923ff-e95f-430b-89a2-32d5e11ae139",
                             TwoFactorEnabled = false,
                             UserName = "admin13"
                         });
@@ -2179,7 +2179,7 @@ namespace VPCT.Core.Migrations
                             Id = 1,
                             DocTypeId = 1,
                             NhiemVuId = 1,
-                            PublishedDate = new DateTime(2023, 12, 24, 5, 16, 8, 607, DateTimeKind.Local).AddTicks(893),
+                            PublishedDate = new DateTime(2023, 12, 25, 12, 21, 27, 464, DateTimeKind.Local).AddTicks(930),
                             SoCongVan = "ABC",
                             TrichYeu = "ABC"
                         },
@@ -2379,13 +2379,13 @@ namespace VPCT.Core.Migrations
                         new
                         {
                             Id = 1,
-                            Date = new DateTime(2023, 12, 24, 5, 16, 8, 607, DateTimeKind.Local).AddTicks(1058),
+                            Date = new DateTime(2023, 12, 25, 12, 21, 27, 464, DateTimeKind.Local).AddTicks(1122),
                             NhiemVuId = 1
                         },
                         new
                         {
                             Id = 2,
-                            Date = new DateTime(2023, 12, 24, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2023, 12, 25, 0, 0, 0, 0, DateTimeKind.Local),
                             KinhPhi = 0.0,
                             NhiemVuId = 1
                         });
@@ -2433,14 +2433,14 @@ namespace VPCT.Core.Migrations
                         new
                         {
                             Id = 1,
-                            EstimatedTestDate = new DateTime(2023, 12, 24, 5, 16, 8, 607, DateTimeKind.Local).AddTicks(1151),
+                            EstimatedTestDate = new DateTime(2023, 12, 25, 12, 21, 27, 464, DateTimeKind.Local).AddTicks(1148),
                             KetLuan = "+ Thực hiện đúng tiến độ;\r\n+ Cần đẩy nhanh hơn tiến độ , hoàn thành việc lắp ráp, kiểm tra máy và chạy thử để nghiệm thu.",
                             NhiemVuId = 1
                         },
                         new
                         {
                             Id = 2,
-                            EstimatedTestDate = new DateTime(2023, 12, 24, 0, 0, 0, 0, DateTimeKind.Local),
+                            EstimatedTestDate = new DateTime(2023, 12, 25, 0, 0, 0, 0, DateTimeKind.Local),
                             FinalCost = 0.0,
                             NhiemVuId = 1
                         });
@@ -2503,11 +2503,11 @@ namespace VPCT.Core.Migrations
                     b.Property<int?>("EndDate_Year")
                         .HasColumnType("int");
 
-                    b.Property<int?>("FundingPlan_FifteenYearMonths")
-                        .HasColumnType("int");
-
                     b.Property<double?>("FundingPlan_FifthYear")
                         .HasColumnType("float");
+
+                    b.Property<int?>("FundingPlan_FifthYearMonths")
+                        .HasColumnType("int");
 
                     b.Property<double?>("FundingPlan_FirstYear")
                         .HasColumnType("float");

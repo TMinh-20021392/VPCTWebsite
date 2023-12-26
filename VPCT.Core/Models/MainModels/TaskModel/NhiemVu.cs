@@ -85,7 +85,7 @@ namespace VPCT.Core.Models.MainModels.TaskModel
         public int? FundingPlan_SecondYearMonths { get; set; }
         public int? FundingPlan_ThirdYearMonths { get; set; }
         public int? FundingPlan_FourthYearMonths { get; set; }
-        public int? FundingPlan_FifteenYearMonths { get; set; }
+        public int? FundingPlan_FifthYearMonths { get; set; }
         public int? FundingPlan_SixthYearMonths { get; set; }
         public double? FundingPlan_FirstYear { get; set; } //Kế hoach cấp kinh phí Năm thứ nhất
         public double? FundingPlan_SecondYear { get; set; }
