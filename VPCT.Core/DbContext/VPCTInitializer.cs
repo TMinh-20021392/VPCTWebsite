@@ -993,19 +993,19 @@ namespace VPCT.Core.DbContext
             var passwordHasher = new PasswordHasher<ApplicationUser>();
 
             // Seed Roles
-            var adminRole = new IdentityRole(UserRoles.LanhDao);
-            adminRole.NormalizedName = adminRole.Name!.ToUpper();
+            var lanhdao = new IdentityRole(UserRoles.LanhDao);
+            lanhdao.NormalizedName = lanhdao.Name!.ToUpper();
 
-            var contributorRole = new IdentityRole(UserRoles.ChuyenVien);
-            contributorRole.NormalizedName = contributorRole.Name!.ToUpper();
+            var chuyenvien = new IdentityRole(UserRoles.ChuyenVien);
+            chuyenvien.NormalizedName = chuyenvien.Name!.ToUpper();
 
-            var otherRole = new IdentityRole(UserRoles.KeToan);
-            otherRole.NormalizedName = otherRole.Name!.ToUpper();
+            var ketoan = new IdentityRole(UserRoles.KeToan);
+            ketoan.NormalizedName = ketoan.Name!.ToUpper();
 
             List<IdentityRole> roles = [
-                adminRole,
-                contributorRole,
-                otherRole
+                lanhdao,
+                chuyenvien,
+                ketoan
             ];
             modelBuilder.Entity<IdentityRole>().HasData(roles);
 

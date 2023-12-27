@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VPCT.Repositories", "VPCT.R
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VPCT.Core", "VPCT.Core\VPCT.Core.csproj", "{17797C95-51B4-44AB-B6D4-6F757853D986}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VPCTWebsiteAPI", "VPCTWebsiteAPI\VPCTWebsiteAPI.csproj", "{CAB24AC7-2E2F-468B-AF58-E49B216AE45F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VPCTWebsiteAPI", "VPCTWebsiteAPI\VPCTWebsiteAPI.csproj", "{CAB24AC7-2E2F-468B-AF58-E49B216AE45F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

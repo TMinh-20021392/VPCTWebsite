@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VPCT.Core.DbContext;
 
@@ -11,9 +12,11 @@ using VPCT.Core.DbContext;
 namespace VPCT.Core.Migrations
 {
     [DbContext(typeof(VPCTDbContext))]
-    partial class VPCTDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231227215947_Fi")]
+    partial class Fi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
